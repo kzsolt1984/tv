@@ -1,0 +1,27 @@
+#mainPage {
+    .video-player-container {
+        padding: 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background: url("http://i5.pdim.gs/0b61a66fa1c150a17122c4f2a530ddd6.jpeg") center center no-repeat rgb(28, 33, 29);
+        
+        .row {
+            margin-left: -30px;
+        }
+        
+        .video-content {   
+            // float: left;
+            video {
+                background: blue;
+                height: 100%;
+                width: 100%;
+            }
+        }
+        
+        .chanel-list {
+            // float: left;
+            background: red;
+            height: 100px;
+        }
+    }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>TV</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="web/css/bower.css">
+        <link rel="stylesheet" href="web/css/base.css">
+        <script type="text/javascript" src="web/js/bower.js"></script>
+    </head>
+    <body id="mainPage">        
+        <header>
+            <div class="container clearfix">
+                <div class="logo">
+                  <a href="/">
+                        <img >
+                  </a>
+                </div>
+                <div class="tab-container clearfix">
+                    <div class="tab current-tab">
+                        <a>Home</a>
+                    </div>
+                    <div class="tab">
+                        <a href="#">All</a>
+                    </div>
+                    <div class="tab">
+                        <a href="#">classification</a>
+                    </div>
+                    <div class="tab">
+                        <a href="#">Onion show</a>
+                    </div>
+                    <div class="tab">
+                        <a href="#">Anchor map</a>
+                    </div>
+                </div>
+                <div class="right-menu auth">
+                    <a href="#">Login</a>
+                    <strong>| </strong>
+                    <a href="#">Register</a>
+                </div>
+                <div class="right-menu download">
+                    <a href="#" target="_blank">
+                        <i class="fa"></i>
+                        <span>download</span>
+                    </a>
+                </div>
+                <div class="right-menu">
+                  <form action="/search" method="get" target="_top" class="search-form">
+                    <input type="text" name="search" value="" autocomplete="off">
+                    <div class="search-submit-btn">
+                      <input type="submit" class="search-submit">
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </header>
+        
+        <section>
+            <div class="container-fluid video-player-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-10 col-sm-10 col-md-10 video-content">
+                        <video></video>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 chanel-list"></div>
+                    </div>                    
+                </div>
+            </div>
+        </section>
+        
+        <footer></footer>
+        <script id="__bs_script__">
+            document.write("<script async src='http://HOST:11080/browser-sync/browser-sync-client.js?v=2.18.6'><\/script>".replace("HOST", location.hostname));
+        </script>
+    </body>
+</html>
