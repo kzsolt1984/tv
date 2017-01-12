@@ -3,25 +3,77 @@
         padding: 0;
         padding-top: 15px;
         padding-bottom: 15px;
-        background: url("http://i5.pdim.gs/0b61a66fa1c150a17122c4f2a530ddd6.jpeg") center center no-repeat rgb(28, 33, 29);
+        background: url("../img/trash/bg.jpg") center center no-repeat rgb(28, 33, 29);
         
-        .row {
-            margin-left: -30px;
-        }
-        
-        .video-content {   
-            // float: left;
-            video {
-                background: blue;
-                height: 100%;
-                width: 100%;
+        >.container {
+            padding: 0;   
+            background-color: #000;
+            border: 15px solid #000;
+            border-top: none;
+            border-bottom: none;
+            box-sizing: content-box;
+            
+            .row {
+                margin: 0;
             }
-        }
+
+            .video-content {   
+                padding-left: 0;
+                font-size: 0;
+                
+                video {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+            .chanel-list {
+                padding: 10px 0;
+                
+                a {
+                    display: block;
+                    position: relative;
+                    font-size: 0;
+                    margin-bottom: 4%;
+                    opacity: 0.5;
+                    border: 5px solid #000;
+                    box-sizing: content-box;
+                    //-webkit-transition: color 200ms ease-out,background-color 200ms ease-out,border-color 200ms ease-out,opacity 200ms ease-out;
+                    //transition: color 200ms ease-out,background-color 200ms ease-out,border-color 200ms ease-out,opacity 200ms ease-out;                    
+                    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                    
+                    &:last-child {
+                        margin: 0;
+                    }
+                    
+                    &:hover,
+                    &.active {
+                        opacity: 1;
+                    }
+                    
+                    &.active {                        
+                        border: 5px solid yellow;
+                    }
+                    
+                    .arrow-left {
+                        width: 0; 
+                        height: 0; 
+                        border-top: 10px solid transparent;
+                        border-bottom: 10px solid transparent;
+
+                        border-right:10px solid yellow; 
+                        position: absolute;
+                        left: -15px;
+                        top: 50%;
+                        margin-top: -10px;
+                    }
+                }
+            }
+        }        
         
-        .chanel-list {
-            // float: left;
-            background: red;
-            height: 100px;
-        }
     }
 }
