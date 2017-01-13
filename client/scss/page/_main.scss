@@ -11,7 +11,7 @@
             border: 15px solid #000;
             border-top: none;
             border-bottom: none;
-            box-sizing: content-box;
+            //box-sizing: content-box;
             
             .row {
                 margin: 0;
@@ -73,7 +73,112 @@
                     }
                 }
             }
-        }        
+        }         
+    }
+    
+    .live-recommender-container {
+        margin-top: 15px;
         
+        h5 {
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid green;
+        }
+        
+        .thumb {
+            border-bottom: 6px solid #fff;
+            position: relative;   
+            overflow: hidden;
+            font-size: 0;
+            padding: 0;
+            height: 82px;
+            
+            .layer {
+                position: absolute;
+                display: none;
+                top: 0;
+                left: 5px;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                background: #000;
+                opacity: 0.5;
+            }
+            
+            img {
+                height: 100%;
+            }
+            
+            .thumb-info {
+                position: absolute;
+                bottom: -14px;
+                width: 94%;
+                z-index: 2;
+                
+                .title {
+                    word-break: keep-all;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    
+                    font-size: 14px;
+                    color: #fff;
+                    display: block;
+                    padding-bottom: 5px;
+                    padding-left: 10px;
+                    width: 100%;
+                    text-overflow: ellipsis;
+                }
+                
+                .other_info {
+                    font-size: 13px;
+                    padding-left: 10px;
+                    display: block;
+                    
+                    .author {
+                        display: block; 
+                        float: left;
+                        width: 45%;
+                        word-break: keep-all;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    
+                    .viewers {
+                        display: block; 
+                        float: right;
+                        width: 45%;
+                        text-align: right;
+                    }
+                }
+            }
+            
+            &:hover {
+                .thumb-info {
+                    bottom: 5px;
+                }
+                
+                .layer {
+                    display: block;
+                }
+            }
+            
+            &:nth-child(1),
+            &:nth-child(3) {
+                border-right: 3px solid #fff;
+            }
+            &:nth-child(2),
+            &:nth-child(4) {
+                border-left: 3px solid #fff;
+            }
+            
+            //0.5625            
+            @media screen and (min-width: $page-large-width) {
+                height: 101px;
+            }
+            @media screen and (min-width: $page-huge-width) {
+                height: 127px;
+            }
+        }
     }
 }

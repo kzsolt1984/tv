@@ -91,11 +91,7 @@ gulp.task('bower-css', function () {
         fileList = [
             bowerDir + 'bootstrap/dist/css/bootstrap.css',
             bowerDir + 'bootstrap/dist/css/bootstrap-theme.css',
-            bowerDir + 'select2/dist/css/select2.css',
-            bowerDir + 'ekko-lightbox/dist/ekko-lightbox.css',
-            bowerDir + 'font-awesome/css/font-awesome.css',
-            bowerDir + 'font-awesome-animation/dist/font-awesome-animation.css',
-            bowerDir + 'awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css'
+            bowerDir + 'font-awesome/css/font-awesome.css'
         ];
 
     return gulp.src(fileList)
