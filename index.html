@@ -10,48 +10,45 @@
         <link rel="stylesheet" href="web/css/base.css">
         <script type="text/javascript" src="web/js/bower.js"></script>
     </head>
-    <body id="mainPage">        
+    <body id="mainPage" class="dark-green">        
         <header>
             <div class="container clearfix">
                 <div class="logo">
                   <a href="/">
-                        <img >
+                        <img src="web/img/trash/logo.png" />
                   </a>
                 </div>
-                <div class="tab-container clearfix">
-                    <div class="tab current-tab">
-                        <a>Home</a>
-                    </div>
+                <div class="navbar clearfix">
                     <div class="tab">
                         <a href="#">All</a>
                     </div>
-                    <div class="tab">
-                        <a href="#">classification</a>
+                    <div class="tab current-tab">
+                        <a>classification</a>
                     </div>
                     <div class="tab">
                         <a href="#">Onion show</a>
                     </div>
                     <div class="tab">
-                        <a href="#">Anchor map</a>
+                        <a href="#" class="last-tab">Anchor map</a>
                     </div>
                 </div>
                 <div class="right-menu auth">
-                    <a href="#">Login</a>
-                    <strong>| </strong>
-                    <a href="#">Register</a>
+                    <a href="#" data-target="#login-modal" data-toggle="modal">Login</a>
+                    <a href="#" class=" last-tab">Register</a>
                 </div>
-                <div class="right-menu download">
+                <!--<div class="right-menu download">
                     <a href="#" target="_blank">
                         <i class="fa"></i>
                         <span>download</span>
                     </a>
-                </div>
+                </div>-->
                 <div class="right-menu">
                   <form action="/search" method="get" target="_top" class="search-form">
                     <input type="text" name="search" value="" autocomplete="off">
                     <div class="search-submit-btn">
-                      <input type="submit" class="search-submit">
+                        <input type="submit" class="search-submit">                        
                     </div>
+                    <i class="fa fa-search" aria-hidden="true"></i>  
                   </form>
                 </div>
             </div>
@@ -59,7 +56,7 @@
         
         <section>
             <div class="container-fluid video-player-container">
-                <div class="container">
+                <div class="container box-container">
                     <div class="row">
                         <div class="col-xs-10 col-sm-10 col-md-10 video-content">
                             <video poster="web/img/trash/player.jpg"></video>
@@ -90,14 +87,14 @@
                 </div>
             </div>
             
-            <div class="container live-recommender-container">
+            <div class="container live-recommender-container box-container">
                 <div class="row">                    
                     <!-- full recommend block -->
                     <div class="col-xs-4 col-sm-4 col-md-4">
                         <div class="recommend-block">
                             <h5>Blabla</h5>
                             <div class="recommend-box-container">
-                                <a href="#" class="col-xs-6 col-sm-6 col-md-6 thumb">
+                                <a href="#" class="col-xs-6 col-sm-6 col-md-6 thumbnail-small">
                                     <span class="layer">&nbsp;</span>
                                     <img src="web/img/trash/video_recommend.jpg" />
                                     <span class="thumb-info">
@@ -113,7 +110,7 @@
                                     </span>
                                 </a>
 
-                                <a href="#" class="col-xs-6 col-sm-6 col-md-6 thumb">
+                                <a href="#" class="col-xs-6 col-sm-6 col-md-6  thumbnail-small">
                                     <span class="layer">&nbsp;</span>
                                     <img src="web/img/trash/video_recommend.jpg" />
                                     <span class="thumb-info">
@@ -129,7 +126,7 @@
                                     </span>
                                 </a>
 
-                                <a href="#" class="col-xs-6 col-sm-6 col-md-6 thumb">
+                                <a href="#" class="col-xs-6 col-sm-6 col-md-6  thumbnail-small">
                                     <span class="layer">&nbsp;</span>
                                     <img src="web/img/trash/video_recommend.jpg" />
                                     <span class="thumb-info">
@@ -145,7 +142,7 @@
                                     </span>
                                 </a>
 
-                                <a href="#" class="col-xs-6 col-sm-6 col-md-6 thumb">
+                                <a href="#" class="col-xs-6 col-sm-6 col-md-6  thumbnail-small">
                                     <span class="layer">&nbsp;</span>
                                     <img src="web/img/trash/video_recommend.jpg" />
                                     <span class="thumb-info">
@@ -178,6 +175,43 @@
                 </p>
             </div>
         </footer>
+        
+        <!-  ********* MODALS ******** -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="login-modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Login</h4>
+                    </div>
+                    <form> 
+                        <div class="modal-body">
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                            </div>
+                            <!--
+                            <div class="checkbox">
+                                <input type="checkbox" />
+                                <label>Remember me</label>
+                            </div>-->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary btn-block">Login</button>
+                            
+                            <p>
+                                <a href="#" data-target="#forgot-modal" data-toggle="modal">Forgot password</a><span> | </span>
+                                <a href="#" data-target="#register-modal" data-toggle="modal">Register</a>
+                            </p>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
         
         <script id="__bs_script__">
             document.write("<script async src='http://HOST:11080/browser-sync/browser-sync-client.js?v=2.18.6'><\/script>".replace("HOST", location.hostname));

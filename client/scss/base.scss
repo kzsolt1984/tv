@@ -48,7 +48,7 @@ table {
 }
 /** enf of the reset css **/
 
-/* default config */
+/**************************** default config *************************/
 a {
     &:hover {
         text-decoration: none;
@@ -66,7 +66,7 @@ a {
 }
 /* default config end */
 
-/* configs */
+/**************************** configs ********************************/
 @import "config/_config.scss";
 
 
@@ -82,28 +82,13 @@ body {
     font-family: "Microsoft Yahei", 微软雅黑, "Helvetica Neue", adobe雅黑, "helvetica neue", tahoma, "hiragino sans gb", stheiti, "wenquanyi micro hei", 宋体, sans-serif;
 }
 
-
-/* blocks */
-@import "block/_header.scss";
-
 footer {
+    margin-top: 15px;
     padding: 30px 0;
-    background-color: #3f3f3f;
-    color: #979797;
     
     .container {
         text-align: center;
-        display: inline-block;
-        vertical-align: bottom;
-        
-        a {
-            color: #979797;
-            
-            &:hover {
-                color: #fff;
-            }
-        }
-        
+         
         p {
             margin: 5px 0;
         }
@@ -115,7 +100,41 @@ footer {
     }
 }
 
-/* pages */
+a,
+a:hover,
+a:active,
+a:visited,
+a:focus {
+    text-decoration: none;
+    outline: none!important;
+}
+
+.btn,
+.form-control,
+.input-group-addon,
+.modal .modal-content,
+.navbar {
+    border-radius: 0;
+}
+
+.box-container {
+    padding: 15px;
+}
+
+.btn {
+    border: none;
+}
+
+/********************************** blocks **************************/
+@import "block/_header.scss";
+@import "block/_modal.scss";
+
+
+
+/********************************** pages **************************/
 @import "page/_main.scss";
 
+
+/************************************ skin **************************/
+@import "skin/_dark_green.scss";
 
