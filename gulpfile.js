@@ -26,10 +26,56 @@ gulp.task('sass', function () {
 
 });
 
+// TS
+gulp.task('ts', function () {
+    var ts = require('gulp-typescript');
+    var concat = require('gulp-concat');
+    var sourcemaps = require('gulp-sourcemaps');
+
+    if(isDev) {
+        var tslint = require('gulp-tslint');
+
+        return gulp.src('./client/ts/**/*.ts')
+            .pipe(tslint())
+            .pipe(tslint.report("verbose"))
+            .pipe(sourcemaps.init())
+            .pipe(ts({
+                noImplicitAny: true,
+                out: 'main.js'
+            }))
+            .pipe(concat('main.js'))
+            .pipe(sourcemaps.write('./maps'))
+            .pipe(gulp.dest('./web/js'));
+    }
+    else {
+        var uglify = require('gulp-uglify');
+
+        return gulp.src('./client/ts/**/*.ts')
+            .pipe(sourcemaps.init())
+            .pipe(ts({
+                noImplicitAny: true,
+                out: 'main.js'
+            }))
+            .pipe(uglify({
+                compress: {
+                    drop_console: true
+                }
+            }))
+            .pipe(concat('main.js'))
+            .pipe(sourcemaps.write('./maps'))
+            .pipe(gulp.dest('./web/js'));
+    }
+});
+
 // Live watcher
 gulp.task("livereload:sass", ["sass"], function() {
     return gulp
         .src("web/css/**/*.css")
+        .pipe(getBrowserSync().stream());
+});
+gulp.task("livereload:ts", ["ts"], function() {
+    return gulp
+        .src("web/js/**/*.js")
         .pipe(getBrowserSync().stream());
 });
 
@@ -50,12 +96,12 @@ gulp.task("browser-sync", function(cb) {
     }, cb)
 });
 
-gulp.task("compile", ["sass", "bower", "external-js", "image-compress"]);
+gulp.task("compile", ["sass", "ts", "bower", "external-js", "image-compress"]);
 
 // WATCH Task
 gulp.task("watch", ["sass", "browser-sync"], function() {
     gulp.watch("./client/scss/**/*.scss", ["livereload:sass"]);
-    // gulp.watch(["./client/ts/**/*.ts"], ["livereload:ts"]);
+    gulp.watch(["./client/ts/**/*.ts"], ["livereload:ts"]);
 });
 
 //Bower task
