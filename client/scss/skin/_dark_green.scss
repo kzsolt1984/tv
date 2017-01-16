@@ -1,6 +1,7 @@
 $defaultBgColor: #EFEFEF;
 $defaultFontColor: #414141;
 $defaultLinkColor: #2EA225;
+$defaultLinkDarkColor: #188212;
 $primaryButtonBgColor: #2EA225;
     
 $headerBgColor: #1E1E21;
@@ -27,5 +28,6 @@ $playerChanelListArrowColor: #188212;
 
 $thumbnailLayerBgColor: #000;
 $thumbnailTitleFontColor: #fff;
+$thumbnailSmallOtherInfoFontColor: $defaultLinkColor;
 $thumbnailBigTitleBgColor: rgba(0,0,0, 0.6);
 $thumbnailBigViewerFontColor: #414141;

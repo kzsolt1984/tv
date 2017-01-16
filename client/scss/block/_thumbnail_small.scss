@@ -23,6 +23,18 @@
         width: 148px;
     }
 
+    .play-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -10px;
+        margin-top: -25px;
+        font-size: 30px;
+        color: $thumbnailTitleFontColor;
+        opacity: 0;
+        z-index: 2;
+    }
+    
     .thumb-info {
         position: absolute;
         bottom: -12px;
@@ -48,11 +60,12 @@
             font-size: 11px;
             padding-left: 10px;
             display: block;
+            color: $thumbnailSmallOtherInfoFontColor;
 
             .author {
                 display: block; 
                 float: left;
-                width: 45%;
+                width: 100%;
                 word-break: keep-all;
                 white-space: nowrap;
                 overflow: hidden;
@@ -60,7 +73,7 @@
             }
 
             .viewers {
-                display: block;
+                display: none;
                 position: absolute;
                 right: 0;
                 bottom: -1px;
@@ -75,6 +88,10 @@
 
         .layer {
             display: block;
+        }
+        
+        .play-icon {
+            opacity: 1;
         }
     }
 
@@ -101,6 +118,15 @@
             
             .other_info {
                 font-size: 13px;
+                
+                .author {
+                    width: 45%;
+                }
+                
+                .viewers {
+                    display: block;
+                    font-size: 12px;
+                }
             }
         }
     }

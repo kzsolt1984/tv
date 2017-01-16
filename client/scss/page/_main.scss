@@ -31,10 +31,10 @@
                     display: block;
                     position: relative;
                     font-size: 0;
-                    margin-bottom: 5.7%;
-                    opacity: 0.5;
+                    margin-bottom: 10.3%;
+                    // opacity: 0.5;
                     box-sizing: content-box;  
-                    border: 5px solid $playerChanelListBorderColor;
+                    //border: 5px solid $playerChanelListBorderColor;
                     
                     img {
                         width: 100%;
@@ -48,26 +48,6 @@
                     &:hover,
                     &.active {
                         opacity: 1;
-                    }
-                    
-                    &.active {                        
-                        border-style: solid;
-                        border-right-width: 5px;
-                        border-color: $playerChanelListArrowColor;
-                    }
-                    
-                    .arrow-left {
-                        width: 0; 
-                        height: 0; 
-                        border-top: 10px solid transparent;
-                        border-bottom: 10px solid transparent;
-                        border-color: $playerChanelListArrowColor;
-                        border-right-width: 10px;
-                        border-right-style: solid;
-                        position: absolute;
-                        left: -15px;
-                        top: 50%;
-                        margin-top: -10px;
                     }
                 }
             }
