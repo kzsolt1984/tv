@@ -1,5 +1,8 @@
 header {
     height: 56px;
+    border-color: $headerBorderColor;
+    background: $headerBgColor;
+    box-shadow: 0 2px 5px $headerShadowColor;
         
     .container {
         margin: 0 auto;
@@ -33,15 +36,35 @@ header {
             }
         }
         
-        .navbar a,
-        .right-menu a {
-            height: 56px;
-            line-height: 56px;
-            display: inline-block;
-            font-size: 14px;
-            padding: 0 15px;
-            border-left-width: 1px;
-            border-left-style: solid;
+        a {
+            color: $headerLinkColor;
+            background: $headerLinkBgColor;
+            border-color: $headerLinkBorderColor;
+            text-shadow: none;
+            -webkit-tap-highlight-color: $headerLinkHighlightColor;
+        }
+        
+        .navbar,
+        .right-menu {
+            a {
+                height: 56px;
+                line-height: 56px;
+                display: inline-block;
+                font-size: 14px;
+                padding: 0 15px;
+                border-left-width: 1px;
+                border-left-style: solid;
+            }            
+        }
+        
+        .navbar, .right-menu {
+            a:hover,
+            .current-tab a {
+                color: $headerLinkSecondColor;
+                background: $headerLinkBgSecondColor;
+                border-color: $headerLinkBorderSecondColor;
+                text-shadow: 1px 1px 0 $headerLinkShadowColor;
+            }
         }
         
         .right-menu {

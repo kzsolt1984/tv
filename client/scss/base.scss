@@ -48,13 +48,12 @@ table {
 }
 /** enf of the reset css **/
 
-/**************************** default config *************************/
-a {
-    &:hover {
-        text-decoration: none;
-    }
-}
+/**************************** configs ********************************/
+@import "config/_config.scss";
+/****************************** skin ********************************/
+@import "skin/_dark_green.scss";
 
+/**************************** default config *************************/
 .clear {
     font-size: 0;
     line-height: 0;
@@ -64,27 +63,18 @@ a {
     width: 0;
     display: block;
 }
-/* default config end */
-
-/**************************** configs ********************************/
-@import "config/_config.scss";
-
-
-.container {
-    min-width: 970px;
-    
-    @media screen and (min-width: $page-huge-query-width) {
-        width: $page-huge-width;
-    }
-}
 
 body {
     font-family: "Microsoft Yahei", 微软雅黑, "Helvetica Neue", adobe雅黑, "helvetica neue", tahoma, "hiragino sans gb", stheiti, "wenquanyi micro hei", 宋体, sans-serif;
+    background-color: $defaultBgColor;
+    color: $defaultFontColor;
 }
 
 footer {
     margin-top: 15px;
     padding: 30px 0;
+    background-color: $footerBgColor;
+    color: $footerFontColor;
     
     .container {
         text-align: center;
@@ -96,6 +86,10 @@ footer {
         p, a {
             font-size: 12px;
             line-height: 22px;
+        }
+        
+        a {
+            color: $footerLinkColor;
         }
     }
 }
@@ -109,6 +103,14 @@ a:focus {
     outline: none!important;
 }
 
+a {
+    color: $defaultLinkColor;
+    
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 .btn,
 .form-control,
 .input-group-addon,
@@ -117,25 +119,35 @@ a:focus {
     border-radius: 0;
 }
 
-.box-container {
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
 .btn {
     border: none;
 }
+
+.btn-primary {
+    background-color: $primaryButtonBgColor;
+    background-image: none;        
+}
+
+.container {
+    min-width: 970px;
+    
+    @media screen and (min-width: $page-huge-query-width) {
+        width: $page-huge-width;
+    }
+}
+
+.box-container {
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: $boxContainerBgColor;
+}
+/******************************** default config end ****************/
 
 /********************************** blocks **************************/
 @import "block/_header.scss";
 @import "block/_modal.scss";
 
-
-
 /********************************** pages **************************/
 @import "page/_main.scss";
 
-
-/************************************ skin **************************/
-@import "skin/_dark_green.scss";
 

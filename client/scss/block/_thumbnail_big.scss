@@ -16,6 +16,7 @@
         width: 100%;
         z-index: 1;
         opacity: 0.5;
+        background: $thumbnailLayerBgColor;
     }
 
     img,
@@ -30,6 +31,7 @@
         left: 0;
         width: 100%;
         z-index: 2;
+        background-color: $thumbnailBigTitleBgColor;
 
         .title {
             word-break: keep-all;
@@ -43,6 +45,7 @@
             padding-left: 10px;
             width: 100%;
             text-overflow: ellipsis;
+            color: $thumbnailTitleFontColor;
         }        
     }
     
@@ -66,7 +69,7 @@
             display: block;
             position: absolute;
             right: 0;
-            // bottom: -1px;
+            color: $thumbnailBigViewerFontColor;
         }
     }
 
