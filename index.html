@@ -43,7 +43,7 @@
                 </div>-->
                 <div class="right-menu">
                   <form action="/search" method="get" target="_top" class="search-form">
-                    <input type="text" name="search" value="" autocomplete="off">
+                    <input type="text" name="search" value="" autocomplete="off" placeholder="Search">
                     <div class="search-submit-btn">
                         <input type="submit" class="search-submit">                        
                     </div>
@@ -202,8 +202,16 @@
                     <a href="#" target="_blank">12318 National Cultural Market Report Website</a><span> | </span>
                     <a href="#" target="_blank">Shanghai Internet Illegal Information Reporting</a>
                 </p>
+                
+                <p id="change-skin"  style="text-decoration: underline;">
+                    <span style="font-weight: bold">Change skin:</span>
+                    <a href="#" id="dark-green">Dark green</a> <span> | </span>
+                    <a href="#" id="light-green">Light green</a>
+                </p>
             </div>
         </footer>
+        
+        
         
         <!--  ********* MODALS ******** -->
         <div class="modal fade" tabindex="-1" role="dialog" id="login-modal">
@@ -217,11 +225,11 @@
                         <div class="modal-body">
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                                <input id="email" type="text" class="form-control" name="email" placeholder="Email" required>
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                                <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
                             </div>
                             <!--
                             <div class="checkbox">

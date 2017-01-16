@@ -1,0 +1,38 @@
+body.light-green {
+    color: #8c8c8c;
+    
+    header {
+        background-color: #fff;
+        
+        a {
+            color: #8c8c8c;
+            border-color: transparent;
+        }
+        
+        .search-form {
+            input[type="text"] {
+                border: 1px solid #8c8c8c!important;
+                color: #8c8c8c;
+            }
+            
+            i {
+                color: #8c8c8c;
+            }
+        }
+    }
+    
+    footer {
+        background-color: #fff;
+        color: #414141;
+        
+        a {
+            color: #414141;
+        }
+    }
+    
+    .thumbnail-big {
+        .viewers {
+            color: #8c8c8c;
+        }
+    }
+}

@@ -5,6 +5,8 @@ module main {
         constructor() {            
             this.recommender();
             this.otherRecommender();
+            
+            this._bind();
         }
         
         public recommender() {
@@ -27,6 +29,16 @@ module main {
                 var $clone = $box.clone();
                  $cont.append($clone);
             }
+        }
+        
+        private _bind() {
+            var $links = $('#change-skin').find('a');
+            
+            $links.on('click', (e: JQueryEventObject) => {
+                $('body').attr('class', $(e.currentTarget).attr('id'));
+                
+                return false;
+            });
         }
     }
 }

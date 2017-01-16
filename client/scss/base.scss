@@ -98,7 +98,8 @@ a,
 a:hover,
 a:active,
 a:visited,
-a:focus {
+a:focus,
+a:active:focus {
     text-decoration: none;
     outline: none!important;
 }
@@ -127,6 +128,15 @@ a {
 .btn-primary {
     background-color: $primaryButtonBgColor;
     background-image: none;        
+    
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus,
+    &:active:focus {
+        background-color: $defaultLinkDarkColor;
+        outline: none!important;
+    }
 }
 
 .container {
@@ -152,3 +162,6 @@ a {
 @import "page/_main.scss";
 
 
+
+/******************** OTHER SKINS, deletable *********************/
+@import "skin/_light_green.scss";
