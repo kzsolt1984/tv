@@ -38,10 +38,11 @@ header {
         
         a {
             color: $headerLinkColor;
-            //background: $headerLinkBgColor;
+            background-color: transparent;
             border-color: $headerLinkBorderColor;
             text-shadow: none;
             -webkit-tap-highlight-color: $headerLinkHighlightColor;
+            transition: background-color 300ms, border-color 300ms, color 300ms, text-shadow 300ms; 
         }
         
         .navbar,
@@ -61,9 +62,10 @@ header {
             a:hover,
             .current-tab a {
                 color: $headerLinkSecondColor;
-                background: $headerLinkBgSecondColor;
+                background-color: $headerLinkBgSecondColor;
                 border-color: $headerLinkBorderSecondColor;
                 text-shadow: 1px 1px 0 $headerLinkShadowColor;
+                transition: background-color 300ms, border-color 300ms, color 300ms, text-shadow 300ms; 
             }
         }
         

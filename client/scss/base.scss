@@ -154,6 +154,9 @@ a {
 }
 /******************************** default config end ****************/
 
+/******************************** util end ****************/
+@import "util/_animation.scss";
+
 /********************************** blocks **************************/
 @import "block/_header.scss";
 @import "block/_modal.scss";

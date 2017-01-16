@@ -9,6 +9,7 @@
     .layer {
         position: absolute;
         display: none;
+        transition: display 700ms; 
         top: 0;
         left: 5px;
         width: 100%;
@@ -31,13 +32,15 @@
         margin-top: -25px;
         font-size: 30px;
         color: $thumbnailTitleFontColor;
-        opacity: 0;
         z-index: 2;
+        opacity: 0;
+        transition: opacity 500ms;
     }
     
     .thumb-info {
         position: absolute;
         bottom: -12px;
+        transition: bottom 300ms;
         left: 0;
         width: 94%;
         z-index: 2;
@@ -84,14 +87,17 @@
     &:hover {
         .thumb-info {
             bottom: 5px;
+            transition: bottom 600ms;
         }
 
         .layer {
             display: block;
+            transition: display 1000ms;     
         }
         
         .play-icon {
             opacity: 1;
+            transition: opacity 1000ms;
         }
     }
 

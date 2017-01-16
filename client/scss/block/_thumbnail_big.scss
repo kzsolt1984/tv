@@ -11,6 +11,7 @@
     .layer {
         position: absolute;
         display: none;
+        transition: display 700ms;     
         top: 0;
         left: 0;
         width: 100%;
@@ -28,6 +29,7 @@
         font-size: 50px;
         color: $thumbnailTitleFontColor;
         opacity: 0;
+        transition: opacity 500ms;        
         z-index: 2;
     }
 
@@ -88,10 +90,12 @@
     &:hover {
         .layer {
             display: block;
+            transition: display 1000ms;     
         }
         
         .play-icon {
             opacity: 1;
+            transition: opacity 1000ms;
         }
     }
 
