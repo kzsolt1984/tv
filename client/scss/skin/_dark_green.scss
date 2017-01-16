@@ -68,4 +68,32 @@ body.dark-green {
         }
     }
     /*** main page end ****/
+    
+    /*********** thumbnail **********/
+    .thumbnail-small,
+    .thumbnail-big {
+        // border-bottom: 6px solid #fff;
+        
+        .layer {
+            background: #000;
+        }
+        
+        .thumb-info {
+            .title {
+                color: #fff;
+            }
+        }        
+    }
+    
+    .thumbnail-big {
+        .thumb-info {
+            background-color: rgba(0,0,0, 0.6);
+        }
+        
+        .other_info {
+            .viewers {
+                color: #414141;
+            }
+        }
+    }
 }
