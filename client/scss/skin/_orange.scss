@@ -1,18 +1,20 @@
 body.dark-orange, body.light-orange {
     a {
-        color: #E18A07;    
+        color: #E93C1A;    
     }    
     
     header {
+        a {
+            color: #fff;
+        }
+        
         .container {
             .navbar, .right-menu {
             a:hover,
                 .current-tab a {
                     color: $headerLinkSecondColor;
-                    background-color: #E18A07;
-                    border-color: #E18A07;
-                    text-shadow: 1px 1px 0 $headerLinkShadowColor;
-                    transition: background-color 300ms, border-color 300ms, color 300ms, text-shadow 300ms; 
+                    background-color: #E93C1A;
+                    border-color: #E93C1A;
                 }
             }
         }
@@ -33,10 +35,10 @@ body.dark-orange, body.light-orange {
                 padding: 0;
 
                 a.active {
-                    border-color: #E18A07!important;
+                    border-color: #E93C1A!important;
                     
                     .arrow-left {
-                        border-right:7px solid #E18A07!important;
+                        border-right:7px solid #E93C1A!important;
                     }
                 }
             }
@@ -44,16 +46,20 @@ body.dark-orange, body.light-orange {
     }
     
     .thumbnail-small .thumb-info .other_info {
-        color: #E18A07!important;
+        color: #E93C1A!important;
     }
     
     .btn-primary {
-        background-color: #E18A07!important;
+        background-color: #E93C1A!important;
         background-image: none;
     }
 }
 
 body.light-orange {
+    header a {
+        color: #8c8c8c;
+    }
+    
     footer {
         //background-color: #fff;
         color: #414141;
