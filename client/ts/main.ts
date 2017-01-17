@@ -32,10 +32,39 @@ module main {
         }
         
         private _bind() {
-            var $links = $('#change-skin').find('a');
+            // change page lskins
+            var $skinLinks = $('#change-skin').find('a');
             
-            $links.on('click', (e: JQueryEventObject) => {
-                $('body').attr('class', $(e.currentTarget).attr('id'));
+            $skinLinks.on('click', (e: JQueryEventObject) => {
+                var newClass = $(e.currentTarget).attr('id'),
+                    classes = ['dark-green', 'light-green'],
+                addClass = $('body').hasClass(newClass) ? false : true;
+                
+                if (newClass === classes[0]) {
+                    $('body').removeClass(classes[1])
+                    $('body').addClass(newClass);
+                }
+                else {
+                    $('body').removeClass(classes[0])
+                    $('body').addClass(newClass);
+                }
+                
+                return false;
+            });
+            
+            //change chat skins
+            var $chatLinks = $('#change-chat-skin').find('a');
+            
+            $chatLinks.on('click', (e: JQueryEventObject) => {
+                var newClass = $(e.currentTarget).attr('id'),
+                addClass = newClass === 'chat-2' ? true : false;
+    
+                if (addClass) {
+                    $('body').addClass('chat-2');
+                }
+                else {
+                    $('body').removeClass('chat-2');
+                }
                 
                 return false;
             });

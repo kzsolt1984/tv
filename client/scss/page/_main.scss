@@ -31,10 +31,10 @@
                     display: block;
                     position: relative;
                     font-size: 0;
-                    margin-bottom: 10.3%;
+                    margin-bottom: 9.3%;
                     //opacity: 0.5;
                     box-sizing: content-box;  
-                    //border: 5px solid $playerChanelListBorderColor;
+                    border: 2px solid $playerChanelListBorderColor;
                     -webkit-filter: grayscale(1);
                     filter: grayscale(1);
                     transition: filter 500ms;
@@ -52,7 +52,24 @@
                     &.active {
                         -webkit-filter: grayscale(0);
                         filter: grayscale(0);
-                        transition: filter 500ms;     
+                        transition: filter 500ms;                             
+                    }
+                    
+                    &.active {
+                        border: 2px solid $primaryButtonBgColor!important;
+                        
+                        .arrow-left {
+                            position: absolute;
+                            top: 50%;
+                            margin-top: -7px;
+                            left: -7px;
+                            width: 0; 
+                            height: 0; 
+                            border-top: 7px solid transparent;
+                            border-bottom: 7px solid transparent; 
+
+                            border-right:7px solid $primaryButtonBgColor; 
+                        }
                     }
                 }
             }
@@ -106,4 +123,39 @@
         }
     }
     
+}
+
+body#mainPage.chat-2 {
+    .video-player-container {
+        margin-bottom: 15px;
+        padding-top: 0;
+        background: url(../img/trash/bg.jpg) transparent no-repeat;
+        
+        .box-container {
+            //width: 100%!important;
+            padding-left: 0;
+            padding-right: 0;
+            background-color: transparent;
+            
+            .video-content {
+                width: 790px;
+                padding-right: 10px;
+            }
+            
+            .chanel-list {
+                width: 180px;
+                background-color: rgba(0,0,0,0.6);
+                padding: 5px;
+                
+                a {
+                    margin-bottom: 5px;
+                    border: 2px solid rgba(0,0,0,0.6);
+                    
+                    &:last-child {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
 }
