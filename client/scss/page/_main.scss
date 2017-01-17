@@ -31,7 +31,7 @@
                     display: block;
                     position: relative;
                     font-size: 0;
-                    margin-bottom: 9.3%;
+                    margin-bottom: 9%;
                     //opacity: 0.5;
                     box-sizing: content-box;  
                     border: 2px solid $playerChanelListBorderColor;
@@ -156,6 +156,25 @@ body#mainPage.chat-2 {
                     }
                 }
             }
-        }
+            
+            @media screen and (min-width: $page-extra-large-query-width) {
+                .video-content {
+                    width: 952px;
+                }
+
+                .chanel-list {
+                    width: 218px;
+                }
+            }
+            @media screen and (min-width: $page-huge-query-width) {
+                .video-content {
+                    width: 1170px;
+                }
+
+                .chanel-list {
+                    width: 270px;
+                }
+            }
+        }       
     }
 }
