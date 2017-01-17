@@ -37,15 +37,31 @@ module main {
             
             $skinLinks.on('click', (e: JQueryEventObject) => {
                 var newClass = $(e.currentTarget).attr('id'),
-                    classes = ['dark-green', 'light-green'],
+                    classes = ['dark-green', 'light-green', 'dark-orange', 'light-orange'],
                 addClass = $('body').hasClass(newClass) ? false : true;
                 
                 if (newClass === classes[0]) {
-                    $('body').removeClass(classes[1])
+                    $('body').removeClass(classes[1]);
+                    $('body').removeClass(classes[2]);
+                    $('body').removeClass(classes[3]);
                     $('body').addClass(newClass);
                 }
-                else {
-                    $('body').removeClass(classes[0])
+                else if (newClass === classes[1]) {
+                    $('body').removeClass(classes[0]);
+                    $('body').removeClass(classes[2]);
+                    $('body').removeClass(classes[3]);
+                    $('body').addClass(newClass);
+                }
+                else if (newClass === classes[2]) {
+                    $('body').removeClass(classes[0]);
+                    $('body').removeClass(classes[1]);
+                    $('body').removeClass(classes[3]);
+                    $('body').addClass(newClass);
+                }
+                else if (newClass === classes[3]) {
+                    $('body').removeClass(classes[0]);
+                    $('body').removeClass(classes[2]);
+                    $('body').addClass(classes[1]);
                     $('body').addClass(newClass);
                 }
                 

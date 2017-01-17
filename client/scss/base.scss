@@ -102,6 +102,7 @@ a:focus,
 a:active:focus {
     text-decoration: none;
     outline: none!important;
+    border: none;
 }
 
 a {
@@ -168,3 +169,4 @@ a {
 
 /******************** OTHER SKINS, deletable *********************/
 @import "skin/_light_green.scss";
+@import "skin/_orange.scss";
