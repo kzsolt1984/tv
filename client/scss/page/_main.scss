@@ -32,9 +32,12 @@
                     position: relative;
                     font-size: 0;
                     margin-bottom: 10.3%;
-                    // opacity: 0.5;
+                    //opacity: 0.5;
                     box-sizing: content-box;  
                     //border: 5px solid $playerChanelListBorderColor;
+                    -webkit-filter: grayscale(1);
+                    filter: grayscale(1);
+                    transition: filter 500ms;
                     
                     img {
                         width: 100%;
@@ -47,7 +50,9 @@
                     
                     &:hover,
                     &.active {
-                        opacity: 1;
+                        -webkit-filter: grayscale(0);
+                        filter: grayscale(0);
+                        transition: filter 500ms;     
                     }
                 }
             }
@@ -68,7 +73,6 @@
         h5 {
             padding-bottom: 5px;
             margin-bottom: 5px;
-            // border-bottom: 1px solid green;
         }       
     }
     
@@ -78,6 +82,12 @@
         
         h5 {
             padding-bottom: 10px;
+            
+            a {
+                float: right;
+                font-size: 12px;
+                margin-right: 10px;
+            }
         }    
     }
     
