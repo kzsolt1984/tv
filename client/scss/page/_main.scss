@@ -130,11 +130,13 @@ body#mainPage.chat-2 {
         margin-bottom: 15px;
         padding-top: 0;
         background: url(../img/trash/bg.jpg) transparent no-repeat;
+        background-size: cover;
         
         .box-container {
             //width: 100%!important;
             padding-left: 0;
             padding-right: 0;
+            padding-bottom: 0;
             background-color: transparent;
             
             .video-content {
