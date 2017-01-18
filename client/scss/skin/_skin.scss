@@ -1,0 +1,33 @@
+$defaultBgColor: #EFEFEF;
+$defaultFontColor: #414141;
+$defaultLinkColor: #E93C1A;
+$defaultLinkDarkColor: $defaultLinkColor;
+$primaryButtonBgColor: $defaultLinkColor;
+    
+$headerBgColor: #1E1E21;
+$headerBorderColor: #29292D;
+$headerShadowColor: rgba(0,0,0,0.2);
+
+$headerLinkColor: #f5f5f5;
+$headerLinkBgColor: $headerBgColor;
+$headerLinkBorderColor: $headerBorderColor;
+$headerLinkHighlightColor: rgba(145,23,0,0.5);
+$headerLinkSecondColor: $headerLinkColor;
+$headerLinkBgSecondColor: $defaultLinkColor;
+$headerLinkBorderSecondColor: $defaultLinkColor;
+$headerLinkShadowColor: #911700;
+
+$footerBgColor: $headerBgColor;
+$footerFontColor: #848484;
+$footerLinkColor: $footerFontColor;
+
+$boxContainerBgColor: #fff;
+
+$playerChanelListBorderColor: $boxContainerBgColor;
+$playerChanelListArrowColor: $defaultLinkColor;
+
+$thumbnailLayerBgColor: #000;
+$thumbnailTitleFontColor: $boxContainerBgColor;
+$thumbnailSmallOtherInfoFontColor: $defaultLinkColor;
+$thumbnailBigTitleBgColor: rgba(0,0,0, 0.6);
+$thumbnailBigViewerFontColor: $footerFontColor;

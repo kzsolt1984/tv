@@ -4,11 +4,17 @@
 #mainPage {
     .video-player-container {
         padding: 0;
-        padding-top: 15px;
+        margin-bottom: 15px;
+        background: url(../img/trash/bg.jpg) transparent no-repeat;
+        background-size: cover;
         
-        >.container {  
+        .box-container {  
             border-top: none;
             border-bottom: none;
+            padding-left: 0;
+            padding-right: 0;
+            padding-bottom: 0;
+            background-color: transparent;
             
             .row {
                 margin: 0;
@@ -17,6 +23,8 @@
             .video-content {   
                 padding-left: 0;
                 font-size: 0;
+                width: 790px;
+                padding-right: 10px;
                 
                 video {
                     height: 100%;
@@ -25,14 +33,15 @@
             }
 
             .chanel-list {
-                padding: 0;
+                width: 180px;
+                background-color: $thumbnailBigTitleBgColor;
+                padding: 5px;
                 
                 a {
                     display: block;
                     position: relative;
                     font-size: 0;
-                    margin-bottom: 9%;
-                    //opacity: 0.5;
+                    margin-bottom: 5px;
                     box-sizing: content-box;  
                     border: 2px solid transparent;
                     -webkit-filter: grayscale(1);
@@ -109,6 +118,14 @@
     }
     
     @media screen and (min-width: $page-extra-large-query-width) {
+        .video-content {
+            width: 952px;
+        }
+
+        .chanel-list {
+            width: 218px;
+        }
+
         .live-recommender-container {   
             .recommend-block {
                 width: 373px;
@@ -116,71 +133,19 @@
         }
     }
     @media screen and (min-width: $page-huge-query-width) {
+        .video-content {
+            width: 1170px;
+        }
+
+        .chanel-list {
+            width: 270px;
+        }
+
         .live-recommender-container {   
             .recommend-block {
                 width: 463px;
             }  
         }
-    }
-    
+    }    
 }
 
-body#mainPage.chat-2 {
-    .video-player-container {
-        margin-bottom: 15px;
-        padding-top: 0;
-        background: url(../img/trash/bg.jpg) transparent no-repeat;
-        background-size: cover;
-        
-        .box-container {
-            //width: 100%!important;
-            padding-left: 0;
-            padding-right: 0;
-            padding-bottom: 0;
-            background-color: transparent;
-            
-            .video-content {
-                width: 790px;
-                padding-right: 10px;
-            }
-            
-            .chanel-list {
-                width: 180px;
-                background-color: rgba(0,0,0,0.6);
-                padding: 5px;
-                
-                a {
-                    margin-bottom: 5px;
-                    //border: 2px solid rgba(0,0,0,0.6);
-                    
-                    &:last-child {
-                        margin: 0;
-                    }
-                    
-                    /*&.active {
-                        border: 2px solid #2EA225;
-                    }*/
-                }
-            }
-            
-            @media screen and (min-width: $page-extra-large-query-width) {
-                .video-content {
-                    width: 952px;
-                }
-
-                .chanel-list {
-                    width: 218px;
-                }
-            }
-            @media screen and (min-width: $page-huge-query-width) {
-                .video-content {
-                    width: 1170px;
-                }
-
-                .chanel-list {
-                    width: 270px;
-                }
-            }
-        }       
-    }
-}
