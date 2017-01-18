@@ -468,8 +468,17 @@ header {
           display: none; }
       .video-content .video-box .video-controls a.control-full-screen {
         float: right; }
+        .video-content .video-box .video-controls a.control-full-screen .video-compress-icon {
+          display: none; }
     .video-content .video-box .video-controls .volume-slider {
       display: inline-block; }
+
+.video-content.full-screen {
+  width: 100% !important; }
+  .video-content.full-screen .video-controls .video-expand-icon {
+    display: none !important; }
+  .video-content.full-screen .video-controls .video-compress-icon {
+    display: inline-block !important; }
 
 #mainPage .video-player-container {
   padding: 0;

@@ -1,12 +1,14 @@
 module component {
     export class VideoPlayerComponent {
         private _videoContainer: HTMLElement;
+        private _$videoContainer: JQuery;
         private _videoElement: HTMLVideoElement;
         private _playStopBtn: JQuery;
         private _volumeBtn: JQuery;
         private _fullScreenBtn: JQuery;
 
         constructor($videoContainer: JQuery) {
+            this._$videoContainer = $videoContainer;
             this._videoContainer = $videoContainer.get(0);
             this._videoElement = <HTMLVideoElement>$videoContainer.find('video').get(0);
             this._playStopBtn = $videoContainer.find('.control-playing');
@@ -66,7 +68,18 @@ module component {
 
         public setFullScreenState(): void {
             if (this._isFullscreen()) {
-                //
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+                else if (document['mozCancelFullScreen']) {
+                    document['mozCancelFullScreen']();
+                }
+                else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                }
+                else if (document['msExitFullscreen']) {
+                    document['msExitFullscreen']();
+                }
             }
             else {
                 if (this._videoContainer.requestFullscreen) { 
@@ -81,6 +94,8 @@ module component {
                 else if (this._videoContainer['msRequestFullscreen']) {
                     this._videoContainer['msRequestFullscreen']();
                 }
+
+                
                 // setFullscreenData(true);
             }
         }
@@ -118,6 +133,19 @@ module component {
 
                 return false;
             });
+
+            document.addEventListener('fullscreenchange', (e) => {
+                this._setFullScreenData(!!(document['fullScreen'] || document.fullscreenElement));
+            });
+            document.addEventListener('webkitfullscreenchange', () => {
+                this._setFullScreenData(!!document.webkitIsFullScreen);
+            });
+            document.addEventListener('mozfullscreenchange', () => {
+                this._setFullScreenData(!!document['mozFullScreen']);
+            });
+            document.addEventListener('msfullscreenchange', () => {
+                this._setFullScreenData(!!document['msFullscreenElement']);
+            });
         }
 
         private _isFullscreen(): boolean {
@@ -126,6 +154,15 @@ module component {
                     || document['mozFullScreen']
                     || document['msFullscreenElement']
                     || document.fullscreenElement);
+        }
+
+        private _setFullScreenData(isFullscreen: boolean) {
+            if (isFullscreen) {
+                this._$videoContainer.addClass('full-screen');
+            }
+            else {
+                this._$videoContainer.removeClass('full-screen');
+            }
         }
     }
 }

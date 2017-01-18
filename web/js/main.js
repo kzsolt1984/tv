@@ -98,6 +98,7 @@ var component;
 (function (component) {
     var VideoPlayerComponent = (function () {
         function VideoPlayerComponent($videoContainer) {
+            this._$videoContainer = $videoContainer;
             this._videoContainer = $videoContainer.get(0);
             this._videoElement = $videoContainer.find('video').get(0);
             this._playStopBtn = $videoContainer.find('.control-playing');
@@ -143,6 +144,18 @@ var component;
         };
         VideoPlayerComponent.prototype.setFullScreenState = function () {
             if (this._isFullscreen()) {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+                else if (document['mozCancelFullScreen']) {
+                    document['mozCancelFullScreen']();
+                }
+                else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                }
+                else if (document['msExitFullscreen']) {
+                    document['msExitFullscreen']();
+                }
             }
             else {
                 if (this._videoContainer.requestFullscreen) {
@@ -186,6 +199,18 @@ var component;
                 _this.setFullScreenState();
                 return false;
             });
+            document.addEventListener('fullscreenchange', function (e) {
+                _this._setFullScreenData(!!(document['fullScreen'] || document.fullscreenElement));
+            });
+            document.addEventListener('webkitfullscreenchange', function () {
+                _this._setFullScreenData(!!document.webkitIsFullScreen);
+            });
+            document.addEventListener('mozfullscreenchange', function () {
+                _this._setFullScreenData(!!document['mozFullScreen']);
+            });
+            document.addEventListener('msfullscreenchange', function () {
+                _this._setFullScreenData(!!document['msFullscreenElement']);
+            });
         };
         VideoPlayerComponent.prototype._isFullscreen = function () {
             return !!(document['fullScreen ']
@@ -193,6 +218,14 @@ var component;
                 || document['mozFullScreen']
                 || document['msFullscreenElement']
                 || document.fullscreenElement);
+        };
+        VideoPlayerComponent.prototype._setFullScreenData = function (isFullscreen) {
+            if (isFullscreen) {
+                this._$videoContainer.addClass('full-screen');
+            }
+            else {
+                this._$videoContainer.removeClass('full-screen');
+            }
         };
         return VideoPlayerComponent;
     }());

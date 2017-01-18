@@ -36,6 +36,14 @@
 
                 &.control-full-screen {
                     float: right;
+
+                    .video-expand-icon {
+
+                    }
+
+                    .video-compress-icon {
+                        display: none;
+                    }
                 }
             }
 
@@ -45,4 +53,17 @@
         }
     }
     
+    &.full-screen {
+        width: 100%!important;
+
+        .video-controls {
+            .video-expand-icon {
+                 display: none!important;
+            }
+
+            .video-compress-icon {
+                display: inline-block!important;
+            }
+        }
+    }
 }
