@@ -57,14 +57,33 @@
             <div class="container-fluid video-player-container">
                 <div class="container box-container">
                     <div class="row">
-                        <div class="col-xs-10 col-sm-10 col-md-10 video-content">
-                            <video poster="web/img/trash/player.jpg" controls>
-                                <source src="http://mediaelementjs.com//media/echo-hereweare.mp4" type="video/mp4" />
-                                <source src="http://mediaelementjs.com//media/echo-hereweare.webm" type="video/webm" />
-                                <source src="http://mediaelementjs.com//media/echo-hereweare.ogv" type="video/ogg" />
-                            </video>
+                        <div class="video-content">
+                            <div class="video-box">
+                                <video poster="web/img/trash/player.jpg" class="live-video">
+                                    <source src="http://mediaelementjs.com//media/echo-hereweare.mp4" type="video/mp4" />
+                                    <source src="http://mediaelementjs.com//media/echo-hereweare.webm" type="video/webm" />
+                                    <source src="http://mediaelementjs.com//media/echo-hereweare.ogv" type="video/ogg" />
+                                </video>
+                                <div class="video-controls">
+                                    <a href="#" class="control-playing">
+                                        <i class="fa fa-play video-play-icon" aria-hidden="true"></i>
+                                        <i class="fa fa-pause video-pause-icon" aria-hidden="true"></i>
+                                    </a>
+
+                                    <a href="#" class="control-volume">
+                                        <i class="fa fa-volume-up video-volume-up-icon" aria-hidden="true"></i>
+                                        <i class="fa fa-volume-down video-volume-down-icon" aria-hidden="true"></i>
+                                    </a>
+
+                                    <div class="volume-slider"></div>
+
+                                    <a href="#" class="control-full-screen">
+                                        <i class="fa fa-expand" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-xs-2 col-sm-2 col-md-2 chanel-list">
+                        <div class="chanel-list">
                             <a class="recommended_video" href="#">
                                 <img src="web/img/trash/vr2.jpg">
                             </a>

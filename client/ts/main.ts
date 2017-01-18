@@ -1,8 +1,15 @@
 ///<reference path="../lib/ts/jquery.d.ts" />
+///<reference path="./core/config.ts" />
+///<reference path="./core/bootstrap.ts" />
 
 module main {
     export class Main {
-        constructor() {            
+        constructor() {        
+            /* system init */    
+            conf.Config.init();
+            new component.Bootstrap(); 
+            /* system init end */    
+
             this.recommender();
             this.otherRecommender();
         }
@@ -31,6 +38,6 @@ module main {
     }
 }
 
-$(document).ready(() => {
+document.addEventListener('DOMContentLoaded', function () {
     new main.Main();
 });

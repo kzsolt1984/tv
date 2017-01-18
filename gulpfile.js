@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    isDev = process.env["SYMFONY_ENV"] === "dev",
+    isDev = /*process.env["SYMFONY_ENV"] === "dev"*/ true,
     browserSync;
 
 function getBrowserSync() {
@@ -118,7 +118,8 @@ gulp.task("bower-js", function() {
         fileList = [
             bowerDir + 'jquery/dist/jquery.js',
             bowerDir + 'bootstrap/dist/js/bootstrap.js',
-            bowerDir + 'respondJS/dest/respond.js'
+            bowerDir + 'respondJS/dest/respond.js',
+            bowerDir + 'lodash/dist/lodash.js'
         ];
 
     return gulp.src(fileList)

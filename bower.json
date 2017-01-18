@@ -5,7 +5,8 @@
     "bootstrap": "^3.3.6",
     "jquery": "^2.2.0",
     "font-awesome": "fontawesome#^4.5.0",
-    "respondJS": "^1.4.2"
+    "respondJS": "^1.4.2",
+    "lodash": "^4.17.4"
   },
   "resolutions": {
     "jquery": "^2.2.0",

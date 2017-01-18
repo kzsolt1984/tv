@@ -1,5 +1,6 @@
 @import "../block/_thumbnail_small.scss";
 @import "../block/_thumbnail_big.scss";
+@import "../block/_video_player.scss";
 
 #mainPage {
     .video-player-container {
@@ -25,6 +26,7 @@
                 font-size: 0;
                 width: 790px;
                 padding-right: 10px;
+                float: left;
                 
                 video {
                     height: 100%;
@@ -36,6 +38,7 @@
                 width: 180px;
                 background-color: $thumbnailBigTitleBgColor;
                 padding: 5px;
+                float: left;
                 
                 a {
                     display: block;
@@ -118,12 +121,16 @@
     }
     
     @media screen and (min-width: $page-extra-large-query-width) {
-        .video-content {
-            width: 952px;
-        }
+        .video-player-container {
+            .box-container {
+                .video-content {
+                    width: 952px;
+                }
 
-        .chanel-list {
-            width: 218px;
+                .chanel-list {
+                    width: 218px;
+                }
+            }
         }
 
         .live-recommender-container {   
@@ -133,12 +140,16 @@
         }
     }
     @media screen and (min-width: $page-huge-query-width) {
-        .video-content {
-            width: 1170px;
-        }
+        .video-player-container {
+            .box-container {
+                .video-content {
+                    width: 1170px;
+                }
 
-        .chanel-list {
-            width: 270px;
+                .chanel-list {
+                    width: 270px;
+                }
+            }
         }
 
         .live-recommender-container {   

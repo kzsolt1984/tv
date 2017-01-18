@@ -1,0 +1,48 @@
+
+.video-content {
+    .video-box {
+        position: relative;
+
+        .live-video {
+            height: 100%;
+            width: 100%;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            width: 100%;
+            padding: 10px 30px;
+
+            a {
+                display: inline-block;
+                font-size: 25px;
+                color: $headerLinkColor;
+
+                &.control-playing {
+                    .fa-pause {
+                        display: none;
+                    }
+                }
+
+                &.control-volume {
+                    margin-left: 30px;
+
+                    .video-volume-down-icon {
+                        display: none;
+                    }
+                }
+
+                &.control-full-screen {
+                    float: right;
+                }
+            }
+
+            .volume-slider {
+                display: inline-block;
+            }
+        }
+    }
+    
+}
