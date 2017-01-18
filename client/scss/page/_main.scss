@@ -34,7 +34,7 @@
                     margin-bottom: 9%;
                     //opacity: 0.5;
                     box-sizing: content-box;  
-                    border: 2px solid $playerChanelListBorderColor;
+                    border: 2px solid transparent;
                     -webkit-filter: grayscale(1);
                     filter: grayscale(1);
                     transition: filter 500ms;
@@ -151,15 +151,15 @@ body#mainPage.chat-2 {
                 
                 a {
                     margin-bottom: 5px;
-                    border: 2px solid rgba(0,0,0,0.6);
+                    //border: 2px solid rgba(0,0,0,0.6);
                     
                     &:last-child {
                         margin: 0;
                     }
                     
-                    &.active {
+                    /*&.active {
                         border: 2px solid #2EA225;
-                    }
+                    }*/
                 }
             }
             
