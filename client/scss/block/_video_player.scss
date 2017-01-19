@@ -11,13 +11,13 @@
         .video-controls {
             position: absolute;
             bottom: 0;
-            background-color: rgba(0,0,0,0.5);
+            background-color: $thumbnailBigTitleBgColor;
             width: 100%;
-            padding: 10px 30px;
+            padding: 6px 30px 10px;
 
             a {
                 display: inline-block;
-                font-size: 25px;
+                font-size: 18px;
                 color: $headerLinkColor;
 
                 &.control-playing {
@@ -27,19 +27,21 @@
                 }
 
                 &.control-volume {
-                    margin-left: 30px;
+                    margin-left: 15px;
 
                     .video-volume-down-icon {
                         display: none;
+                    }
+
+                    i {
+                        width: 17px;
                     }
                 }
 
                 &.control-full-screen {
                     float: right;
-
-                    .video-expand-icon {
-
-                    }
+                    position: relative;
+                    top: 7px;
 
                     .video-compress-icon {
                         display: none;
@@ -49,6 +51,47 @@
 
             .volume-slider {
                 display: inline-block;
+                width: 110px;
+                margin: 0 15px;
+                padding: 0 5px;
+                height: 24px;
+                position: relative;
+                top: 5px;
+                cursor: pointer;
+
+                &:before {
+                    display: block;
+                    position: absolute;
+                    height: 4px;
+                    top: 10px;
+                    content: "";
+                    width: 100%;
+                    background: hsla(0,0%,100%,.35);
+                }
+
+                .volume-slider-range {
+                    background: $defaultLinkColor;
+                    display: block;
+                    position: absolute;
+                    height: 4px;
+                    top: 10px;
+                    width: 46%;
+                }
+
+                .volume-slider-handle {
+                    pointer-events: none;
+                    display: block;
+                    height: 12px;;
+                    width: 4px;
+                    margin-left: 0;
+                    position: absolute;
+                    top: 5px;
+                    background: $headerLinkColor;
+                    cursor: pointer;
+                    outline: none;
+                    z-index: 2;
+                    left: 46%;
+                }
             }
         }
     }

@@ -6,6 +6,8 @@ module component {
         private _playStopBtn: JQuery;
         private _volumeBtn: JQuery;
         private _fullScreenBtn: JQuery;
+        private _audioSlider: JQuery;
+        private _volumeDrag: boolean = false;
 
         constructor($videoContainer: JQuery) {
             this._$videoContainer = $videoContainer;
@@ -14,12 +16,16 @@ module component {
             this._playStopBtn = $videoContainer.find('.control-playing');
             this._volumeBtn = $videoContainer.find('.control-volume');
             this._fullScreenBtn = $videoContainer.find('.control-full-screen');
+            this._audioSlider = $videoContainer.find('.volume-slider');
 
             var supportsVideo: boolean = (this._videoElement.canPlayType('video/mp4').length > 0);
 
             if (!supportsVideo) {
                 return;
             }
+
+            // set default value
+            this.updateVolume(0, this._videoElement.volume);
 
             this._bind();
         }
@@ -47,25 +53,8 @@ module component {
         }
 
         /**
-         * Mute volume or volume up
+         * Fullscreen on/off handler
          */
-        public setVolumeState(): void {
-            var muted: boolean = this._videoElement.muted,
-                $volumeUp = this._volumeBtn.find('.video-volume-up-icon'),
-                $mute = this._volumeBtn.find('.video-volume-down-icon');
-
-            this._videoElement.muted = !this._videoElement.muted;
-
-            if (muted) {
-                $mute.hide();
-                $volumeUp.show();
-            }
-            else {
-                $volumeUp.hide();
-                $mute.show();                
-            }
-        }
-
         public setFullScreenState(): void {
             if (this._isFullscreen()) {
                 if (document.exitFullscreen) {
@@ -104,18 +93,47 @@ module component {
          * Events binding
          */
         protected _bind() {
+            /** Video events */
             this._playStopBtn.on('click', (e: JQueryEventObject) => {
                 this.setVideoRunningState();
 
                 return false;
             });
 
+            /** Audio events */
             this._volumeBtn.on('click', (e: JQueryEventObject) => {
-                this.setVolumeState();
+                this._videoElement.muted = !this._videoElement.muted;
 
                 return false;
             });
 
+            this._audioSlider.on('mousedown', (e: JQueryEventObject) => {
+                this._volumeDrag = true;
+                this._videoElement.muted = false;
+                console.log('down', e.offsetX);
+                this.updateVolume(e.offsetX);
+            });
+            $(document).on('mouseup', (e: JQueryEventObject) => {
+                if (this._volumeDrag) {
+                    this._volumeDrag = false;
+                    this.updateVolume(e.offsetX);
+                    console.log('up', e.offsetX);
+                }
+            });
+
+            /*$(document).on('mouseleave', (e: JQueryEventObject) => {
+                this._volumeDrag = false;
+            });*/
+
+
+            this._audioSlider.on('mousemove', (e: JQueryEventObject) => {
+                if (this._volumeDrag) {
+                    this.updateVolume(e.offsetX);
+                    console.log('move', e.offsetX);
+                }
+            });
+
+            /** Fullscreen events */
             this._fullScreenBtn.on('click', (e: JQueryEventObject) => {
                 var fullScreenEnabled = !!(document.fullscreenEnabled 
                                         || document['mozFullScreenEnabled']
@@ -134,20 +152,23 @@ module component {
                 return false;
             });
 
-            document.addEventListener('fullscreenchange', (e) => {
-                this._setFullScreenData(!!(document['fullScreen'] || document.fullscreenElement));
+            document.addEventListener('fullscreenchange', () => {
+                this._setFullScreenClass(!!(document['fullScreen'] || document.fullscreenElement));
             });
             document.addEventListener('webkitfullscreenchange', () => {
-                this._setFullScreenData(!!document.webkitIsFullScreen);
+                this._setFullScreenClass(!!document.webkitIsFullScreen);
             });
             document.addEventListener('mozfullscreenchange', () => {
-                this._setFullScreenData(!!document['mozFullScreen']);
+                this._setFullScreenClass(!!document['mozFullScreen']);
             });
             document.addEventListener('msfullscreenchange', () => {
-                this._setFullScreenData(!!document['msFullscreenElement']);
+                this._setFullScreenClass(!!document['msFullscreenElement']);
             });
         }
 
+        /**
+         * Get fullscreen is supported or not
+         */
         private _isFullscreen(): boolean {
             return !!(document['fullScreen ']
                     || document.webkitIsFullScreen 
@@ -155,13 +176,60 @@ module component {
                     || document['msFullscreenElement']
                     || document.fullscreenElement);
         }
-
-        private _setFullScreenData(isFullscreen: boolean) {
+        
+        /**
+         * Add or remove fullscreen class
+         */
+        private _setFullScreenClass(isFullscreen: boolean) {
             if (isFullscreen) {
                 this._$videoContainer.addClass('full-screen');
             }
             else {
                 this._$videoContainer.removeClass('full-screen');
+            }
+        }
+
+        private updateVolume(offsetX: number, volume?: number): void {
+            var percentage = 0,
+                $volumeIcon = this._volumeBtn.find('.video-volume-up-icon'),
+                $muteIcon = this._volumeBtn.find('.video-volume-down-icon');
+
+            if (offsetX > 100) {
+                offsetX = 100;
+            }
+
+            if (offsetX < 0) {
+                offsetX = 0;
+            }
+
+            // if only volume have specificed then direct update volume
+            if (volume) {
+                percentage = volume * 100;
+            } 
+            else {
+                percentage = 100 * offsetX / this._audioSlider.width();
+            }
+
+            if (percentage > 100) {
+                percentage = 100;
+            }
+
+            if (percentage < 0) {
+                percentage = 0;
+            }
+
+            // update volume bar and video volume
+            this._audioSlider.find('.volume-slider-range').css('width', percentage + '%');
+            this._audioSlider.find('.volume-slider-handle').css('left', percentage + '%');
+            this._videoElement.volume = percentage / 100;
+
+            if (this._videoElement.volume === 0) {
+                $volumeIcon.hide();
+                $muteIcon.css('display', 'inline-block');
+            }
+            else {
+                $muteIcon.hide();
+                $volumeIcon.show();                
             }
         }
     }
