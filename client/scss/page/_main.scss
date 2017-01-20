@@ -75,17 +75,27 @@
                     &.active {
                         border: 2px solid $primaryButtonBgColor;
                         
-                        .arrow-left {
+                        .arrow-icon {
                             position: absolute;
-                            top: 50%;
-                            margin-top: -7px;
-                            left: -7px;
                             width: 0; 
-                            height: 0; 
-                            border-top: 7px solid transparent;
-                            border-bottom: 7px solid transparent; 
+                            height: 0;
 
-                            border-right:7px solid $primaryButtonBgColor; 
+                            @media screen and (min-width: $page-large-query-width) {                                
+                                top: 50%;
+                                margin-top: -7px;
+                                left: -7px;
+                                border-top: 7px solid transparent;
+                                border-bottom: 7px solid transparent; 
+                                border-right:7px solid $primaryButtonBgColor; 
+                            }
+                                
+                            @media screen and (max-width: $page-large-query-width) {  
+                                top: -7px;
+                                left: 50%;                               
+                                border-left: 7px solid transparent;
+                                border-right: 7px solid transparent;                                
+                                border-bottom: 7px solid $primaryButtonBgColor;
+                            }
                         }
                     }
                 }

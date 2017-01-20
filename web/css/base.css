@@ -582,16 +582,25 @@ header {
           transition: filter 500ms; }
         #mainPage .video-player-container .box-container .chanel-list a.active {
           border: 2px solid #E93C1A; }
-          #mainPage .video-player-container .box-container .chanel-list a.active .arrow-left {
+          #mainPage .video-player-container .box-container .chanel-list a.active .arrow-icon {
             position: absolute;
-            top: 50%;
-            margin-top: -7px;
-            left: -7px;
             width: 0;
-            height: 0;
-            border-top: 7px solid transparent;
-            border-bottom: 7px solid transparent;
-            border-right: 7px solid #E93C1A; }
+            height: 0; }
+            @media screen and (min-width: 992px) {
+              #mainPage .video-player-container .box-container .chanel-list a.active .arrow-icon {
+                top: 50%;
+                margin-top: -7px;
+                left: -7px;
+                border-top: 7px solid transparent;
+                border-bottom: 7px solid transparent;
+                border-right: 7px solid #E93C1A; } }
+            @media screen and (max-width: 992px) {
+              #mainPage .video-player-container .box-container .chanel-list a.active .arrow-icon {
+                top: -7px;
+                left: 50%;
+                border-left: 7px solid transparent;
+                border-right: 7px solid transparent;
+                border-bottom: 7px solid #E93C1A; } }
       @media screen and (max-width: 360px) {
         #mainPage .video-player-container .box-container .chanel-list {
           width: 100% !important; } }
