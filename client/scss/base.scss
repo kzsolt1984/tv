@@ -141,7 +141,7 @@ a {
 }
 
 .container {
-    // min-width: 970px;
+    min-width: 320px;
     
     @media screen and (min-width: $page-huge-query-width) {
         width: $page-huge-width;

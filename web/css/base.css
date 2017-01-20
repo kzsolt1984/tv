@@ -112,9 +112,11 @@ a {
     background-color: #E93C1A;
     outline: none !important; }
 
-@media screen and (min-width: 1500px) {
-  .container {
-    width: 1440px; } }
+.container {
+  min-width: 320px; }
+  @media screen and (min-width: 1500px) {
+    .container {
+      width: 1440px; } }
 
 .box-container {
   padding: 15px;
@@ -517,6 +519,16 @@ header {
   .video-content.full-screen .video-controls .video-compress-icon {
     display: inline-block !important; }
 
+@media screen and (min-width: 361px) and (max-width: 992px) {
+  .video-content {
+    width: 100% !important; }
+    .video-content .chanel-list {
+      margin-left: -2px;
+      margin-right: -2px; }
+      .video-content .chanel-list a {
+        display: inline-block;
+        width: 18.95%; } }
+
 #mainPage .video-player-container {
   padding: 0;
   margin-bottom: 15px;
@@ -540,6 +552,10 @@ header {
       #mainPage .video-player-container .box-container .video-content video {
         height: 100%;
         width: 100%; }
+      @media screen and (max-width: 992px) {
+        #mainPage .video-player-container .box-container .video-content {
+          float: none;
+          padding: 0; } }
     #mainPage .video-player-container .box-container .chanel-list {
       width: 180px;
       background-color: rgba(0, 0, 0, 0.6);
@@ -576,12 +592,22 @@ header {
             border-top: 7px solid transparent;
             border-bottom: 7px solid transparent;
             border-right: 7px solid #E93C1A; }
-      @media screen and (max-width: 992px) {
+      @media screen and (max-width: 360px) {
+        #mainPage .video-player-container .box-container .chanel-list {
+          width: 100% !important; } }
+      @media screen and (max-width: 600px) {
+        #mainPage .video-player-container .box-container .chanel-list {
+          display: none; } }
+      @media screen and (min-width: 361px) and (max-width: 992px) {
         #mainPage .video-player-container .box-container .chanel-list {
           float: none;
-          width: 100%; }
+          text-align: center;
+          width: 100%;
+          padding: 5px 0 5px;
+          margin-right: -2px; }
           #mainPage .video-player-container .box-container .chanel-list a {
-            float: left; } }
+            display: inline-block;
+            width: 18.66%; } }
 
 #mainPage .live-recommender-container {
   padding-right: 5px;
@@ -591,10 +617,35 @@ header {
     padding: 0;
     margin-right: 10px;
     float: left; }
-    @media screen and (max-width: 992px) {
+    @media screen and (max-width: 360px) {
       #mainPage .live-recommender-container .recommend-block {
         float: none;
-        margin: 0 auto; } }
+        margin: 0 auto 10px;
+        width: 100%; }
+        #mainPage .live-recommender-container .recommend-block a {
+          margin: 0 auto 10px;
+          width: 97%;
+          float: none;
+          display: inline-block; }
+          #mainPage .live-recommender-container .recommend-block a img {
+            height: auto;
+            width: 100%; } }
+    @media screen and (min-width: 361px) and (max-width: 992px) {
+      #mainPage .live-recommender-container .recommend-block {
+        float: none;
+        margin: 0 auto;
+        width: 100%; }
+        #mainPage .live-recommender-container .recommend-block a {
+          width: 48.5%;
+          float: none;
+          display: inline-block;
+          margin-right: 5px;
+          margin-left: 0; }
+          #mainPage .live-recommender-container .recommend-block a img {
+            height: auto;
+            width: 100%; }
+          #mainPage .live-recommender-container .recommend-block a:nth-child(2n+0) {
+            margin-right: 0; } }
   #mainPage .live-recommender-container h5 {
     padding-bottom: 5px;
     margin-bottom: 5px; }
@@ -608,10 +659,21 @@ header {
       float: right;
       font-size: 12px;
       margin-right: 10px; }
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 360px) {
     #mainPage .other-recommender-container .other-recommender-content a {
-      float: none;
-      margin: 0 auto; } }
+      width: 97%;
+      margin-right: 0; }
+      #mainPage .other-recommender-container .other-recommender-content a img {
+        height: auto;
+        width: 100%; } }
+  @media screen and (min-width: 361px) and (max-width: 992px) {
+    #mainPage .other-recommender-container .other-recommender-content a {
+      width: 48.5%; }
+      #mainPage .other-recommender-container .other-recommender-content a img {
+        height: auto;
+        width: 100%; }
+      #mainPage .other-recommender-container .other-recommender-content a:nth-child(2n+0) {
+        margin-right: 0; } }
 
 @media screen and (min-width: 1200px) {
   #mainPage .video-player-container .box-container .video-content {
