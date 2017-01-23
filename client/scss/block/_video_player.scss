@@ -111,20 +111,10 @@
     }
 
     @media screen and (max-width: 360px) {
-
+        width: 100%!important;
     }
 
     @media screen and (min-width: 361px) and (max-width: $page-large-query-width) {
         width: 100%!important;
-
-        .chanel-list {
-            margin-left: -2px;
-            margin-right: -2px;
-
-            a {
-                display: inline-block;
-                width: 18.95%;
-            }
-        }
     }
 }

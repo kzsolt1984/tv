@@ -19,20 +19,38 @@ header {
                 height: 47px;
             }
         }
-        
-        .navbar {
-            position: absolute;
-            top: 0;
-            left: 120px;
-            //height: 56px;
-            overflow: hidden;
-            border: none;
-            
-            .tab {
-                float: left;
-                position: relative;
-                height: 100%;
-                z-index: 1;
+
+        nav {        
+            @media screen and (max-width: $page-large-query-width) {
+                display: none;
+            }
+
+            .navbar {
+                position: absolute;
+                top: 0;
+                left: 120px;
+                //height: 56px;
+                overflow: hidden;
+                border: none;
+                
+                .tab {
+                    float: left;
+                    position: relative;
+                    height: 100%;
+                    z-index: 1;
+                }
+            }
+        }
+
+        .mobile-menu-button {
+            float: right;
+            display: none;
+            font-size: 30px;
+            position: relative;
+            top: 11px;
+
+            @media screen and (max-width: $page-large-query-width) {
+                display: block;
             }
         }
         
