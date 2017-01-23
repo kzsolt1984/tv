@@ -1,0 +1,54 @@
+#chatPage {
+    .column-1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 240px;
+        z-index: 3;
+        background-color: $headerBgColor;
+    }
+    .column-2 {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+        margin-left: 240px;
+        margin-right: 340px;
+        z-index: 2;
+        box-sizing: border-box;
+
+        .content {
+            padding: 0 20px;
+
+            .chat-header {
+                height: 110px;
+                position: relative;
+                
+                img {
+                    width: 80px;
+                    height: 80px;
+                    position: absolute;
+                    top: 15px;
+                    left: 15px;
+                }
+
+                h1 {
+                    padding: 0 15px 0 90px;
+                    font-size: 22px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }        
+    }
+    .column-3 {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 340px;
+        z-index: 3;
+        background: #FAFAFA;
+    }
+}

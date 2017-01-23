@@ -768,3 +768,47 @@ header {
     width: 270px; }
   #mainPage .live-recommender-container .recommend-block {
     width: 463px; } }
+
+#chatPage .column-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 240px;
+  z-index: 3;
+  background-color: #1E1E21; }
+
+#chatPage .column-2 {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  margin-left: 240px;
+  margin-right: 340px;
+  z-index: 2;
+  box-sizing: border-box; }
+  #chatPage .column-2 .content {
+    padding: 0 20px; }
+    #chatPage .column-2 .content .chat-header {
+      height: 110px;
+      position: relative; }
+      #chatPage .column-2 .content .chat-header img {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: 15px;
+        left: 15px; }
+      #chatPage .column-2 .content .chat-header h1 {
+        padding: 0 15px 0 90px;
+        font-size: 22px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+
+#chatPage .column-3 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 340px;
+  z-index: 3;
+  background: #FAFAFA; }
