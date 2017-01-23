@@ -21,15 +21,10 @@ header {
         }
 
         nav {        
-            @media screen and (max-width: $page-large-query-width) {
-                display: none;
-            }
-
             .navbar {
                 position: absolute;
                 top: 0;
                 left: 120px;
-                //height: 56px;
                 overflow: hidden;
                 border: none;
                 
@@ -38,6 +33,51 @@ header {
                     position: relative;
                     height: 100%;
                     z-index: 1;
+                }
+            }
+
+            @media screen and (max-width: $page-medium-query-width) {
+                display: none;
+                position: absolute;
+                right: 0;
+                top: 56px;
+                width: 100%;
+                background-color: $headerBgColor;
+                z-index: 2;
+
+                .navbar {
+                    position: static;
+                    margin: 0;
+
+                    .tab {
+                        float: none;
+
+                        a {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .right-menu {
+                    float: none;
+                    margin: 0;
+                    padding: 0;
+
+                    &.auth {
+                        margin: 0;
+                    }
+
+                    a {
+                        border: none;
+                        display: block;
+                    }
+                }
+
+                .navbar,
+                .right-menu {
+                    a {
+                        border-top: 1px solid $headerBorderColor;
+                    }
                 }
             }
         }
@@ -49,7 +89,7 @@ header {
             position: relative;
             top: 11px;
 
-            @media screen and (max-width: $page-large-query-width) {
+            @media screen and (max-width: $page-medium-query-width) {
                 display: block;
             }
         }
@@ -112,6 +152,11 @@ header {
                     padding: 2px 30px 2px 10px;
                     border: none;
                     border-radius: 0;
+                    width: 180px;
+
+                    @media screen and (max-width: $page-large-query-width) {
+                        width: 140px;
+                    }
                 }
                 
                 .search-submit-btn {

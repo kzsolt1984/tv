@@ -296,7 +296,21 @@ var controller;
             console.log('CommonController init done');
             // temporarily place
             new component.VideoPlayerComponent($('.video-content'));
+            this._bind();
         }
+        CommonController.prototype._bind = function () {
+            var $mobileMenuButton = $('header').find('.mobile-menu-button'), $mobileMenu = $('nav');
+            $mobileMenuButton.on('click', function () {
+                // set mobile menu visibility
+                if ($mobileMenu.is(':hidden')) {
+                    $mobileMenu.slideDown('fast');
+                }
+                else {
+                    $mobileMenu.slideUp('fast');
+                }
+                return false;
+            });
+        };
         return CommonController;
     }());
     controller.CommonController = CommonController;

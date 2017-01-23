@@ -154,9 +154,6 @@ header {
       top: 5px; }
       header .container .logo img {
         height: 47px; }
-    @media screen and (max-width: 992px) {
-      header .container nav {
-        display: none; } }
     header .container nav .navbar {
       position: absolute;
       top: 0;
@@ -168,13 +165,41 @@ header {
         position: relative;
         height: 100%;
         z-index: 1; }
+    @media screen and (max-width: 768px) {
+      header .container nav {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 56px;
+        width: 100%;
+        background-color: #1E1E21;
+        z-index: 2; }
+        header .container nav .navbar {
+          position: static;
+          margin: 0; }
+          header .container nav .navbar .tab {
+            float: none; }
+            header .container nav .navbar .tab a {
+              width: 100%; }
+        header .container nav .right-menu {
+          float: none;
+          margin: 0;
+          padding: 0; }
+          header .container nav .right-menu.auth {
+            margin: 0; }
+          header .container nav .right-menu a {
+            border: none;
+            display: block; }
+        header .container nav .navbar a,
+        header .container nav .right-menu a {
+          border-top: 1px solid #29292D; } }
     header .container .mobile-menu-button {
       float: right;
       display: none;
       font-size: 30px;
       position: relative;
       top: 11px; }
-      @media screen and (max-width: 992px) {
+      @media screen and (max-width: 768px) {
         header .container .mobile-menu-button {
           display: block; } }
     header .container a {
@@ -221,7 +246,11 @@ header {
           box-sizing: border-box;
           padding: 2px 30px 2px 10px;
           border: none;
-          border-radius: 0; }
+          border-radius: 0;
+          width: 180px; }
+          @media screen and (max-width: 992px) {
+            header .container .right-menu .search-form input[type="text"] {
+              width: 140px; } }
         header .container .right-menu .search-form .search-submit-btn {
           position: absolute;
           top: 0;
@@ -522,7 +551,7 @@ header {
         background: #f5f5f5;
         cursor: pointer;
         outline: none;
-        z-index: 2;
+        z-index: 1;
         left: 46%; }
 
 .video-content.full-screen {
