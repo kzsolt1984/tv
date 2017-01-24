@@ -320,7 +320,31 @@ var controller;
     }());
     controller.CommonController = CommonController;
 })(controller || (controller = {}));
+var util;
+(function (util) {
+    var MobileUtil = (function () {
+        function MobileUtil() {
+        }
+        MobileUtil.detectIsMobileView = function () {
+            if (navigator.userAgent.match(/Android/i)
+                || navigator.userAgent.match(/webOS/i)
+                || navigator.userAgent.match(/iPhone/i)
+                || navigator.userAgent.match(/iPad/i)
+                || navigator.userAgent.match(/iPod/i)
+                || navigator.userAgent.match(/BlackBerry/i)
+                || navigator.userAgent.match(/Windows Phone/i)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
+        return MobileUtil;
+    }());
+    util.MobileUtil = MobileUtil;
+})(util || (util = {}));
 ///<reference path="./commonController.ts" />
+///<reference path="../util/mobileUtil.ts" />
 var controller;
 (function (controller) {
     var PageController = (function (_super) {
@@ -332,6 +356,7 @@ var controller;
             _this._$leftMenuBar = $('.left-menu-bar');
             _this._$rightPageBar = $('.right-page-bar');
             _this._$contentWithBars = $('.content-with-left-menu');
+            _this._$isMobileView = util.MobileUtil.detectIsMobileView();
             _this._bind();
             return _this;
         }

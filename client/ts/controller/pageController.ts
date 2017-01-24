@@ -1,4 +1,5 @@
 ///<reference path="./commonController.ts" />
+///<reference path="../util/mobileUtil.ts" />
 
 module controller {
     export class PageController extends CommonController {
@@ -7,6 +8,7 @@ module controller {
         private _$rightPageBar: JQuery;
         private _$contentWithBars: JQuery;
         private _$window: JQuery;
+        private _$isMobileView: boolean;
 
         constructor() {
             super();
@@ -16,6 +18,7 @@ module controller {
             this._$leftMenuBar = $('.left-menu-bar');
             this._$rightPageBar = $('.right-page-bar');
             this._$contentWithBars = $('.content-with-left-menu');
+            this._$isMobileView = util.MobileUtil.detectIsMobileView();
 
             this._bind();
         }

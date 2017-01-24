@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content='620' property='og:width'>
         <meta content='378' property='og:height'>
         <meta name="description" content="An interactive TV">
@@ -16,7 +16,53 @@
     </head>
     <body id="userPage"> 
         <div class="column left-menu-bar">
-            1
+            <div class="sidebar-expanded">
+                <div class="sidebar-header">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="web/img/trash/logo.png" />
+                        </a>
+                    </div>
+                    <form action="/search" method="get" target="_top" class="search-form">
+                        <input type="text" name="search" value="" autocomplete="off" placeholder="搜游戏/主播">
+                        <div class="search-submit-btn">
+                            <input type="submit" class="search-submit">                        
+                        </div>
+                        <i class="fa fa-search" aria-hidden="true"></i>  
+                    </form>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-television"></i>
+                                All
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-th-large"></i>
+                                Categories
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
+                <div class="sidebar-content">
+                    <h4>Top competitive</h4>
+                    <ul>
+                        <li><a href="#">LOL</a></li>
+                        <li><a href="#">DOTA</a></li>
+                        <li><a href="#">BOTA</a></li>
+                        <li><a href="#">LOL</a></li>
+                        <li><a href="#">DOTA</a></li>
+                        <li><a href="#">BOTA</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar-footer">
+                    <a href="#">Login</a>
+                    <a href="#">Register</a>
+                </div>
+            </div>
+            <div class="sidebar-collapsed"></div>
+            
             <a href="#" class="close-bar-btn" data-side="left">
                 <i class="fa fa-chevron-left icon-left"></i>
                 <i class="fa fa-chevron-right icon-right"></i>

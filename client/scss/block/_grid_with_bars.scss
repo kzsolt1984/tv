@@ -42,6 +42,94 @@
             }
         }
     }
+
+    // content
+    .sidebar-expanded {
+        text-align: center;
+        padding: 15px;
+
+        .sidebar-header {
+            margin-bottom: 15px;
+
+            .search-form {
+                input[type="text"] {
+                    width: 100%;
+                }
+            }
+
+            ul {
+                margin: 25px 0;
+                text-align: left;
+
+                li {
+                    display: block;
+                    margin-bottom: 15px;
+                    font-size: 15px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    a {
+                        color: $headerLinkSecondColor;
+
+                        i {
+                            font-size: 20px;
+                            width: 22px;
+                            margin-right: 20px;
+                            position: relative;
+                            top: 2px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .sidebar-content {
+            position: absolute;
+            left: 15px;
+            right: 10px;
+            top: 225px;
+            bottom: 90px;
+
+            h4 {
+                text-align: left;
+                margin-bottom: 10px;
+                color: $headerLinkSecondColor;
+                border-bottom: 1px solid #000;
+                padding-bottom: 10px;
+                font-size: 14px;
+                margin-right: 5px;
+            }
+
+            ul {
+                li {
+                    display: inline-block;
+                    margin: 0 5px 5px 0;
+
+                    a {
+                        display: block;
+                        width: 60px;
+                        height: 28px;
+                        line-height: 28px;      
+                        font-size: 12px;       
+                        background-color: #000;       
+                        color: $headerLinkSecondColor;    
+
+                        &:hover {
+                            background-color: $defaultLinkColor;                            
+                        }
+                    }
+                }
+            }
+        }
+
+        .sidebar-footer {
+            position: absolute;
+            left: 15px;
+            bottom: 15px;
+        }
+    }
 }
 
 .content-with-left-menu {
