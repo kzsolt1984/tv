@@ -1,0 +1,114 @@
+.left-menu-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    z-index: 3;
+    background-color: $headerBgColor;
+    //overflow: hidden;
+
+    .close-bar-btn {
+        width: 15px;
+        position: absolute;
+        top: 50%;
+        left: 240px;
+        background-color: $headerBgColor;
+        padding: 10px 0;
+
+        .icon-right {
+            display: none;
+        }
+    }
+
+    &.closed {
+        width: 50px;
+
+        .close-bar-btn {
+            left: 50px;
+        }
+
+        .icon-right {
+            display: block;
+        }
+
+        .icon-left {
+            display: none;
+        }
+
+        &.disable-expand {
+            .close-bar-btn {
+                display: none;
+            }
+        }
+    }
+}
+
+.content-with-left-menu {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    margin-left: 240px;
+    margin-right: 340px;
+    z-index: 2;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 3000px;
+
+    &.expanded-left {
+        margin-left: 50px;
+    }
+
+    &.expanded-right {
+        margin-right: 0;
+    }
+}
+
+.right-page-bar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 340px;
+    z-index: 3;
+    background: #FAFAFA;
+
+    .close-bar-btn {
+        width: 15px;
+        position: absolute;
+        top: 50%;
+        right: 340px;
+        background-color: #FAFAFA;
+        padding: 10px 0;
+
+        i {
+            position: relative;
+            left: 3px;
+        }
+
+        .icon-left {
+            display: none;
+        }
+    }
+
+    &.closed {
+        width: 0;
+
+        .close-bar-btn {
+            right: 0;
+
+            .icon-left {
+                display: block;
+            }
+            .icon-right {
+                display: none;
+            }
+        }
+
+        &.disable-expand {
+            .close-bar-btn {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var conf;
 (function (conf) {
     var Config = (function () {
@@ -46,7 +51,7 @@ var component;
          * @private
          */
         Bootstrap.prototype._setController = function () {
-            var controllerName = _.capitalize(this._bodyId + 'Controller'), win = window; // compailer semantic error protection
+            var controllerName = _.upperFirst(this._bodyId + 'Controller'), win = window; // compailer semantic error protection
             if (win['controller'][controllerName]) {
                 new win['controller'][controllerName];
             }
@@ -296,7 +301,7 @@ var controller;
             console.log('CommonController init done');
             // temporarily place
             new component.VideoPlayerComponent($('.video-content'));
-            this._bind();
+            // this._bind();
         }
         CommonController.prototype._bind = function () {
             var $mobileMenuButton = $('header').find('.mobile-menu-button'), $mobileMenu = $('nav');
@@ -314,6 +319,109 @@ var controller;
         return CommonController;
     }());
     controller.CommonController = CommonController;
+})(controller || (controller = {}));
+///<reference path="./commonController.ts" />
+var controller;
+(function (controller) {
+    var PageController = (function (_super) {
+        __extends(PageController, _super);
+        function PageController() {
+            var _this = _super.call(this) || this;
+            _this._$window = $(window);
+            _this._$closeMenuBar = $('.close-bar-btn');
+            _this._$leftMenuBar = $('.left-menu-bar');
+            _this._$rightPageBar = $('.right-page-bar');
+            _this._$contentWithBars = $('.content-with-left-menu');
+            _this._bind();
+            return _this;
+        }
+        PageController.prototype._bind = function () {
+            var _this = this;
+            _super.prototype._bind.call(this);
+            this._setSiteElementDimension();
+            this._$window.on('resize', function () {
+                _this._setSiteElementDimension();
+            });
+            this._$closeMenuBar.on('click', function (e) {
+                var data = $(e.currentTarget).data('side');
+                if (data === 'left') {
+                    _this._setLeftBarSize(!(_this._$leftMenuBar.hasClass('closed')), false);
+                }
+                else {
+                    _this._setRightBarSize(!(_this._$rightPageBar.hasClass('closed')), false);
+                }
+                return false;
+            });
+        };
+        PageController.prototype._setLeftBarSize = function (close, changeCloseBtnVisibility) {
+            if (close) {
+                if (changeCloseBtnVisibility) {
+                    this._$leftMenuBar.addClass('closed disable-expand');
+                }
+                else {
+                    this._$leftMenuBar.addClass('closed');
+                }
+                this._$contentWithBars.addClass('expanded-left');
+            }
+            else {
+                if (changeCloseBtnVisibility) {
+                    this._$leftMenuBar.removeClass('closed disable-expand');
+                }
+                else {
+                    this._$leftMenuBar.removeClass('closed');
+                }
+                this._$contentWithBars.removeClass('expanded-left');
+            }
+        };
+        PageController.prototype._setRightBarSize = function (close, changeCloseBtnVisibility) {
+            if (close) {
+                if (changeCloseBtnVisibility) {
+                    this._$rightPageBar.addClass('closed disable-expand');
+                }
+                else {
+                    this._$rightPageBar.addClass('closed');
+                }
+                this._$contentWithBars.addClass('expanded-right');
+            }
+            else {
+                if (changeCloseBtnVisibility) {
+                    this._$rightPageBar.removeClass('closed disable-expand');
+                }
+                else {
+                    this._$rightPageBar.removeClass('closed');
+                }
+                this._$contentWithBars.removeClass('expanded-right');
+            }
+        };
+        PageController.prototype._setSiteElementDimension = function () {
+            if (this._$window.width() < 980) {
+                this._setLeftBarSize(true, true);
+            }
+            else {
+                this._setLeftBarSize(false, true);
+            }
+            if (this._$window.width() < 850) {
+                this._setRightBarSize(true, true);
+            }
+            else {
+                this._setRightBarSize(false, true);
+            }
+        };
+        return PageController;
+    }(controller.CommonController));
+    controller.PageController = PageController;
+})(controller || (controller = {}));
+///<reference path="./pageController.ts" />
+var controller;
+(function (controller) {
+    var UserPageController = (function (_super) {
+        __extends(UserPageController, _super);
+        function UserPageController() {
+            return _super.call(this) || this;
+        }
+        return UserPageController;
+    }(controller.PageController));
+    controller.UserPageController = UserPageController;
 })(controller || (controller = {}));
 
 //# sourceMappingURL=maps/main.js.map

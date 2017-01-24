@@ -4,7 +4,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta content='620' property='og:width'>
+        <meta content='378' property='og:height'>
         <meta name="description" content="An interactive TV">
 
         <title>TV</title>
@@ -12,27 +14,80 @@
         <link rel="stylesheet" href="web/css/bower.css">
         <link rel="stylesheet" href="web/css/base.css">        
     </head>
-    <body id="chatPage"> 
-        <div class="column column-1">
+    <body id="userPage"> 
+        <div class="column left-menu-bar">
             1
+            <a href="#" class="close-bar-btn" data-side="left">
+                <i class="fa fa-chevron-left icon-left"></i>
+                <i class="fa fa-chevron-right icon-right"></i>
+            </a>
         </div>
-        <div class="column column-2">
-            <div class="content">
+        <div class="column content-with-left-menu">
+            <div>
                 <div class="chat-header box-container">
                     <img src="web/img/trash/avatar.jpg" class="profile-pic" alt="profile" />
                     <h1>iG.JamLee: min Lee Jing acupoint Grilled clothes!</h1>
                     <div class="header-info">
-                        <a class="header-hostname">JamLeeRye </a>
-                        <a class="header-chanelname">Felej csenel</a>
-                        <span class="header-following">34122223242</span>
+                        <span class="header-hostname">
+                            <i class="fa fa-user"></i>
+                            JamLeeRye 
+                        </span>
+                        <a class="header-chanelname">
+                            <i class="fa fa-tv"></i>
+                            Felej csenel
+                        </a>                        
+                    </div>
+                    <div class="subscribe-content">
+                        <a href="#" class="btn btn-primary btn-sm header-subscribe-btn">
+                            <i class="fa fa-toggle-right"></i>
+                            Subscribe
+                        </a>
+                        <span class="subscription-number">34122223242</span>
+                    </div>
+                </div>
 
-                        <a href="#" class="header-follow">subscribe</a>
+                <div class="box-container">
+                    <div class="video-content">
+                        <div class="video-box">
+                            <video poster="web/img/trash/player.jpg" class="live-video">
+                                <source src="http://mediaelementjs.com//media/echo-hereweare.mp4" type="video/mp4" />
+                                <source src="http://mediaelementjs.com//media/echo-hereweare.webm" type="video/webm" />
+                                <source src="http://mediaelementjs.com//media/echo-hereweare.ogv" type="video/ogg" />
+                            </video>
+
+                            <div class="video-controls">
+                                <a href="#" class="control-playing">
+                                    <i class="fa fa-play video-play-icon" aria-hidden="true"></i>
+                                    <i class="fa fa-pause video-pause-icon" aria-hidden="true"></i>
+                                </a>
+
+                                <a href="#" class="control-volume">
+                                    <i class="fa fa-volume-up video-volume-up-icon" aria-hidden="true"></i>
+                                    <i class="fa fa-volume-down video-volume-down-icon" aria-hidden="true"></i>
+                                </a>
+
+                                <div class="volume-slider">
+                                    <div class="volume-slider-range" style="width: 46%;"></div>
+                                    <span tabindex="-1" class="volume-slider-handle" style="left: 46%;"></span>
+                                </div>
+
+                                <a href="#" class="control-full-screen">
+                                    <i class="fa fa-expand video-expand-icon" aria-hidden="true"></i>
+                                    <i class="fa fa-compress video-compress-icon" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="column column-3">
+
+        <div class="column right-page-bar">
             3
+            <a href="#" class="close-bar-btn" data-side="right">
+                <i class="fa fa-chevron-left icon-left"></i>
+                <i class="fa fa-chevron-right icon-right"></i>
+            </a>
         </div>
         
         <script type="text/javascript" src="web/js/bower.js"></script>

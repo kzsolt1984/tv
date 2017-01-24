@@ -8,7 +8,7 @@ module controller {
             // temporarily place
             new component.VideoPlayerComponent($('.video-content'));
 
-            this._bind();
+            // this._bind();
         }
 
         protected _bind() {

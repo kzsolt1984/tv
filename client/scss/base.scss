@@ -103,6 +103,7 @@ a:active:focus {
     text-decoration: none;
     outline: none!important;
     border: none;
+    color: $defaultLinkActiveColor;
 }
 
 a {
@@ -161,6 +162,7 @@ a {
 /********************************** blocks **************************/
 @import "block/_header.scss";
 @import "block/_modal.scss";
+@import "block/_grid_with_bars.scss";
 
 /********************************** pages **************************/
 @import "page/_main.scss";

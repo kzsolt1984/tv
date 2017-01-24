@@ -16,7 +16,7 @@ module component {
          * @private
          */
         private _setController(): void {
-            var controllerName: any = _.capitalize(this._bodyId + 'Controller'),
+            var controllerName: any = _.upperFirst(this._bodyId + 'Controller'),
                 win: any = window;  // compailer semantic error protection
 
             if (win['controller'][controllerName]) {

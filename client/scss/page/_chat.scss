@@ -1,54 +1,72 @@
-#chatPage {
-    .column-1 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        width: 240px;
-        z-index: 3;
-        background-color: $headerBgColor;
-    }
-    .column-2 {
-        position: relative;
-        height: 100%;
-        overflow: hidden;
-        margin-left: 240px;
-        margin-right: 340px;
-        z-index: 2;
-        box-sizing: border-box;
+#userPage {
+   
+    .content-with-left-menu {
+        .box-container {
+            margin: 0 20px 15px;
+        }
 
-        .content {
-            padding: 0 20px;
+        .chat-header {
+            height: 110px;
+            position: relative;
 
-            .chat-header {
-                height: 110px;
-                position: relative;
-                
-                img {
-                    width: 80px;
-                    height: 80px;
-                    position: absolute;
-                    top: 15px;
-                    left: 15px;
-                }
+            &.box-container {
+                margin: 0 0 15px;
+            }
+            
+            img {
+                width: 80px;
+                height: 80px;
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                border: 2px solid $defaultLinkColor;
+            }
 
-                h1 {
-                    padding: 0 15px 0 90px;
-                    font-size: 22px;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
+            h1 {
+                padding: 10px 15px 0 90px;
+                font-size: 22px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .header-info {
+                position: absolute;
+                left: 105px;
+                bottom: 25px;
+                font-size: 12px;
+
+                .header-hostname,
+                .header-chanelname {
+                    margin-right: 10px;
                 }
             }
-        }        
+
+            .subscribe-content {
+                position: absolute;
+                right: 15px;
+                bottom: 17px;
+
+                .header-subscribe-btn {
+                    i {
+                        font-size: 14px;
+                        position: relative;
+                        top: 1px;
+                    }
+                }
+
+                .subscription-number {
+                    font-size: 12px;
+                    line-height: 1.5;
+                    border: 1px solid $headerLinkColor;
+                    border-left: none;
+                    padding: 5px 5px 5px;
+                    margin-left: -5px;
+                    position: relative;
+                    top: 1px;
+                }
+            }                
+        }     
     }
-    .column-3 {
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        width: 340px;
-        z-index: 3;
-        background: #FAFAFA;
-    }
+    
 }
