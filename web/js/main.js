@@ -485,6 +485,14 @@ var component;
                 _this._setSettingsPanelVisibility();
                 return false;
             });
+            this._$chatSettingsPanel.find('a').on('click', function (e) {
+                var selectedE = $(e.currentTarget);
+                _this._selectedColor = selectedE.data('color');
+                _this._$chatSettingsPanel.find('a').removeClass('selected');
+                selectedE.addClass('selected');
+                _this._setSettingsPanelVisibility();
+                return false;
+            });
         };
         ChatComponent.prototype._scollToChatBottom = function () {
             this._$chatContainer.customScrollbar('scrollToY', this._$chatContainer.height());

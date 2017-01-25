@@ -982,6 +982,14 @@ header {
     list-style-position: unset; }
     #userPage .right-page-bar .chat-container ul li .info {
       font-weight: bold; }
+      #userPage .right-page-bar .chat-container ul li .info.color-1 {
+        color: #414141; }
+      #userPage .right-page-bar .chat-container ul li .info.color-2 {
+        color: #7fcbf3; }
+      #userPage .right-page-bar .chat-container ul li .info.color-3 {
+        color: #e368d7; }
+      #userPage .right-page-bar .chat-container ul li .info.color-4 {
+        color: #ea4e2c; }
 
 #userPage .right-page-bar .chat-interface {
   position: absolute;
@@ -1016,11 +1024,19 @@ header {
     box-shadow: 0 0 3px #1E1E21; }
     #userPage .right-page-bar .chat-interface .chat-settings .settings-content {
       text-align: left;
-      margin-top: 15px; }
+      margin-top: 5px; }
       #userPage .right-page-bar .chat-interface .chat-settings .settings-content a {
         display: inline-block;
         width: 20px;
-        height: 20px; }
+        height: 20px;
+        font-size: 0;
+        line-height: 32px;
+        text-align: center; }
+        #userPage .right-page-bar .chat-interface .chat-settings .settings-content a i {
+          font-size: 16px;
+          opacity: 0; }
+        #userPage .right-page-bar .chat-interface .chat-settings .settings-content a.selected i {
+          opacity: 1; }
         #userPage .right-page-bar .chat-interface .chat-settings .settings-content a.color-1 {
           background-color: #414141; }
         #userPage .right-page-bar .chat-interface .chat-settings .settings-content a.color-2 {

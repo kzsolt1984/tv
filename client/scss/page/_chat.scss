@@ -117,6 +117,22 @@
 
                     .info {
                         font-weight: bold;
+
+                        &.color-1 {
+                            color: $defaultFontColor;
+                        }
+
+                        &.color-2 {
+                            color: #7fcbf3;
+                        }
+
+                        &.color-3 {
+                            color: #e368d7;
+                        }
+
+                        &.color-4 {
+                            color: #ea4e2c;
+                        }
                     }
                 }
             }
@@ -167,12 +183,26 @@
 
                 .settings-content {
                     text-align: left;
-                    margin-top: 15px;
+                    margin-top: 5px;
 
                     a {
                         display: inline-block;
                         width: 20px;
-                        height: 20px;                        
+                        height: 20px;     
+                        font-size: 0;
+                        line-height: 32px;
+                        text-align: center;
+
+                        i {
+                            font-size: 16px;
+                            opacity: 0;
+                        }                 
+
+                        &.selected {
+                            i {
+                                opacity: 1;
+                            }
+                        }  
 
                         &.color-1 {
                             background-color: $defaultFontColor;

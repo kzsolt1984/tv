@@ -66,6 +66,19 @@ module component {
 
                 return false;
             });
+
+            this._$chatSettingsPanel.find('a').on('click', (e: JQueryEventObject) => {
+                var selectedE = $(e.currentTarget);
+
+                this._selectedColor = selectedE.data('color');
+
+                this._$chatSettingsPanel.find('a').removeClass('selected');
+                selectedE.addClass('selected');
+                
+                this._setSettingsPanelVisibility();
+
+                return false;
+            });
         }
 
         private _scollToChatBottom(): void {
