@@ -305,16 +305,6 @@ header {
     padding: 10px 0; }
     .left-menu-bar .close-bar-btn .icon-right {
       display: none; }
-  .left-menu-bar.closed {
-    width: 50px; }
-    .left-menu-bar.closed .close-bar-btn {
-      left: 50px; }
-    .left-menu-bar.closed .icon-right {
-      display: block; }
-    .left-menu-bar.closed .icon-left {
-      display: none; }
-    .left-menu-bar.closed.disable-expand .close-bar-btn {
-      display: none; }
   .left-menu-bar .sidebar-expanded {
     text-align: center;
     padding: 15px; }
@@ -369,9 +359,32 @@ header {
     .left-menu-bar .sidebar-expanded .sidebar-footer {
       position: absolute;
       left: 15px;
-      bottom: 15px; }
+      bottom: 15px;
+      text-align: center;
+      width: 86%; }
+      .left-menu-bar .sidebar-expanded .sidebar-footer a {
+        padding-left: 15px;
+        padding-right: 15px; }
+        .left-menu-bar .sidebar-expanded .sidebar-footer a:first-child {
+          margin-right: 30px; }
+  .left-menu-bar .sidebar-collapsed {
+    display: none; }
+  .left-menu-bar.closed {
+    width: 50px; }
+    .left-menu-bar.closed .sidebar-expanded {
+      display: none; }
+    .left-menu-bar.closed .sidebar-collapsed {
+      display: block; }
+    .left-menu-bar.closed .close-bar-btn {
+      left: 50px; }
+    .left-menu-bar.closed .icon-right {
+      display: block; }
+    .left-menu-bar.closed .icon-left {
+      display: none; }
+    .left-menu-bar.closed.disable-expand .close-bar-btn {
+      display: none; }
 
-.content-with-left-menu {
+.content-with-bars {
   position: relative;
   height: 100%;
   overflow: hidden;
@@ -381,9 +394,9 @@ header {
   box-sizing: border-box;
   overflow: hidden;
   height: 3000px; }
-  .content-with-left-menu.expanded-left {
+  .content-with-bars.expanded-left {
     margin-left: 50px; }
-  .content-with-left-menu.expanded-right {
+  .content-with-bars.expanded-right {
     margin-right: 0; }
 
 .right-page-bar {
@@ -406,6 +419,29 @@ header {
       left: 3px; }
     .right-page-bar .close-bar-btn .icon-left {
       display: none; }
+  .right-page-bar .chat-header {
+    height: 40px;
+    line-height: 22px;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #EFEFEF;
+    font-size: 14px; }
+  .right-page-bar .chat-container {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    top: 40px;
+    bottom: 120px;
+    padding-top: 15px;
+    overflow: hidden; }
+    .right-page-bar .chat-container ul li {
+      font-size: 12px;
+      line-height: 20px;
+      padding: 6px 20px;
+      word-wrap: break-word;
+      list-style-position: unset; }
+      .right-page-bar .chat-container ul li .info {
+        font-weight: bold; }
   .right-page-bar.closed {
     width: 0; }
     .right-page-bar.closed .close-bar-btn {
@@ -903,44 +939,45 @@ header {
   #mainPage .live-recommender-container .recommend-block {
     width: 463px; } }
 
-#userPage .content-with-left-menu .box-container {
+#userPage .content-with-bars .box-container {
   margin: 0 20px 15px; }
 
-#userPage .content-with-left-menu .chat-header {
+#userPage .content-with-bars .chat-header {
   height: 110px;
   position: relative; }
-  #userPage .content-with-left-menu .chat-header.box-container {
-    margin: 0 0 15px; }
-  #userPage .content-with-left-menu .chat-header img {
+  #userPage .content-with-bars .chat-header.box-container {
+    margin: 0 0 15px;
+    padding: 0 20px; }
+  #userPage .content-with-bars .chat-header img {
     width: 80px;
     height: 80px;
     position: absolute;
     top: 15px;
-    left: 15px;
+    left: 20px;
     border: 2px solid #E93C1A; }
-  #userPage .content-with-left-menu .chat-header h1 {
-    padding: 10px 15px 0 90px;
+  #userPage .content-with-bars .chat-header h1 {
+    padding: 25px 15px 0 90px;
     font-size: 22px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
-  #userPage .content-with-left-menu .chat-header .header-info {
+  #userPage .content-with-bars .chat-header .header-info {
     position: absolute;
-    left: 105px;
+    left: 110px;
     bottom: 25px;
     font-size: 12px; }
-    #userPage .content-with-left-menu .chat-header .header-info .header-hostname,
-    #userPage .content-with-left-menu .chat-header .header-info .header-chanelname {
+    #userPage .content-with-bars .chat-header .header-info .header-hostname,
+    #userPage .content-with-bars .chat-header .header-info .header-chanelname {
       margin-right: 10px; }
-  #userPage .content-with-left-menu .chat-header .subscribe-content {
+  #userPage .content-with-bars .chat-header .subscribe-content {
     position: absolute;
-    right: 15px;
+    right: 20px;
     bottom: 17px; }
-    #userPage .content-with-left-menu .chat-header .subscribe-content .header-subscribe-btn i {
+    #userPage .content-with-bars .chat-header .subscribe-content .header-subscribe-btn i {
       font-size: 14px;
       position: relative;
       top: 1px; }
-    #userPage .content-with-left-menu .chat-header .subscribe-content .subscription-number {
+    #userPage .content-with-bars .chat-header .subscribe-content .subscription-number {
       font-size: 12px;
       line-height: 1.5;
       border: 1px solid #f5f5f5;

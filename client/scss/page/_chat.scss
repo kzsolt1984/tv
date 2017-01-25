@@ -1,6 +1,5 @@
-#userPage {
-   
-    .content-with-left-menu {
+#userPage {   
+    .content-with-bars {
         .box-container {
             margin: 0 20px 15px;
         }
@@ -11,6 +10,7 @@
 
             &.box-container {
                 margin: 0 0 15px;
+                padding: 0 20px;
             }
             
             img {
@@ -18,12 +18,12 @@
                 height: 80px;
                 position: absolute;
                 top: 15px;
-                left: 15px;
+                left: 20px;
                 border: 2px solid $defaultLinkColor;
             }
 
             h1 {
-                padding: 10px 15px 0 90px;
+                padding: 25px 15px 0 90px;
                 font-size: 22px;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -32,7 +32,7 @@
 
             .header-info {
                 position: absolute;
-                left: 105px;
+                left: 110px;
                 bottom: 25px;
                 font-size: 12px;
 
@@ -44,7 +44,7 @@
 
             .subscribe-content {
                 position: absolute;
-                right: 15px;
+                right: 20px;
                 bottom: 17px;
 
                 .header-subscribe-btn {
@@ -67,6 +67,5 @@
                 }
             }                
         }     
-    }
-    
+    }    
 }

@@ -21,28 +21,6 @@
         }
     }
 
-    &.closed {
-        width: 50px;
-
-        .close-bar-btn {
-            left: 50px;
-        }
-
-        .icon-right {
-            display: block;
-        }
-
-        .icon-left {
-            display: none;
-        }
-
-        &.disable-expand {
-            .close-bar-btn {
-                display: none;
-            }
-        }
-    }
-
     // content
     .sidebar-expanded {
         text-align: center;
@@ -128,11 +106,56 @@
             position: absolute;
             left: 15px;
             bottom: 15px;
+            text-align: center;
+            width: 86%;
+
+            a {
+                padding-left:15px;
+                padding-right:15px;
+
+                &:first-child {
+                    margin-right: 30px;
+                }
+            }
+        }
+    }
+
+    .sidebar-collapsed {
+        display: none;
+    }
+
+    &.closed {
+        width: 50px;
+
+        .sidebar-expanded {
+            display: none;
+        }
+
+        .sidebar-collapsed {
+            display: block;
+        }
+
+        .close-bar-btn {
+            left: 50px;
+        }
+
+        .icon-right {
+            display: block;
+        }
+
+        .icon-left {
+            display: none;
+        }
+
+        &.disable-expand {
+            .close-bar-btn {
+                display: none;
+            }
         }
     }
 }
 
-.content-with-left-menu {
+.content-with-bars {
     position: relative;
     height: 100%;
     overflow: hidden;
@@ -176,6 +199,39 @@
 
         .icon-left {
             display: none;
+        }
+    }
+
+    .chat-header {
+        height: 40px;
+        line-height: 22px;
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid $defaultBgColor;
+        font-size: 14px;
+    }
+
+    .chat-container {
+        position: absolute;
+        left: 15px;
+        right: 15px;
+        top: 40px;
+        bottom: 120px;
+        padding-top: 15px;
+        overflow: hidden;
+
+        ul {
+            li {
+                font-size: 12px;
+                line-height: 20px;
+                padding: 6px 20px;
+                word-wrap: break-word;
+                list-style-position: unset;
+
+                .info {
+                    font-weight: bold;
+                }
+            }
         }
     }
 

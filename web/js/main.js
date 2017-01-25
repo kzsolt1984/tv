@@ -355,7 +355,7 @@ var controller;
             _this._$closeMenuBar = $('.close-bar-btn');
             _this._$leftMenuBar = $('.left-menu-bar');
             _this._$rightPageBar = $('.right-page-bar');
-            _this._$contentWithBars = $('.content-with-left-menu');
+            _this._$contentWithBars = $('.content-with-bars');
             _this._$isMobileView = util.MobileUtil.detectIsMobileView();
             _this._bind();
             return _this;

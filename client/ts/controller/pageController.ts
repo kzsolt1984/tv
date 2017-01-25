@@ -17,7 +17,7 @@ module controller {
             this._$closeMenuBar = $('.close-bar-btn');
             this._$leftMenuBar = $('.left-menu-bar');
             this._$rightPageBar = $('.right-page-bar');
-            this._$contentWithBars = $('.content-with-left-menu');
+            this._$contentWithBars = $('.content-with-bars');
             this._$isMobileView = util.MobileUtil.detectIsMobileView();
 
             this._bind();
