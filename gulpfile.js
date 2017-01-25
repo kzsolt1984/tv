@@ -99,7 +99,7 @@ gulp.task("browser-sync", function(cb) {
 gulp.task("compile", ["sass", "ts", "bower", "external-js", "image-compress"]);
 
 // WATCH Task
-gulp.task("watch", ["sass", "browser-sync"], function() {
+gulp.task("watch", ["ts", "sass", "browser-sync"], function() {
     gulp.watch("./client/scss/**/*.scss", ["livereload:sass"]);
     gulp.watch(["./client/ts/**/*.ts"], ["livereload:ts"]);
 });

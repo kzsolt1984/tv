@@ -436,13 +436,87 @@ var controller;
     }(controller.CommonController));
     controller.PageController = PageController;
 })(controller || (controller = {}));
+///<reference path="../../../lib/ts/jquey.custom-scrollbar.d.ts" />
+var component;
+(function (component) {
+    var ChatComponent = (function () {
+        function ChatComponent() {
+            this._isScrolled = false;
+            this._selectedColor = 'color-1';
+            this._$chatContainer = $('.chat-container');
+            this._$chatContent = this._$chatContainer.find('ul');
+            this._$chatSendBtn = $('.chat-interface .chat-send-btn');
+            this._$chatTextarea = $('.chat-interface textarea');
+            this._$chatSettingsBtn = $('.chat-buttons .setting-btn');
+            this._$chatSettingsPanel = $('.chat-interface .chat-settings');
+            this._$chatContainer.customScrollbar({
+                preventDefaultScroll: true
+            });
+            this._scollToChatBottom();
+            this._bind();
+            console.log('ChatComponent init done');
+        }
+        ChatComponent.prototype.sendMessage = function () {
+            if (!this._$chatTextarea.val().length) {
+                return;
+            }
+            this._$chatContent.append(this._getMessageTemplate('Béna Béla', this._$chatTextarea.val()));
+            this._$chatTextarea.val('');
+            this._$chatContainer.customScrollbar('resize', true);
+            if (!this._isScrolled) {
+                this._scollToChatBottom();
+            }
+        };
+        ChatComponent.prototype._bind = function () {
+            var _this = this;
+            this._$chatContainer.on('customScroll', function (event, scrollData) {
+                if (scrollData.scrollPercent < 100) {
+                    _this._isScrolled = true;
+                }
+                else {
+                    _this._isScrolled = false;
+                }
+            });
+            this._$chatSendBtn.on('click', function () {
+                _this.sendMessage();
+                return false;
+            });
+            this._$chatSettingsBtn.on('click', function () {
+                _this._setSettingsPanelVisibility();
+                return false;
+            });
+        };
+        ChatComponent.prototype._scollToChatBottom = function () {
+            this._$chatContainer.customScrollbar('scrollToY', this._$chatContainer.height());
+        };
+        ChatComponent.prototype._setSettingsPanelVisibility = function () {
+            if (this._$chatSettingsPanel.is(':hidden')) {
+                this._$chatSettingsPanel.show();
+            }
+            else {
+                this._$chatSettingsPanel.hide();
+            }
+        };
+        ChatComponent.prototype._getMessageTemplate = function (user, message) {
+            return '<li>'
+                + '<span class="info ' + this._selectedColor + '">' + _.escape(user) + ': &nbsp;</span>'
+                + '<span class="text">' + _.escape(message) + '</span>'
+                + '</li>';
+        };
+        return ChatComponent;
+    }());
+    component.ChatComponent = ChatComponent;
+})(component || (component = {}));
 ///<reference path="./pageController.ts" />
+///<reference path="../component/chat/chatComponent.ts" />
 var controller;
 (function (controller) {
     var UserPageController = (function (_super) {
         __extends(UserPageController, _super);
         function UserPageController() {
-            return _super.call(this) || this;
+            var _this = _super.call(this) || this;
+            new component.ChatComponent();
+            return _this;
         }
         return UserPageController;
     }(controller.PageController));
