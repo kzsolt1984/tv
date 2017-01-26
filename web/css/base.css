@@ -305,7 +305,8 @@ header {
     top: 50%;
     left: 240px;
     background-color: #1E1E21;
-    padding: 10px 0; }
+    padding: 20px 0;
+    border-radius: 0 30px 30px 0; }
     .left-menu-bar .close-bar-btn .icon-right {
       display: none; }
   .left-menu-bar .sidebar-expanded {
@@ -346,29 +347,42 @@ header {
         padding-bottom: 10px;
         font-size: 14px;
         margin-right: 5px; }
-      .left-menu-bar .sidebar-expanded .sidebar-content ul li {
-        display: inline-block;
-        margin: 0 5px 5px 0; }
-        .left-menu-bar .sidebar-expanded .sidebar-content ul li a {
-          display: block;
-          width: 60px;
-          height: 28px;
-          line-height: 28px;
-          font-size: 12px;
-          background-color: #000;
-          color: #f5f5f5; }
-          .left-menu-bar .sidebar-expanded .sidebar-content ul li a:hover {
-            background-color: #E93C1A; }
-    .left-menu-bar .sidebar-expanded .sidebar-footer {
+      .left-menu-bar .sidebar-expanded .sidebar-content ul {
+        margin-bottom: 20px; }
+        .left-menu-bar .sidebar-expanded .sidebar-content ul li {
+          display: inline-block;
+          margin: 0 5px 5px 0; }
+          .left-menu-bar .sidebar-expanded .sidebar-content ul li a {
+            display: block;
+            width: 60px;
+            height: 28px;
+            line-height: 28px;
+            font-size: 12px;
+            background-color: #000;
+            color: #f5f5f5; }
+            .left-menu-bar .sidebar-expanded .sidebar-content ul li a:hover {
+              background-color: #E93C1A; }
+      .left-menu-bar .sidebar-expanded .sidebar-content .sidebar-footer {
+        border-top: 1px solid #000;
+        padding-top: 10px;
+        text-align: center;
+        line-height: 25px;
+        font-size: 12px; }
+        .left-menu-bar .sidebar-expanded .sidebar-content .sidebar-footer a {
+          color: #777;
+          margin-right: 10px; }
+          .left-menu-bar .sidebar-expanded .sidebar-content .sidebar-footer a:hover {
+            color: #fff; }
+    .left-menu-bar .sidebar-expanded .sidebar-auth-buttons {
       position: absolute;
       left: 15px;
       bottom: 15px;
       text-align: center;
       width: 86%; }
-      .left-menu-bar .sidebar-expanded .sidebar-footer a {
+      .left-menu-bar .sidebar-expanded .sidebar-auth-buttons a {
         padding-left: 15px;
         padding-right: 15px; }
-        .left-menu-bar .sidebar-expanded .sidebar-footer a:first-child {
+        .left-menu-bar .sidebar-expanded .sidebar-auth-buttons a:first-child {
           margin-right: 30px; }
   .left-menu-bar .sidebar-collapsed {
     display: none; }
@@ -410,6 +424,19 @@ header {
   width: 340px;
   z-index: 3;
   background: #FAFAFA; }
+  .right-page-bar .close-bar-btn {
+    width: 15px;
+    position: absolute;
+    top: 50%;
+    right: 340px;
+    background-color: #FAFAFA;
+    padding: 20px 0;
+    border-radius: 30px 0 0 30px; }
+    .right-page-bar .close-bar-btn i {
+      position: relative;
+      left: 3px; }
+    .right-page-bar .close-bar-btn .icon-left {
+      display: none; }
 
 /********************************** pages **************************/
 .thumbnail-small {
@@ -681,6 +708,21 @@ header {
         outline: none;
         z-index: 1;
         left: 46%; }
+  .video-content .video-box .player-mini-controls {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -50px;
+    font-size: 40px; }
+    .video-content .video-box .player-mini-controls a {
+      margin-right: 20px;
+      color: #f5f5f5; }
+      .video-content .video-box .player-mini-controls a .fa-pause {
+        display: none; }
+  .video-content .video-box.scrolled:hover .player-mini-controls {
+    display: block; }
 
 .video-content.full-screen {
   width: 100% !important; }
@@ -945,17 +987,15 @@ header {
       position: relative;
       top: 1px; }
 
-#userPage .right-page-bar .close-bar-btn {
-  width: 15px;
-  position: absolute;
-  top: 50%;
-  right: 340px;
-  background-color: #FAFAFA;
-  padding: 10px 0; }
-  #userPage .right-page-bar .close-bar-btn i {
-    position: relative;
-    left: 3px; }
-  #userPage .right-page-bar .close-bar-btn .icon-left {
+#userPage .content-with-bars .video-content .video-box.scrolled {
+  position: fixed;
+  bottom: 40px;
+  width: 260px;
+  border: 10px solid #fff;
+  background-color: #fff; }
+  #userPage .content-with-bars .video-content .video-box.scrolled video {
+    border: 1px solid #E93C1A; }
+  #userPage .content-with-bars .video-content .video-box.scrolled .video-controls {
     display: none; }
 
 #userPage .right-page-bar .chat-header {

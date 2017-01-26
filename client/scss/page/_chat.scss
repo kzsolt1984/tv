@@ -67,28 +67,30 @@
                 }
             }                
         }     
+
+        .video-content {
+            .video-box {
+                &.scrolled {
+                    position: fixed;
+                    bottom: 40px;
+                    width: 260px;
+                    border: 10px solid $boxContainerBgColor;
+                    background-color: $boxContainerBgColor;
+
+                    video {
+                        border: 1px solid $defaultLinkColor;
+                    }
+
+                    .video-controls {
+                        display: none;
+                    }
+                }
+            }
+        }
     }    
 
     // chat bar
     .right-page-bar {
-        .close-bar-btn {
-            width: 15px;
-            position: absolute;
-            top: 50%;
-            right: 340px;
-            background-color: #FAFAFA;
-            padding: 10px 0;
-
-            i {
-                position: relative;
-                left: 3px;
-            }
-
-            .icon-left {
-                display: none;
-            }
-        }
-
         .chat-header {
             height: 40px;
             line-height: 22px;

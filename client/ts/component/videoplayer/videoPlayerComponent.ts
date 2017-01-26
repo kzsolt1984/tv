@@ -2,22 +2,28 @@ module component {
     export class VideoPlayerComponent {
         private _videoContainer: HTMLElement;
         private _$videoContainer: JQuery;
+        private _$videoElement: JQuery;
         private _videoElement: HTMLVideoElement;
         private _playStopBtn: JQuery;
         private _volumeBtn: JQuery;
         private _fullScreenBtn: JQuery;
         private _audioSlider: JQuery;
+        private _videoBigSreenBtn: JQuery;
         private _volumeDrag: boolean = false;
+        private _allowMinimizeVideo: boolean = false;
 
-        constructor($videoContainer: JQuery) {
+        constructor($videoContainer: JQuery, allowMinimizeVideo?: boolean) {
             this._$videoContainer = $videoContainer;
             this._videoContainer = $videoContainer.get(0);
-            this._videoElement = <HTMLVideoElement>$videoContainer.find('video').get(0);
+            this._$videoElement = $videoContainer.find('video');
+            this._videoElement = <HTMLVideoElement>this._$videoElement.get(0);
             this._playStopBtn = $videoContainer.find('.control-playing');
             this._volumeBtn = $videoContainer.find('.control-volume');
             this._fullScreenBtn = $videoContainer.find('.control-full-screen');
             this._audioSlider = $videoContainer.find('.volume-slider');
-
+            this._videoBigSreenBtn = $videoContainer.find('.control-big-screen');
+            this._allowMinimizeVideo = allowMinimizeVideo;
+            
             var supportsVideo: boolean = (this._videoElement.canPlayType('video/mp4').length > 0);
 
             if (!supportsVideo) {
@@ -26,6 +32,7 @@ module component {
 
             // set default value
             this.updateVolume(0, this._videoElement.volume);
+            // this._setVideoHeight();
 
             this._bind();
         }
@@ -35,21 +42,22 @@ module component {
          * @returns void
          */
         public setVideoRunningState(): void {
-            var $playIcon = this._playStopBtn.find('.video-play-icon'),
-                $pauseIcon = this._playStopBtn.find('.video-pause-icon');
+            /*var $playIcon = this._playStopBtn.find('.video-play-icon'),
+                $pauseIcon = this._playStopBtn.find('.video-pause-icon');*/
 
             if (this._videoElement.paused || this._videoElement.ended) {
                 this._videoElement.play();
 
-                $playIcon.hide();
-                $pauseIcon.show();
+                // $playIcon.hide();
+                // $pauseIcon.show();
             }
             else {
                 this._videoElement.pause();
 
-                $pauseIcon.hide();
-                $playIcon.show();                    
+                // $pauseIcon.hide();
+                // $playIcon.show();                    
             }
+            this._changeVideoPlayIconState();
         }
 
         /**
@@ -100,6 +108,11 @@ module component {
                 return false;
             });
 
+            this._$videoElement.on('ended', () => {
+                this._changeVideoPlayIconState();
+                console.log('ended');
+            });
+
             /** Audio events */
             this._volumeBtn.on('click', (e: JQueryEventObject) => {
                 this._videoElement.muted = !this._videoElement.muted;
@@ -113,6 +126,7 @@ module component {
                 console.log('down', e.offsetX);
                 this.updateVolume(e.offsetX);
             });
+
             $(document).on('mouseup', (e: JQueryEventObject) => {
                 if (this._volumeDrag) {
                     this._volumeDrag = false;
@@ -164,6 +178,37 @@ module component {
             document.addEventListener('msfullscreenchange', () => {
                 this._setFullScreenClass(!!document['msFullscreenElement']);
             });
+
+            /**
+             * Minimize Events
+             */
+            if (this._allowMinimizeVideo) {
+                $(window).on('mousewheel', (e: JQueryEventObject) => {
+                    this._setVideoMinimizedStatus();                    
+                });
+
+                this._videoBigSreenBtn.on('click', () => {
+                    $('html, body').animate({scrollTop: '0px'}, 300, () => {
+                        this._setVideoMinimizedStatus();
+                    });
+
+                    return false;
+                });
+            }
+        }
+
+        private _changeVideoPlayIconState(): void {
+            var $playIcon = this._playStopBtn.find('.video-play-icon'),
+                $pauseIcon = this._playStopBtn.find('.video-pause-icon');
+
+            if (this._videoElement.paused || this._videoElement.ended) {
+                $playIcon.hide();
+                $pauseIcon.show();
+            }
+            else {
+                $pauseIcon.hide();
+                $playIcon.show();                    
+            }
         }
 
         /**
@@ -232,5 +277,25 @@ module component {
                 $volumeIcon.show();                
             }
         }
+
+        private _setVideoMinimizedStatus(): void {
+            var top = $(document).scrollTop(),
+                $videoContent = this._$videoContainer.find('.video-box');
+
+            if (top > 80) {
+                $videoContent.addClass('scrolled');
+            }
+            else {
+                $videoContent.removeClass('scrolled');
+            }
+        }
+
+        /*private _setVideoHeight(): void {
+            var $video = this._$videoContainer.find('video'),
+                percent = 0.5625,
+                height = $video.width() * percent;
+
+                $video.css('height', height);
+        }*/
     }
 }
