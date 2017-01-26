@@ -2,6 +2,7 @@
     .content-with-bars {
         .box-container {
             margin: 0 20px 15px;
+            padding-bottom: 0;
         }
 
         .chat-header {
@@ -86,6 +87,30 @@
                     }
                 }
             }
+
+            .other-controls {
+                text-align: right;
+                padding: 10px 0;
+                font-size: 13px;
+
+                .viewers-content {
+                    float: left;
+                    line-height: 34px;
+
+                    .viewers {
+                        color: $defaultLinkColor;
+                        margin-right: 5px;
+                    }
+
+                    span {
+                        cursor: default;
+                    }
+                }
+
+                .buttons-content {
+                    float: right;
+                }
+            }
         }
     }    
 
@@ -161,6 +186,8 @@
             }
 
             .chat-buttons {
+                height: 40px;
+
                 .setting-btn {
                     display: inline-block;
                     font-size: 18px;
@@ -229,7 +256,11 @@
         }
 
         &.closed {
-            width: 0;
+            width: 0;            
+
+            .column-content {
+                display: none;
+            }
 
             .close-bar-btn {
                 right: 0;

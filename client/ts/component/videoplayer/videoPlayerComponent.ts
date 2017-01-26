@@ -42,22 +42,14 @@ module component {
          * @returns void
          */
         public setVideoRunningState(): void {
-            /*var $playIcon = this._playStopBtn.find('.video-play-icon'),
-                $pauseIcon = this._playStopBtn.find('.video-pause-icon');*/
+            this._changeVideoPlayIconState();
 
             if (this._videoElement.paused || this._videoElement.ended) {
                 this._videoElement.play();
-
-                // $playIcon.hide();
-                // $pauseIcon.show();
             }
             else {
-                this._videoElement.pause();
-
-                // $pauseIcon.hide();
-                // $playIcon.show();                    
-            }
-            this._changeVideoPlayIconState();
+                this._videoElement.pause();             
+            }            
         }
 
         /**
@@ -120,7 +112,7 @@ module component {
                 return false;
             });
 
-            this._audioSlider.on('mousedown', (e: JQueryEventObject) => {
+            this._audioSlider.on('scroll', (e: JQueryEventObject) => {
                 this._volumeDrag = true;
                 this._videoElement.muted = false;
                 console.log('down', e.offsetX);
@@ -183,7 +175,7 @@ module component {
              * Minimize Events
              */
             if (this._allowMinimizeVideo) {
-                $(window).on('mousewheel', (e: JQueryEventObject) => {
+                $(window).on('scroll', (e: JQueryEventObject) => {
                     this._setVideoMinimizedStatus();                    
                 });
 

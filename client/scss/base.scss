@@ -70,6 +70,11 @@ body {
     color: $defaultFontColor;
 }
 
+body.noScrollable {
+    // overflow: hidden;
+    // height: 100%;
+}
+
 footer {
     margin-top: 15px;
     padding: 30px 0;
@@ -147,6 +152,22 @@ a {
     &:active:focus {
         background-color: $defaultLinkDarkColor;
         outline: none!important;
+    }
+}
+
+.btn-reverse {
+    border: 1px solid $defaultLinkColor;
+    color: $defaultLinkColor;
+
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus,
+    &:active:focus {
+        background-color: #ffb38a;
+        outline: none!important;
+        border: 1px solid $defaultLinkColor;
+        color: $defaultLinkColor;
     }
 }
 

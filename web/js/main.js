@@ -99,29 +99,6 @@ var main;
 document.addEventListener('DOMContentLoaded', function () {
     new main.Main();
 });
-var util;
-(function (util) {
-    var MobileUtil = (function () {
-        function MobileUtil() {
-        }
-        MobileUtil.detectIsMobileView = function () {
-            if (navigator.userAgent.match(/Android/i)
-                || navigator.userAgent.match(/webOS/i)
-                || navigator.userAgent.match(/iPhone/i)
-                || navigator.userAgent.match(/iPad/i)
-                || navigator.userAgent.match(/iPod/i)
-                || navigator.userAgent.match(/BlackBerry/i)
-                || navigator.userAgent.match(/Windows Phone/i)) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        };
-        return MobileUtil;
-    }());
-    util.MobileUtil = MobileUtil;
-})(util || (util = {}));
 var controller;
 (function (controller) {
     var CommonController = (function () {
@@ -255,15 +232,13 @@ var component;
          * @returns void
          */
         VideoPlayerComponent.prototype.setVideoRunningState = function () {
-            /*var $playIcon = this._playStopBtn.find('.video-play-icon'),
-                $pauseIcon = this._playStopBtn.find('.video-pause-icon');*/
+            this._changeVideoPlayIconState();
             if (this._videoElement.paused || this._videoElement.ended) {
                 this._videoElement.play();
             }
             else {
                 this._videoElement.pause();
             }
-            this._changeVideoPlayIconState();
         };
         /**
          * Fullscreen on/off handler
@@ -317,7 +292,7 @@ var component;
                 _this._videoElement.muted = !_this._videoElement.muted;
                 return false;
             });
-            this._audioSlider.on('mousedown', function (e) {
+            this._audioSlider.on('scroll', function (e) {
                 _this._volumeDrag = true;
                 _this._videoElement.muted = false;
                 console.log('down', e.offsetX);
@@ -370,7 +345,7 @@ var component;
              * Minimize Events
              */
             if (this._allowMinimizeVideo) {
-                $(window).on('mousewheel', function (e) {
+                $(window).on('scroll', function (e) {
                     _this._setVideoMinimizedStatus();
                 });
                 this._videoBigSreenBtn.on('click', function () {
@@ -478,6 +453,29 @@ var controller;
     }(controller.CommonController));
     controller.MainPageController = MainPageController;
 })(controller || (controller = {}));
+var util;
+(function (util) {
+    var MobileUtil = (function () {
+        function MobileUtil() {
+        }
+        MobileUtil.detectIsMobileView = function () {
+            if (navigator.userAgent.match(/Android/i)
+                || navigator.userAgent.match(/webOS/i)
+                || navigator.userAgent.match(/iPhone/i)
+                || navigator.userAgent.match(/iPad/i)
+                || navigator.userAgent.match(/iPod/i)
+                || navigator.userAgent.match(/BlackBerry/i)
+                || navigator.userAgent.match(/Windows Phone/i)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
+        return MobileUtil;
+    }());
+    util.MobileUtil = MobileUtil;
+})(util || (util = {}));
 ///<reference path="./commonController.ts" />
 ///<reference path="../util/mobileUtil.ts" />
 var controller;
@@ -571,6 +569,7 @@ var controller;
     }(controller.CommonController));
     controller.PageController = PageController;
 })(controller || (controller = {}));
+///<reference path="../../lib/ts/jquey.custom-scrollbar.d.ts" />
 ///<reference path="./pageController.ts" />
 ///<reference path="../component/chat/chatComponent.ts" />
 ///<reference path="../component/videoplayer/videoPlayerComponent.ts" />
@@ -578,8 +577,11 @@ var controller;
 (function (controller) {
     var UserPageController = (function (_super) {
         __extends(UserPageController, _super);
+        // private _scrollContainer: JQuery;
         function UserPageController() {
             var _this = _super.call(this) || this;
+            /*this._scrollContainer = $('.content-with-bars .middle-content');
+            this._scrollContainer.customScrollbar();*/
             new component.VideoPlayerComponent($('.video-content'), true);
             new component.ChatComponent();
             return _this;

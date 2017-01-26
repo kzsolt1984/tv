@@ -6,7 +6,6 @@
     width: 240px;
     z-index: 3;
     background-color: $headerBgColor;
-    //overflow: hidden;
 
     .close-bar-btn {
         width: 15px;
@@ -142,6 +141,34 @@
 
     .sidebar-collapsed {
         display: none;
+        text-align: center;
+        padding: 10px 5px;
+
+        .logo {
+            img {
+                width: 40px;
+                border-bottom: 1px solid $headerLinkColor;
+                padding-bottom: 15px;
+            }
+        }
+
+        ul {
+            margin-top: 20px;
+
+            li {
+                margin-bottom: 20px;
+
+                a {
+                    color: $headerLinkColor;
+                }                
+            }
+        }
+
+        .sidebar-auth-buttons {
+            position: absolute;
+            bottom: 15px;   
+            left: 10px;         
+        }
     }
 
     &.closed {
@@ -184,7 +211,11 @@
     z-index: 2;
     box-sizing: border-box;
     overflow: hidden;
-    height: 3000px;
+
+    .middle-content {
+        overflow: hidden; 
+        height: 3000px;
+    }
 
     &.expanded-left {
         margin-left: 50px;
