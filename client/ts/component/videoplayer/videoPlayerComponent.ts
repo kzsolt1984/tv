@@ -1,4 +1,5 @@
 ///<reference path="../../../lib/ts/jquery-ui.d.ts" />
+///<reference path="../../util/mobileUtil.ts" />
 
 module component {
     export class VideoPlayerComponent {
@@ -33,6 +34,10 @@ module component {
             }
 
             this._bind();
+
+            if (util.MobileUtil.detectIsMobileView) {
+                $('body').addClass('isMobile');
+            }
         }
 
         /**
@@ -97,7 +102,6 @@ module component {
 
             this._$videoElement.on('ended', () => {
                 this._changeVideoPlayIconState(false);
-                console.log('ended');
             });
 
             /** Audio events */
@@ -252,13 +256,13 @@ module component {
          */
         private _setVideoMinimizedStatus(): void {
             var top = $(document).scrollTop(),
-                $videoContent = this._$videoContainer;
+                videoHeight = this._$videoContainer.height();
 
-            if (top > 80) {
-                $videoContent.addClass('scrolled');
+            if (top > (videoHeight)) {
+                this._$videoContainer.addClass('scrolled');
             }
             else {
-                $videoContent.removeClass('scrolled');
+                this._$videoContainer.removeClass('scrolled');
             }
         }
     }

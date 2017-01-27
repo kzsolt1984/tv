@@ -202,7 +202,31 @@ var component;
     }());
     component.ChatComponent = ChatComponent;
 })(component || (component = {}));
+var util;
+(function (util) {
+    var MobileUtil = (function () {
+        function MobileUtil() {
+        }
+        MobileUtil.detectIsMobileView = function () {
+            if (navigator.userAgent.match(/Android/i)
+                || navigator.userAgent.match(/webOS/i)
+                || navigator.userAgent.match(/iPhone/i)
+                || navigator.userAgent.match(/iPad/i)
+                || navigator.userAgent.match(/iPod/i)
+                || navigator.userAgent.match(/BlackBerry/i)
+                || navigator.userAgent.match(/Windows Phone/i)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
+        return MobileUtil;
+    }());
+    util.MobileUtil = MobileUtil;
+})(util || (util = {}));
 ///<reference path="../../../lib/ts/jquery-ui.d.ts" />
+///<reference path="../../util/mobileUtil.ts" />
 var component;
 (function (component) {
     var VideoPlayerComponent = (function () {
@@ -224,6 +248,9 @@ var component;
                 return;
             }
             this._bind();
+            if (util.MobileUtil.detectIsMobileView) {
+                $('body').addClass('isMobile');
+            }
         }
         /**
          * Play or stop video
@@ -284,7 +311,6 @@ var component;
             });
             this._$videoElement.on('ended', function () {
                 _this._changeVideoPlayIconState(false);
-                console.log('ended');
             });
             /** Audio events */
             this._volumeBtn.on('click', function (e) {
@@ -414,12 +440,12 @@ var component;
          * Add/removed minimized video class from scrollTop value
          */
         VideoPlayerComponent.prototype._setVideoMinimizedStatus = function () {
-            var top = $(document).scrollTop(), $videoContent = this._$videoContainer;
-            if (top > 80) {
-                $videoContent.addClass('scrolled');
+            var top = $(document).scrollTop(), videoHeight = this._$videoContainer.height();
+            if (top > (videoHeight)) {
+                this._$videoContainer.addClass('scrolled');
             }
             else {
-                $videoContent.removeClass('scrolled');
+                this._$videoContainer.removeClass('scrolled');
             }
         };
         return VideoPlayerComponent;
@@ -444,29 +470,6 @@ var controller;
     }(controller.CommonController));
     controller.MainPageController = MainPageController;
 })(controller || (controller = {}));
-var util;
-(function (util) {
-    var MobileUtil = (function () {
-        function MobileUtil() {
-        }
-        MobileUtil.detectIsMobileView = function () {
-            if (navigator.userAgent.match(/Android/i)
-                || navigator.userAgent.match(/webOS/i)
-                || navigator.userAgent.match(/iPhone/i)
-                || navigator.userAgent.match(/iPad/i)
-                || navigator.userAgent.match(/iPod/i)
-                || navigator.userAgent.match(/BlackBerry/i)
-                || navigator.userAgent.match(/Windows Phone/i)) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        };
-        return MobileUtil;
-    }());
-    util.MobileUtil = MobileUtil;
-})(util || (util = {}));
 ///<reference path="./commonController.ts" />
 ///<reference path="../util/mobileUtil.ts" />
 var controller;
