@@ -13,7 +13,9 @@
             bottom: 0;
             background-color: $thumbnailBigTitleBgColor;
             width: 100%;
-            padding: 6px 30px 10px;
+            padding: 10px 30px;
+            opacity: 0;
+            transition: opacity 500ms;
 
             a {
                 display: inline-block;
@@ -21,6 +23,8 @@
                 color: $headerLinkColor;
 
                 &.control-playing {
+                    width: 17px;
+
                     .fa-pause {
                         display: none;
                     }
@@ -41,7 +45,7 @@
                 &.control-full-screen {
                     float: right;
                     position: relative;
-                    top: 7px;
+                    top: 0;
 
                     .video-compress-icon {
                         display: none;
@@ -52,47 +56,37 @@
             .volume-slider {
                 display: inline-block;
                 width: 110px;
+                height: 3px;
                 margin: 0 15px;
-                padding: 0 5px;
-                height: 24px;
                 position: relative;
-                top: 5px;
+                top: -4px;
                 cursor: pointer;
+                border-radius: 0;     
+                background-color: $defaultLinkColor;
+                border: none;           
 
-                &:before {
-                    display: block;
-                    position: absolute;
-                    height: 4px;
-                    top: 10px;
-                    content: "";
-                    width: 100%;
-                    background: hsla(0,0%,100%,.35);
-                }
-
-                .volume-slider-range {
-                    background: $defaultLinkColor;
-                    display: block;
-                    position: absolute;
-                    height: 4px;
-                    top: 10px;
-                    width: 46%;
-                }
-
-                .volume-slider-handle {
-                    pointer-events: none;
-                    display: block;
-                    height: 12px;;
-                    width: 4px;
-                    margin-left: 0;
-                    position: absolute;
-                    top: 5px;
-                    background: $headerLinkColor;
+                .ui-slider-handle {
+                    margin-left: -2px;
+                    width: 5px;
+                    height: 15px;
+                    border-radius: 0;
+                    top: -6px;
                     cursor: pointer;
-                    outline: none;
-                    z-index: 1;
-                    left: 46%;
+                    border: none;
+                    background-color: $headerLinkColor;        
+                    outline: none;            
                 }
-            }
+
+                .ui-slider-range {
+                    background-color: $defaultLinkColor;
+                }
+
+                .ui-state-active,
+                .ui-state-hover,
+                .ui-state-focus {
+                    background: $headerLinkColor;
+                }
+            }            
         }
 
         .player-mini-controls {
@@ -121,19 +115,27 @@
                 }
             }           
         }
-    }
-    
-    &.full-screen {
-        width: 100%!important;
 
-        .video-controls {
-            .video-expand-icon {
-                 display: none!important;
-            }
+        &.full-screen {
+            width: 100%!important;
 
-            .video-compress-icon {
-                display: inline-block!important;
+            .video-controls {
+                .video-expand-icon {
+                    display: none!important;
+                }
+
+                .video-compress-icon {
+                    display: inline-block!important;
+                }
             }
+        }
+
+        &:hover {
+            .video-controls {
+                opacity: 1;
+                transition: opacity 1000ms;
+            }
+            
         }
     }
 
@@ -144,4 +146,8 @@
     @media screen and (min-width: 361px) and (max-width: $page-large-query-width) {
         width: 100%!important;
     }
+}
+
+:-webkit-full-screen {
+    background-color: $thumbnailLayerBgColor;
 }

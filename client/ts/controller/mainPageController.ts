@@ -7,7 +7,7 @@ module controller {
         constructor() {
             super();
 
-            new component.VideoPlayerComponent($('.video-content'), false);
+            new component.VideoPlayerComponent($('.video-box'), false);
             new component.ChatComponent();
 
             this._bind();

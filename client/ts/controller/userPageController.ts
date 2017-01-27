@@ -13,7 +13,7 @@ module controller {
             /*this._scrollContainer = $('.content-with-bars .middle-content');
             this._scrollContainer.customScrollbar();*/
 
-            new component.VideoPlayerComponent($('.video-content'), true);
+            new component.VideoPlayerComponent($('.video-box'), true);
             new component.ChatComponent();
         }
     }

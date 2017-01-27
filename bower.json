@@ -7,7 +7,8 @@
     "font-awesome": "fontawesome#^4.5.0",
     "respondJS": "^1.4.2",
     "lodash": "^4.17.4",
-    "jquery-custom-scrollbar": "^0.5.5"
+    "jquery-custom-scrollbar": "^0.5.5",
+    "jquery-ui": "^1.12.1"
   },
   "resolutions": {
     "jquery": "^2.2.0",

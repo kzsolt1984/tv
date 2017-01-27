@@ -202,12 +202,13 @@ var component;
     }());
     component.ChatComponent = ChatComponent;
 })(component || (component = {}));
+///<reference path="../../../lib/ts/jquery-ui.d.ts" />
 var component;
 (function (component) {
     var VideoPlayerComponent = (function () {
         function VideoPlayerComponent($videoContainer, allowMinimizeVideo) {
-            this._volumeDrag = false;
             this._allowMinimizeVideo = false;
+            this._prevVolume = 100;
             this._$videoContainer = $videoContainer;
             this._videoContainer = $videoContainer.get(0);
             this._$videoElement = $videoContainer.find('video');
@@ -222,9 +223,6 @@ var component;
             if (!supportsVideo) {
                 return;
             }
-            // set default value
-            this.updateVolume(0, this._videoElement.volume);
-            // this._setVideoHeight();
             this._bind();
         }
         /**
@@ -232,12 +230,13 @@ var component;
          * @returns void
          */
         VideoPlayerComponent.prototype.setVideoRunningState = function () {
-            this._changeVideoPlayIconState();
             if (this._videoElement.paused || this._videoElement.ended) {
                 this._videoElement.play();
+                this._changeVideoPlayIconState(true);
             }
             else {
                 this._videoElement.pause();
+                this._changeVideoPlayIconState(false);
             }
         };
         /**
@@ -284,34 +283,38 @@ var component;
                 return false;
             });
             this._$videoElement.on('ended', function () {
-                _this._changeVideoPlayIconState();
+                _this._changeVideoPlayIconState(false);
                 console.log('ended');
             });
             /** Audio events */
             this._volumeBtn.on('click', function (e) {
-                _this._videoElement.muted = !_this._videoElement.muted;
+                var muted = _this._audioSlider.slider('value') === 0;
+                if (muted) {
+                    _this._audioSlider.slider('value', _this._prevVolume || 100);
+                    _this._updateVolume(false);
+                }
+                else {
+                    _this._prevVolume = _this._videoElement.volume * 100;
+                    _this._audioSlider.slider('value', 0);
+                    _this._updateVolume(true);
+                }
                 return false;
             });
-            this._audioSlider.on('scroll', function (e) {
-                _this._volumeDrag = true;
-                _this._videoElement.muted = false;
-                console.log('down', e.offsetX);
-                _this.updateVolume(e.offsetX);
-            });
-            $(document).on('mouseup', function (e) {
-                if (_this._volumeDrag) {
-                    _this._volumeDrag = false;
-                    _this.updateVolume(e.offsetX);
-                    console.log('up', e.offsetX);
-                }
-            });
-            /*$(document).on('mouseleave', (e: JQueryEventObject) => {
-                this._volumeDrag = false;
-            });*/
-            this._audioSlider.on('mousemove', function (e) {
-                if (_this._volumeDrag) {
-                    _this.updateVolume(e.offsetX);
-                    console.log('move', e.offsetX);
+            this._audioSlider.slider({
+                value: this._videoElement.volume * 100,
+                step: 1,
+                range: 'min',
+                min: 0,
+                max: 100,
+                change: function () {
+                    var volumeVar = _this._audioSlider.slider('value');
+                    _this._videoElement.volume = (volumeVar / 100);
+                    if (volumeVar) {
+                        _this._updateVolume(false);
+                    }
+                    else {
+                        _this._updateVolume(true);
+                    }
                 }
             });
             /** Fullscreen events */
@@ -356,9 +359,12 @@ var component;
                 });
             }
         };
-        VideoPlayerComponent.prototype._changeVideoPlayIconState = function () {
+        /**
+         * Show play or pause btn icon
+         */
+        VideoPlayerComponent.prototype._changeVideoPlayIconState = function (pause) {
             var $playIcon = this._playStopBtn.find('.video-play-icon'), $pauseIcon = this._playStopBtn.find('.video-pause-icon');
-            if (this._videoElement.paused || this._videoElement.ended) {
+            if (pause) {
                 $playIcon.hide();
                 $pauseIcon.show();
             }
@@ -388,32 +394,14 @@ var component;
                 this._$videoContainer.removeClass('full-screen');
             }
         };
-        VideoPlayerComponent.prototype.updateVolume = function (offsetX, volume) {
-            var percentage = 0, $volumeIcon = this._volumeBtn.find('.video-volume-up-icon'), $muteIcon = this._volumeBtn.find('.video-volume-down-icon');
-            if (offsetX > 100) {
-                offsetX = 100;
-            }
-            if (offsetX < 0) {
-                offsetX = 0;
-            }
-            // if only volume have specificed then direct update volume
-            if (volume) {
-                percentage = volume * 100;
-            }
-            else {
-                percentage = 100 * offsetX / this._audioSlider.width();
-            }
-            if (percentage > 100) {
-                percentage = 100;
-            }
-            if (percentage < 0) {
-                percentage = 0;
-            }
-            // update volume bar and video volume
-            this._audioSlider.find('.volume-slider-range').css('width', percentage + '%');
-            this._audioSlider.find('.volume-slider-handle').css('left', percentage + '%');
-            this._videoElement.volume = percentage / 100;
-            if (this._videoElement.volume === 0) {
+        /**
+         * Show mute or volume btn icon
+         *
+         * @param mute {boolean}   muted or not
+         */
+        VideoPlayerComponent.prototype._updateVolume = function (mute) {
+            var $volumeIcon = this._volumeBtn.find('.video-volume-up-icon'), $muteIcon = this._volumeBtn.find('.video-volume-down-icon');
+            if (mute) {
                 $volumeIcon.hide();
                 $muteIcon.css('display', 'inline-block');
             }
@@ -422,8 +410,11 @@ var component;
                 $volumeIcon.show();
             }
         };
+        /**
+         * Add/removed minimized video class from scrollTop value
+         */
         VideoPlayerComponent.prototype._setVideoMinimizedStatus = function () {
-            var top = $(document).scrollTop(), $videoContent = this._$videoContainer.find('.video-box');
+            var top = $(document).scrollTop(), $videoContent = this._$videoContainer;
             if (top > 80) {
                 $videoContent.addClass('scrolled');
             }
@@ -444,7 +435,7 @@ var controller;
         __extends(MainPageController, _super);
         function MainPageController() {
             var _this = _super.call(this) || this;
-            new component.VideoPlayerComponent($('.video-content'), false);
+            new component.VideoPlayerComponent($('.video-box'), false);
             new component.ChatComponent();
             _this._bind();
             return _this;
@@ -582,7 +573,7 @@ var controller;
             var _this = _super.call(this) || this;
             /*this._scrollContainer = $('.content-with-bars .middle-content');
             this._scrollContainer.customScrollbar();*/
-            new component.VideoPlayerComponent($('.video-content'), true);
+            new component.VideoPlayerComponent($('.video-box'), true);
             new component.ChatComponent();
             return _this;
         }
