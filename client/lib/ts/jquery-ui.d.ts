@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 
-/// <reference types="jquery"/>
+///<reference path="./jquery.d.ts" types="jquery" />
 
 declare namespace JQueryUI {
     // Accordion //////////////////////////////////////////////////

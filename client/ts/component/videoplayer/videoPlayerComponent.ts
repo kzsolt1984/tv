@@ -61,30 +61,30 @@ module component {
         public setFullScreenState(): void {
             if (this._isFullscreen()) {
                 if (document.exitFullscreen) {
-                    document.exitFullscreen();
+                    (<any>document).exitFullscreen();
                 }
-                else if (document['mozCancelFullScreen']) {
-                    document['mozCancelFullScreen']();
+                else if ((<any>document).mozCancelFullScreen) {
+                    (<any>document).mozCancelFullScreen();
                 }
-                else if (document.webkitCancelFullScreen) {
-                    document.webkitCancelFullScreen();
+                else if ((<any>document).webkitCancelFullScreen) {
+                    (<any>document).webkitCancelFullScreen();
                 }
-                else if (document['msExitFullscreen']) {
-                    document['msExitFullscreen']();
+                else if ((<any>document)['msExitFullscreen']) {
+                    (<any>document).msExitFullscreen();
                 }
             }
             else {
                 if (this._videoContainer.requestFullscreen) { 
                     this._videoContainer.requestFullscreen();
                 }
-                else if (this._videoContainer['mozRequestFullScreen']) {
-                    this._videoContainer['mozRequestFullScreen']();
+                else if ((<any>this._videoContainer).mozRequestFullScreen) {
+                    (<any>this._videoContainer).mozRequestFullScreen();
                 }
                 else if (this._videoContainer.webkitRequestFullScreen) {
                     this._videoContainer.webkitRequestFullScreen();
                 }
-                else if (this._videoContainer['msRequestFullscreen']) {
-                    this._videoContainer['msRequestFullscreen']();
+                else if ((<any>this._videoContainer).msRequestFullscreen) {
+                    (<any>this._videoContainer).msRequestFullscreen();
                 }
             }
         }
@@ -145,10 +145,10 @@ module component {
             /** Fullscreen events */
             this._fullScreenBtn.on('click', (e: JQueryEventObject) => {
                 var fullScreenEnabled = !!(document.fullscreenEnabled 
-                                        || document['mozFullScreenEnabled']
-                                        || document['msFullscreenEnabled'] 
-                                        || document['webkitSupportsFullscreen'] 
-                                        || document['webkitFullscreenEnabled'] 
+                                        || (<any>document).mozFullScreenEnabled
+                                        || (<any>document).msFullscreenEnabled
+                                        || (<any>document).webkitSupportsFullscreen
+                                        || (<any>document).webkitFullscreenEnabled
                                         || document.createElement('video').webkitRequestFullScreen);
 
                 if (!fullScreenEnabled) {
@@ -162,16 +162,16 @@ module component {
             });
 
             document.addEventListener('fullscreenchange', () => {
-                this._setFullScreenClass(!!(document['fullScreen'] || document.fullscreenElement));
+                this._setFullScreenClass(!!((<any>document).fullScreen || document.fullscreenElement));
             });
             document.addEventListener('webkitfullscreenchange', () => {
                 this._setFullScreenClass(!!document.webkitIsFullScreen);
             });
             document.addEventListener('mozfullscreenchange', () => {
-                this._setFullScreenClass(!!document['mozFullScreen']);
+                this._setFullScreenClass(!!(<any>document).mozFullScreen);
             });
             document.addEventListener('msfullscreenchange', () => {
-                this._setFullScreenClass(!!document['msFullscreenElement']);
+                this._setFullScreenClass(!!(<any>document).msFullscreenElement);
             });
 
             /**
@@ -213,10 +213,10 @@ module component {
          * Get fullscreen is supported or not
          */
         private _isFullscreen(): boolean {
-            return !!(document['fullScreen ']
+            return !!((<any>document).fullScreen
                     || document.webkitIsFullScreen 
-                    || document['mozFullScreen']
-                    || document['msFullscreenElement']
+                    || (<any>document).mozFullScreen
+                    || (<any>document).msFullscreenElement
                     || document.fullscreenElement);
         }
         

@@ -365,28 +365,28 @@ var component;
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
                 }
-                else if (document['mozCancelFullScreen']) {
-                    document['mozCancelFullScreen']();
+                else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
                 }
                 else if (document.webkitCancelFullScreen) {
                     document.webkitCancelFullScreen();
                 }
                 else if (document['msExitFullscreen']) {
-                    document['msExitFullscreen']();
+                    document.msExitFullscreen();
                 }
             }
             else {
                 if (this._videoContainer.requestFullscreen) {
                     this._videoContainer.requestFullscreen();
                 }
-                else if (this._videoContainer['mozRequestFullScreen']) {
-                    this._videoContainer['mozRequestFullScreen']();
+                else if (this._videoContainer.mozRequestFullScreen) {
+                    this._videoContainer.mozRequestFullScreen();
                 }
                 else if (this._videoContainer.webkitRequestFullScreen) {
                     this._videoContainer.webkitRequestFullScreen();
                 }
-                else if (this._videoContainer['msRequestFullscreen']) {
-                    this._videoContainer['msRequestFullscreen']();
+                else if (this._videoContainer.msRequestFullscreen) {
+                    this._videoContainer.msRequestFullscreen();
                 }
             }
         };
@@ -437,10 +437,10 @@ var component;
             /** Fullscreen events */
             this._fullScreenBtn.on('click', function (e) {
                 var fullScreenEnabled = !!(document.fullscreenEnabled
-                    || document['mozFullScreenEnabled']
-                    || document['msFullscreenEnabled']
-                    || document['webkitSupportsFullscreen']
-                    || document['webkitFullscreenEnabled']
+                    || document.mozFullScreenEnabled
+                    || document.msFullscreenEnabled
+                    || document.webkitSupportsFullscreen
+                    || document.webkitFullscreenEnabled
                     || document.createElement('video').webkitRequestFullScreen);
                 if (!fullScreenEnabled) {
                     _this._fullScreenBtn.hide();
@@ -450,16 +450,16 @@ var component;
                 return false;
             });
             document.addEventListener('fullscreenchange', function () {
-                _this._setFullScreenClass(!!(document['fullScreen'] || document.fullscreenElement));
+                _this._setFullScreenClass(!!(document.fullScreen || document.fullscreenElement));
             });
             document.addEventListener('webkitfullscreenchange', function () {
                 _this._setFullScreenClass(!!document.webkitIsFullScreen);
             });
             document.addEventListener('mozfullscreenchange', function () {
-                _this._setFullScreenClass(!!document['mozFullScreen']);
+                _this._setFullScreenClass(!!document.mozFullScreen);
             });
             document.addEventListener('msfullscreenchange', function () {
-                _this._setFullScreenClass(!!document['msFullscreenElement']);
+                _this._setFullScreenClass(!!document.msFullscreenElement);
             });
             /**
              * Minimize Events
@@ -494,10 +494,10 @@ var component;
          * Get fullscreen is supported or not
          */
         VideoPlayerComponent.prototype._isFullscreen = function () {
-            return !!(document['fullScreen ']
+            return !!(document.fullScreen
                 || document.webkitIsFullScreen
-                || document['mozFullScreen']
-                || document['msFullscreenElement']
+                || document.mozFullScreen
+                || document.msFullscreenElement
                 || document.fullscreenElement);
         };
         /**
