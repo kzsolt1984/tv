@@ -1,8 +1,8 @@
-///<reference path="./commonController.ts" />
-///<reference path="../util/mobileUtil.ts" />
+///<reference path="../../controller/commonController.ts" />
+///<reference path="../../util/mobileUtil.ts" />
 
-module controller {
-    export class PageController extends CommonController {
+module component {
+    export class PageBarComponent {
         private _$closeMenuBar: JQuery;
         private _$leftMenuBar: JQuery;
         private _$rightPageBar: JQuery;
@@ -11,8 +11,6 @@ module controller {
         private _$isMobileView: boolean;
 
         constructor() {
-            super();
-
             this._$window = $(window);
             this._$closeMenuBar = $('.close-bar-btn');
             this._$leftMenuBar = $('.left-menu-bar');
@@ -24,7 +22,6 @@ module controller {
         }
 
         protected _bind(): void {
-            super._bind();
 
             this._setSiteElementDimension();
 
@@ -47,6 +44,7 @@ module controller {
         }
 
         protected _setLeftBarSize(close: boolean, changeCloseBtnVisibility: boolean): void {
+            
             if (close) {
                 if (changeCloseBtnVisibility) {
                     this._$leftMenuBar.addClass('closed disable-expand');

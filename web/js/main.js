@@ -99,11 +99,125 @@ var main;
 document.addEventListener('DOMContentLoaded', function () {
     new main.Main();
 });
+var util;
+(function (util) {
+    var MobileUtil = (function () {
+        function MobileUtil() {
+        }
+        MobileUtil.detectIsMobileView = function () {
+            if (navigator.userAgent.match(/Android/i)
+                || navigator.userAgent.match(/webOS/i)
+                || navigator.userAgent.match(/iPhone/i)
+                || navigator.userAgent.match(/iPad/i)
+                || navigator.userAgent.match(/iPod/i)
+                || navigator.userAgent.match(/BlackBerry/i)
+                || navigator.userAgent.match(/Windows Phone/i)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
+        return MobileUtil;
+    }());
+    util.MobileUtil = MobileUtil;
+})(util || (util = {}));
+///<reference path="../../controller/commonController.ts" />
+///<reference path="../../util/mobileUtil.ts" />
+var component;
+(function (component) {
+    var PageBarComponent = (function () {
+        function PageBarComponent() {
+            this._$window = $(window);
+            this._$closeMenuBar = $('.close-bar-btn');
+            this._$leftMenuBar = $('.left-menu-bar');
+            this._$rightPageBar = $('.right-page-bar');
+            this._$contentWithBars = $('.content-with-bars');
+            this._$isMobileView = util.MobileUtil.detectIsMobileView();
+            this._bind();
+        }
+        PageBarComponent.prototype._bind = function () {
+            var _this = this;
+            this._setSiteElementDimension();
+            this._$window.on('resize', function () {
+                _this._setSiteElementDimension();
+            });
+            this._$closeMenuBar.on('click', function (e) {
+                var data = $(e.currentTarget).data('side');
+                if (data === 'left') {
+                    _this._setLeftBarSize(!(_this._$leftMenuBar.hasClass('closed')), false);
+                }
+                else {
+                    _this._setRightBarSize(!(_this._$rightPageBar.hasClass('closed')), false);
+                }
+                return false;
+            });
+        };
+        PageBarComponent.prototype._setLeftBarSize = function (close, changeCloseBtnVisibility) {
+            if (close) {
+                if (changeCloseBtnVisibility) {
+                    this._$leftMenuBar.addClass('closed disable-expand');
+                }
+                else {
+                    this._$leftMenuBar.addClass('closed');
+                }
+                this._$contentWithBars.addClass('expanded-left');
+            }
+            else {
+                if (changeCloseBtnVisibility) {
+                    this._$leftMenuBar.removeClass('closed disable-expand');
+                }
+                else {
+                    this._$leftMenuBar.removeClass('closed');
+                }
+                this._$contentWithBars.removeClass('expanded-left');
+            }
+        };
+        PageBarComponent.prototype._setRightBarSize = function (close, changeCloseBtnVisibility) {
+            if (close) {
+                if (changeCloseBtnVisibility) {
+                    this._$rightPageBar.addClass('closed disable-expand');
+                }
+                else {
+                    this._$rightPageBar.addClass('closed');
+                }
+                this._$contentWithBars.addClass('expanded-right');
+            }
+            else {
+                if (changeCloseBtnVisibility) {
+                    this._$rightPageBar.removeClass('closed disable-expand');
+                }
+                else {
+                    this._$rightPageBar.removeClass('closed');
+                }
+                this._$contentWithBars.removeClass('expanded-right');
+            }
+        };
+        PageBarComponent.prototype._setSiteElementDimension = function () {
+            if (this._$window.width() < 980) {
+                this._setLeftBarSize(true, true);
+            }
+            else {
+                this._setLeftBarSize(false, true);
+            }
+            if (this._$window.width() < 850) {
+                this._setRightBarSize(true, true);
+            }
+            else {
+                this._setRightBarSize(false, true);
+            }
+        };
+        return PageBarComponent;
+    }());
+    component.PageBarComponent = PageBarComponent;
+})(component || (component = {}));
+///<reference path="../component/pagebar/pageBarComponent.ts" />
 var controller;
 (function (controller) {
     var CommonController = (function () {
         function CommonController() {
             console.log('CommonController init done');
+            new component.PageBarComponent();
             // this._bind();
         }
         CommonController.prototype._bind = function () {
@@ -202,29 +316,6 @@ var component;
     }());
     component.ChatComponent = ChatComponent;
 })(component || (component = {}));
-var util;
-(function (util) {
-    var MobileUtil = (function () {
-        function MobileUtil() {
-        }
-        MobileUtil.detectIsMobileView = function () {
-            if (navigator.userAgent.match(/Android/i)
-                || navigator.userAgent.match(/webOS/i)
-                || navigator.userAgent.match(/iPhone/i)
-                || navigator.userAgent.match(/iPad/i)
-                || navigator.userAgent.match(/iPod/i)
-                || navigator.userAgent.match(/BlackBerry/i)
-                || navigator.userAgent.match(/Windows Phone/i)) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        };
-        return MobileUtil;
-    }());
-    util.MobileUtil = MobileUtil;
-})(util || (util = {}));
 ///<reference path="../../../lib/ts/jquery-ui.d.ts" />
 ///<reference path="../../util/mobileUtil.ts" />
 var component;
@@ -470,101 +561,8 @@ var controller;
     }(controller.CommonController));
     controller.MainPageController = MainPageController;
 })(controller || (controller = {}));
-///<reference path="./commonController.ts" />
-///<reference path="../util/mobileUtil.ts" />
-var controller;
-(function (controller) {
-    var PageController = (function (_super) {
-        __extends(PageController, _super);
-        function PageController() {
-            var _this = _super.call(this) || this;
-            _this._$window = $(window);
-            _this._$closeMenuBar = $('.close-bar-btn');
-            _this._$leftMenuBar = $('.left-menu-bar');
-            _this._$rightPageBar = $('.right-page-bar');
-            _this._$contentWithBars = $('.content-with-bars');
-            _this._$isMobileView = util.MobileUtil.detectIsMobileView();
-            _this._bind();
-            return _this;
-        }
-        PageController.prototype._bind = function () {
-            var _this = this;
-            _super.prototype._bind.call(this);
-            this._setSiteElementDimension();
-            this._$window.on('resize', function () {
-                _this._setSiteElementDimension();
-            });
-            this._$closeMenuBar.on('click', function (e) {
-                var data = $(e.currentTarget).data('side');
-                if (data === 'left') {
-                    _this._setLeftBarSize(!(_this._$leftMenuBar.hasClass('closed')), false);
-                }
-                else {
-                    _this._setRightBarSize(!(_this._$rightPageBar.hasClass('closed')), false);
-                }
-                return false;
-            });
-        };
-        PageController.prototype._setLeftBarSize = function (close, changeCloseBtnVisibility) {
-            if (close) {
-                if (changeCloseBtnVisibility) {
-                    this._$leftMenuBar.addClass('closed disable-expand');
-                }
-                else {
-                    this._$leftMenuBar.addClass('closed');
-                }
-                this._$contentWithBars.addClass('expanded-left');
-            }
-            else {
-                if (changeCloseBtnVisibility) {
-                    this._$leftMenuBar.removeClass('closed disable-expand');
-                }
-                else {
-                    this._$leftMenuBar.removeClass('closed');
-                }
-                this._$contentWithBars.removeClass('expanded-left');
-            }
-        };
-        PageController.prototype._setRightBarSize = function (close, changeCloseBtnVisibility) {
-            if (close) {
-                if (changeCloseBtnVisibility) {
-                    this._$rightPageBar.addClass('closed disable-expand');
-                }
-                else {
-                    this._$rightPageBar.addClass('closed');
-                }
-                this._$contentWithBars.addClass('expanded-right');
-            }
-            else {
-                if (changeCloseBtnVisibility) {
-                    this._$rightPageBar.removeClass('closed disable-expand');
-                }
-                else {
-                    this._$rightPageBar.removeClass('closed');
-                }
-                this._$contentWithBars.removeClass('expanded-right');
-            }
-        };
-        PageController.prototype._setSiteElementDimension = function () {
-            if (this._$window.width() < 980) {
-                this._setLeftBarSize(true, true);
-            }
-            else {
-                this._setLeftBarSize(false, true);
-            }
-            if (this._$window.width() < 850) {
-                this._setRightBarSize(true, true);
-            }
-            else {
-                this._setRightBarSize(false, true);
-            }
-        };
-        return PageController;
-    }(controller.CommonController));
-    controller.PageController = PageController;
-})(controller || (controller = {}));
 ///<reference path="../../lib/ts/jquey.custom-scrollbar.d.ts" />
-///<reference path="./pageController.ts" />
+///<reference path="./commonController.ts" />
 ///<reference path="../component/chat/chatComponent.ts" />
 ///<reference path="../component/videoplayer/videoPlayerComponent.ts" />
 var controller;
@@ -581,7 +579,7 @@ var controller;
             return _this;
         }
         return UserPageController;
-    }(controller.PageController));
+    }(controller.CommonController));
     controller.UserPageController = UserPageController;
 })(controller || (controller = {}));
 

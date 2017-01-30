@@ -1,7 +1,11 @@
+///<reference path="../component/pagebar/pageBarComponent.ts" />
+
 module controller {
     export class CommonController {
         constructor() {
             console.log('CommonController init done');
+
+            new component.PageBarComponent();
 
             // this._bind();
         }

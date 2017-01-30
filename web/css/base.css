@@ -467,6 +467,18 @@ header {
       left: 3px; }
     .right-page-bar .close-bar-btn .icon-left {
       display: none; }
+  .right-page-bar.closed {
+    width: 0; }
+    .right-page-bar.closed .column-content {
+      display: none; }
+    .right-page-bar.closed .close-bar-btn {
+      right: 0; }
+      .right-page-bar.closed .close-bar-btn .icon-left {
+        display: block; }
+      .right-page-bar.closed .close-bar-btn .icon-right {
+        display: none; }
+    .right-page-bar.closed.disable-expand .close-bar-btn {
+      display: none; }
 
 /********************************** pages **************************/
 .thumbnail-small {
@@ -1132,16 +1144,3 @@ header {
           background-color: #e368d7; }
         #userPage .right-page-bar .chat-interface .chat-settings .settings-content a.color-4 {
           background-color: #ea4e2c; }
-
-#userPage .right-page-bar.closed {
-  width: 0; }
-  #userPage .right-page-bar.closed .column-content {
-    display: none; }
-  #userPage .right-page-bar.closed .close-bar-btn {
-    right: 0; }
-    #userPage .right-page-bar.closed .close-bar-btn .icon-left {
-      display: block; }
-    #userPage .right-page-bar.closed .close-bar-btn .icon-right {
-      display: none; }
-  #userPage .right-page-bar.closed.disable-expand .close-bar-btn {
-    display: none; }

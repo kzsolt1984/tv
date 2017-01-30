@@ -251,33 +251,6 @@
                     }
                 }
             }
-
-
-        }
-
-        &.closed {
-            width: 0;            
-
-            .column-content {
-                display: none;
-            }
-
-            .close-bar-btn {
-                right: 0;
-
-                .icon-left {
-                    display: block;
-                }
-                .icon-right {
-                    display: none;
-                }
-            }
-
-            &.disable-expand {
-                .close-bar-btn {
-                    display: none;
-                }
-            }
         }
     }
 }
