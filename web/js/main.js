@@ -76,7 +76,8 @@ var main;
             new component.Bootstrap();
             /* system init end */
             this.recommender();
-            this.otherRecommender();
+            this.otherRecommender($('.other-recommender-container li'), $('.other-recommender-container > ul'), 7);
+            this.otherRecommender($('.result-container li'), $('.result-container > ul'), 7);
         }
         Main.prototype.recommender = function () {
             var $box = $('.recommend-block'), $cont = $('.live-recommender-container > div');
@@ -85,9 +86,8 @@ var main;
                 $cont.append($clone);
             }
         };
-        Main.prototype.otherRecommender = function () {
-            var $box = $('.other-recommender-container .thumbnail-big'), $cont = $('.other-recommender-container > div');
-            for (var i = 0; i < 7; i++) {
+        Main.prototype.otherRecommender = function ($box, $cont, elementNumb) {
+            for (var i = 0; i < elementNumb; i++) {
                 var $clone = $box.clone();
                 $cont.append($clone);
             }
@@ -153,6 +153,12 @@ var component;
                 return false;
             });
         };
+        /**
+         * Set left bar visibility
+         *
+         * @param close {boolean}   close or open the bar
+         * @param changeCloseBtnVisibility {boolean}   close btn hide or not
+         */
         PageBarComponent.prototype._setLeftBarSize = function (close, changeCloseBtnVisibility) {
             if (close) {
                 if (changeCloseBtnVisibility) {
@@ -173,6 +179,12 @@ var component;
                 this._$contentWithBars.removeClass('expanded-left');
             }
         };
+        /**
+         * Set right bar visibility
+         *
+         * @param close {boolean}   close or open the bar
+         * @param changeCloseBtnVisibility {boolean}   close btn hide or not
+         */
         PageBarComponent.prototype._setRightBarSize = function (close, changeCloseBtnVisibility) {
             if (close) {
                 if (changeCloseBtnVisibility) {
@@ -193,6 +205,9 @@ var component;
                 this._$contentWithBars.removeClass('expanded-right');
             }
         };
+        /**
+         * Bars visibility depend window width
+         */
         PageBarComponent.prototype._setSiteElementDimension = function () {
             if (this._$window.width() < 980) {
                 this._setLeftBarSize(true, true);

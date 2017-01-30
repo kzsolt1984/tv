@@ -62,7 +62,8 @@ table {
 body {
   font-family: "Microsoft Yahei", 微软雅黑, "Helvetica Neue", adobe雅黑, "helvetica neue", tahoma, "hiragino sans gb", stheiti, "wenquanyi micro hei", 宋体, sans-serif;
   background-color: #EFEFEF;
-  color: #414141; }
+  color: #414141;
+  font-size: 0; }
 
 body.isMobile {
   zoom: 0.5; }
@@ -98,6 +99,9 @@ a {
   a:hover {
     text-decoration: none;
     color: #E93C1A; }
+
+.fa {
+  font-size: 14px; }
 
 .btn,
 .form-control,
@@ -582,107 +586,107 @@ header {
       width: 226px;
       height: 127px; } }
 
-.thumbnail-big {
-  position: relative;
-  overflow: hidden;
-  font-size: 0;
-  padding: 0;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  display: block;
-  float: left;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
-  .thumbnail-big .layer {
-    position: absolute;
-    display: none;
-    transition: display 700ms;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-    opacity: 0.5;
-    background: #000; }
-  .thumbnail-big .play-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -20px;
-    margin-top: -50px;
-    font-size: 50px;
-    color: #fff;
-    opacity: 0;
-    transition: opacity 500ms;
-    z-index: 2; }
-  .thumbnail-big img,
-  .thumbnail-big .layer {
-    height: 128px;
-    width: 227px; }
-  .thumbnail-big .thumb-info {
-    position: absolute;
-    bottom: 37px;
-    left: 0;
-    width: 100%;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.6); }
-    .thumbnail-big .thumb-info .title {
-      word-break: keep-all;
-      white-space: nowrap;
-      overflow: hidden;
-      font-size: 12px;
-      display: block;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      padding-left: 10px;
+.thumbnail-big-box {
+  padding: 0 5px;
+  display: inline-block;
+  width: 50%; }
+  .thumbnail-big-box .thumbnail-big {
+    position: relative;
+    overflow: hidden;
+    font-size: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    float: none;
+    display: inline-block;
+    margin-right: 0;
+    box-sizing: border-box;
+    width: 100%; }
+    .thumbnail-big-box .thumbnail-big img {
+      height: auto !important;
+      width: 100% !important; }
+    .thumbnail-big-box .thumbnail-big .layer {
       width: 100%;
-      text-overflow: ellipsis;
-      color: #fff; }
-  .thumbnail-big .other_info {
-    font-size: 11px;
-    padding: 10px;
-    display: block;
-    margin-top: 5px; }
-    .thumbnail-big .other_info .author {
-      display: block;
-      float: left;
-      width: 60%;
-      word-break: keep-all;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis; }
-    .thumbnail-big .other_info .viewers {
-      display: block;
+      height: calc(100% - 37px); }
+    .thumbnail-big-box .thumbnail-big .layer {
       position: absolute;
-      right: 10px;
+      display: none;
+      transition: display 700ms;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+      opacity: 0.5;
+      background: #000; }
+    .thumbnail-big-box .thumbnail-big .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -20px;
+      margin-top: -50px;
+      font-size: 50px;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 500ms;
+      z-index: 2; }
+    .thumbnail-big-box .thumbnail-big .thumb-info {
+      position: absolute;
+      bottom: 37px;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      background-color: rgba(0, 0, 0, 0.6); }
+      .thumbnail-big-box .thumbnail-big .thumb-info .title {
+        word-break: keep-all;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 12px;
+        display: block;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        width: 100%;
+        text-overflow: ellipsis;
+        color: #fff; }
+    .thumbnail-big-box .thumbnail-big .other_info {
       font-size: 11px;
-      color: #848484; }
-  .thumbnail-big:hover .layer {
-    display: block;
-    transition: display 1000ms; }
-  .thumbnail-big:hover .play-icon {
-    opacity: 1;
-    transition: opacity 1000ms; }
-  @media screen and (min-width: 1200px) {
-    .thumbnail-big img,
-    .thumbnail-big .layer {
-      height: 156px;
-      width: 277px; }
-    .thumbnail-big .thumb-info .title {
-      font-size: 14px; }
-    .thumbnail-big .other_info {
-      font-size: 13px; }
-      .thumbnail-big .other_info .viewers {
-        font-size: 12px; } }
-  @media screen and (min-width: 1500px) {
-    .thumbnail-big img,
-    .thumbnail-big .layer {
-      height: 195px;
-      width: 345px; }
-    .thumbnail-big .thumb-info .title {
-      font-size: 14px; }
-    .thumbnail-big .other_info {
-      font-size: 13px; }
-      .thumbnail-big .other_info .viewers {
-        font-size: 12px; } }
+      padding: 10px;
+      display: block;
+      margin-top: 5px; }
+      .thumbnail-big-box .thumbnail-big .other_info .author {
+        display: block;
+        float: left;
+        width: 60%;
+        word-break: keep-all;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      .thumbnail-big-box .thumbnail-big .other_info .viewers {
+        display: block;
+        position: absolute;
+        right: 10px;
+        font-size: 11px;
+        color: #848484; }
+    .thumbnail-big-box .thumbnail-big:hover .layer {
+      display: block;
+      transition: display 1000ms; }
+    .thumbnail-big-box .thumbnail-big:hover .play-icon {
+      opacity: 1;
+      transition: opacity 1000ms; }
+    @media screen and (min-width: 1200px) {
+      .thumbnail-big-box .thumbnail-big .thumb-info .title {
+        font-size: 14px; }
+      .thumbnail-big-box .thumbnail-big .other_info {
+        font-size: 13px; }
+        .thumbnail-big-box .thumbnail-big .other_info .viewers {
+          font-size: 12px; } }
+    @media screen and (min-width: 1500px) {
+      .thumbnail-big-box .thumbnail-big .thumb-info .title {
+        font-size: 14px; }
+      .thumbnail-big-box .thumbnail-big .other_info {
+        font-size: 13px; }
+        .thumbnail-big-box .thumbnail-big .other_info .viewers {
+          font-size: 12px; } }
 
 .video-content .video-box {
   position: relative; }
@@ -917,68 +921,34 @@ header {
             margin-right: 0; } }
   #mainPage .live-recommender-container h5 {
     padding-bottom: 5px;
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+    font-size: 15px; }
 
 #mainPage .other-recommender-container {
-  padding-right: 5px;
   padding-bottom: 5px; }
-  @media screen and (min-width: 360px) and (max-width: 992px) {
-    #mainPage .other-recommender-container {
-      padding-left: 5px; } }
   #mainPage .other-recommender-container h5 {
-    padding-bottom: 10px; }
+    padding-bottom: 10px;
+    font-size: 15px; }
     #mainPage .other-recommender-container h5 a {
       float: right;
-      font-size: 12px;
-      margin-right: 10px; }
-    @media screen and (min-width: 360px) and (max-width: 992px) {
-      #mainPage .other-recommender-container h5 {
-        padding-left: 5px; } }
-  @media screen and (min-width: 360px) and (max-width: 992px) {
-    #mainPage .other-recommender-container .other-recommender-content {
-      text-align: center;
-      margin: 0 auto;
-      font-size: 0; } }
-  @media screen and (max-width: 360px) {
-    #mainPage .other-recommender-container .other-recommender-content a {
-      width: 97%;
-      margin-right: 0; }
-      #mainPage .other-recommender-container .other-recommender-content a .layer {
-        width: 100%;
-        height: 80%; }
-      #mainPage .other-recommender-container .other-recommender-content a img {
-        height: auto;
+      font-size: 12px; }
+  #mainPage .other-recommender-container .other-recommender-content {
+    margin-left: -5px;
+    margin-right: -5px; }
+    #mainPage .other-recommender-container .other-recommender-content .thumbnail-big-box {
+      width: 33%; }
+    @media screen and (max-width: 360px) {
+      #mainPage .other-recommender-container .other-recommender-content .thumbnail-big-box {
         width: 100%; } }
-  @media screen and (min-width: 360px) and (max-width: 992px) {
-    #mainPage .other-recommender-container .other-recommender-content a {
-      width: 48.5%;
-      float: none;
-      display: inline-block;
-      margin-right: 7px; }
-      #mainPage .other-recommender-container .other-recommender-content a .layer {
-        width: 100%;
-        height: 80%; }
-      #mainPage .other-recommender-container .other-recommender-content a img {
-        height: auto;
-        width: 100%; }
-      #mainPage .other-recommender-container .other-recommender-content a:nth-child(2n+0) {
-        margin-right: 0; } }
-
-@media screen and (min-width: 1200px) {
-  #mainPage .video-player-container .box-container .video-content {
-    width: 952px; }
-  #mainPage .video-player-container .box-container .chanel-list {
-    width: 218px; }
-  #mainPage .live-recommender-container .recommend-block {
-    width: 373px; } }
-
-@media screen and (min-width: 1500px) {
-  #mainPage .video-player-container .box-container .video-content {
-    width: 1170px; }
-  #mainPage .video-player-container .box-container .chanel-list {
-    width: 270px; }
-  #mainPage .live-recommender-container .recommend-block {
-    width: 463px; } }
+    @media screen and (min-width: 360px) and (max-width: 992px) {
+      #mainPage .other-recommender-container .other-recommender-content .thumbnail-big-box {
+        width: 50%; } }
+    @media screen and (min-width: 1200px) {
+      #mainPage .other-recommender-container .other-recommender-content .thumbnail-big-box {
+        width: 25%; } }
+    @media screen and (min-width: 1500px) {
+      #mainPage .other-recommender-container .other-recommender-content .thumbnail-big-box {
+        width: 20%; } }
 
 #userPage .content-with-bars .box-container {
   margin: 0 20px 15px;
@@ -1144,3 +1114,18 @@ header {
           background-color: #e368d7; }
         #userPage .right-page-bar .chat-interface .chat-settings .settings-content a.color-4 {
           background-color: #ea4e2c; }
+
+#listPage .result-container {
+  padding: 15px 15px 15px 15px;
+  font-size: 0; }
+  #listPage .result-container .thumbnail-big-box {
+    width: 50%; }
+  @media screen and (max-width: 510px) {
+    #listPage .result-container .thumbnail-big-box {
+      width: 100%; } }
+  @media screen and (min-width: 1200px) {
+    #listPage .result-container .thumbnail-big-box {
+      width: 33%; } }
+  @media screen and (min-width: 1500px) {
+    #listPage .result-container .thumbnail-big-box {
+      width: 25%; } }

@@ -69,6 +69,7 @@ body {
     font-family: "Microsoft Yahei", 微软雅黑, "Helvetica Neue", adobe雅黑, "helvetica neue", tahoma, "hiragino sans gb", stheiti, "wenquanyi micro hei", 宋体, sans-serif;
     background-color: $defaultBgColor;
     color: $defaultFontColor;
+    font-size: 0;
 }
 
 body.isMobile {
@@ -118,6 +119,10 @@ a {
         text-decoration: none;
         color: $defaultLinkDarkColor;
     }
+}
+
+.fa {
+    font-size: 14px;
 }
 
 .btn,
@@ -197,3 +202,4 @@ a {
 /********************************** pages **************************/
 @import "page/_main.scss";
 @import "page/_chat.scss";
+@import "page/_list.scss";

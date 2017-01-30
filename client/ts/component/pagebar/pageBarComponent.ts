@@ -43,6 +43,12 @@ module component {
             });
         }
 
+        /**
+         * Set left bar visibility
+         * 
+         * @param close {boolean}   close or open the bar
+         * @param changeCloseBtnVisibility {boolean}   close btn hide or not
+         */
         protected _setLeftBarSize(close: boolean, changeCloseBtnVisibility: boolean): void {
             
             if (close) {
@@ -68,6 +74,12 @@ module component {
             }
         }
 
+        /**
+         * Set right bar visibility
+         * 
+         * @param close {boolean}   close or open the bar
+         * @param changeCloseBtnVisibility {boolean}   close btn hide or not
+         */
         protected _setRightBarSize(close: boolean, changeCloseBtnVisibility: boolean): void {
             if (close) {
                 if (changeCloseBtnVisibility) {
@@ -92,6 +104,9 @@ module component {
             }
         }
 
+        /**
+         * Bars visibility depend window width
+         */
         protected _setSiteElementDimension(): void {
             if (this._$window.width() < 980) {
                 this._setLeftBarSize(true, true);

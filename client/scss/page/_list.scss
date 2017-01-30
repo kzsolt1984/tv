@@ -1,0 +1,28 @@
+#listPage {
+    .result-container {
+        padding: 15px 15px 15px 15px;
+        font-size: 0;
+
+        .thumbnail-big-box {
+            width: 50%;
+        }
+        
+        @media screen and (max-width: 510px) {
+            .thumbnail-big-box {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width: $page-extra-large-query-width) {
+            .thumbnail-big-box {
+                width: 33%;
+            }
+        }
+
+        @media screen and (min-width: $page-huge-query-width) {
+            .thumbnail-big-box {
+                width: 25%;
+            }
+        }
+    }
+}

@@ -192,119 +192,55 @@
         h5 {
             padding-bottom: 5px;
             margin-bottom: 5px;
+            font-size: 15px;
         }       
     }
     
     .other-recommender-container {
-        padding-right: 5px;
-        padding-bottom: 5px;
-
-        @media screen and (min-width: 360px) and (max-width: $page-large-query-width) {
-            padding-left: 5px;
-        }
+         padding-bottom: 5px;
         
         h5 {
             padding-bottom: 10px;
+            font-size: 15px;
             
             a {
                 float: right;
-                font-size: 12px;
-                margin-right: 10px;      
-            }
-
-            @media screen and (min-width: 360px) and (max-width: $page-large-query-width) {
-                padding-left: 5px;
+                font-size: 12px;     
             }
         }    
 
         .other-recommender-content {
+            margin-left: -5px;
+            margin-right: -5px;
+
+            .thumbnail-big-box {
+                width: 33%;
+            }
+
+            @media screen and (max-width: 360px) {
+                .thumbnail-big-box {
+                    width: 100%;
+                }
+            }
+
             @media screen and (min-width: 360px) and (max-width: $page-large-query-width) {
-                text-align: center;
-                margin: 0 auto;
-                font-size: 0;
+                .thumbnail-big-box {
+                    width: 50%;
+                }
             }
 
-            a {
-                @media screen and (max-width: 360px) {
-                    width: 97%;       
-
-                    .layer {
-                        width: 100%;
-                        height: 80%;
-                    }  
-
-                    img {
-                        height: auto;
-                        width: 100%;
-                    }
-
-                    margin-right: 0;
+            @media screen and (min-width: $page-extra-large-query-width) {
+                .thumbnail-big-box {
+                    width: 25%;
                 }
-
-                @media screen and (min-width: 360px) and (max-width: $page-large-query-width) {
-                    width: 48.5%;
-                    float: none;
-                    display: inline-block;
-                    margin-right: 7px;
-
-                    .layer {
-                        width: 100%;
-                        height: 80%;
-                    }
-
-                    img {
-                        height: auto;
-                        width: 100%;
-                    }
-
-                    &:nth-child(2n+0) {
-                        margin-right: 0;
-                    }
-                }
-
-                
             }
-            
+
+            @media screen and (min-width: $page-huge-query-width) {
+                .thumbnail-big-box {
+                    width: 20%;
+                }
+            }
         }
     }
-    
-    @media screen and (min-width: $page-extra-large-query-width) {
-        .video-player-container {
-            .box-container {
-                .video-content {
-                    width: 952px;
-                }
-
-                .chanel-list {
-                    width: 218px;
-                }
-            }
-        }
-
-        .live-recommender-container {   
-            .recommend-block {
-                width: 373px;
-            }  
-        }
-    }
-    @media screen and (min-width: $page-huge-query-width) {
-        .video-player-container {
-            .box-container {
-                .video-content {
-                    width: 1170px;
-                }
-
-                .chanel-list {
-                    width: 270px;
-                }
-            }
-        }
-
-        .live-recommender-container {   
-            .recommend-block {
-                width: 463px;
-            }  
-        }
-    }    
 }
 

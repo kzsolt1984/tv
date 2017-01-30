@@ -11,7 +11,8 @@ module main {
             /* system init end */    
 
             this.recommender();
-            this.otherRecommender();
+            this.otherRecommender($('.other-recommender-container li'), $('.other-recommender-container > ul'), 7);
+            this.otherRecommender($('.result-container li'), $('.result-container > ul'), 7);
         }
         
         public recommender() {
@@ -25,12 +26,8 @@ module main {
             }
         }
         
-        public otherRecommender() {
-            var $box = $('.other-recommender-container .thumbnail-big'),
-                
-                $cont = $('.other-recommender-container > div');
-            
-            for (var i = 0; i < 7; i++) {
+        public otherRecommender($box: JQuery, $cont: JQuery, elementNumb: number) {            
+            for (var i = 0; i < elementNumb; i++) {
                 var $clone = $box.clone();
                  $cont.append($clone);
             }
