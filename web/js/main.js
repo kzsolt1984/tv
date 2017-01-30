@@ -248,7 +248,7 @@ var component;
                 return;
             }
             this._bind();
-            if (util.MobileUtil.detectIsMobileView) {
+            if (util.MobileUtil.detectIsMobileView()) {
                 $('body').addClass('isMobile');
             }
         }
