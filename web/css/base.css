@@ -1115,6 +1115,32 @@ header {
         #userPage .right-page-bar .chat-interface .chat-settings .settings-content a.color-4 {
           background-color: #ea4e2c; }
 
+#listPage .header-filter {
+  font-size: 12px; }
+  #listPage .header-filter h3 {
+    font-size: 26px;
+    margin-top: 10px;
+    margin-bottom: 20px; }
+  #listPage .header-filter .main-filter {
+    border-bottom: 1px solid #848484;
+    padding-bottom: 10px;
+    margin-bottom: 20px; }
+    #listPage .header-filter .main-filter li {
+      display: inline-block;
+      margin-right: 20px; }
+      #listPage .header-filter .main-filter li a {
+        font-size: 14px; }
+        #listPage .header-filter .main-filter li a.active {
+          color: #414141;
+          padding-bottom: 7px;
+          border-bottom: 2px solid #E93C1A; }
+        #listPage .header-filter .main-filter li a:hover {
+          padding-bottom: 7px;
+          border-bottom: 2px solid #E93C1A; }
+  #listPage .header-filter .sub-filter li {
+    display: inline-block;
+    margin-right: 10px; }
+
 #listPage .result-container {
   padding: 15px 15px 15px 15px;
   font-size: 0; }
@@ -1125,7 +1151,7 @@ header {
       width: 100%; } }
   @media screen and (min-width: 1200px) {
     #listPage .result-container .thumbnail-big-box {
-      width: 33%; } }
+      width: 33.33%; } }
   @media screen and (min-width: 1500px) {
     #listPage .result-container .thumbnail-big-box {
       width: 25%; } }
