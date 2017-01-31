@@ -57,7 +57,12 @@ var component;
             }
             else {
                 new win['controller']['CommonController'];
-                console.error('Controller no exist', controllerName);
+                if (console['info']) {
+                    console['info']('Controller no exist', controllerName);
+                }
+                else {
+                    console.log('Controller no exist', controllerName);
+                }
             }
         };
         return Bootstrap;
