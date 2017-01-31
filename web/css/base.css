@@ -218,7 +218,7 @@ header {
       display: none;
       font-size: 30px;
       position: relative;
-      top: 11px; }
+      top: 6px; }
       @media screen and (max-width: 768px) {
         header .container .mobile-menu-button {
           display: block; } }
@@ -876,6 +876,10 @@ header {
 #mainPage .live-recommender-container {
   padding-right: 5px;
   padding-bottom: 5px; }
+  @media screen and (max-width: 360px) {
+    #mainPage .live-recommender-container {
+      padding-right: 0;
+      padding-left: 0; } }
   @media screen and (min-width: 360px) and (max-width: 992px) {
     #mainPage .live-recommender-container {
       padding-left: 5px; } }
@@ -893,10 +897,12 @@ header {
       #mainPage .live-recommender-container .recommend-block {
         float: none;
         margin: 0 auto 10px;
-        width: 100%; }
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px; }
         #mainPage .live-recommender-container .recommend-block a {
           margin: 0 auto 10px;
-          width: 97%;
+          width: 100%;
           float: none;
           display: inline-block; }
           #mainPage .live-recommender-container .recommend-block a img {
@@ -925,6 +931,10 @@ header {
 
 #mainPage .other-recommender-container {
   padding-bottom: 5px; }
+  @media screen and (max-width: 360px) {
+    #mainPage .other-recommender-container {
+      padding-right: 0;
+      padding-left: 0; } }
   #mainPage .other-recommender-container h5 {
     padding-bottom: 10px;
     font-size: 15px; }
