@@ -189,17 +189,24 @@ a {
     margin-bottom: 15px;
     background-color: $boxContainerBgColor;
 }
-/******************************** default config end ****************/
 
-/******************************** util end ****************/
-@import "util/_animation.scss";
+.result-container {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+/******************************** default config end ****************/
 
 /********************************** blocks **************************/
 @import "block/_header.scss";
 @import "block/_modal.scss";
 @import "block/_grid_with_bars.scss";
+@import "block/_thumbnail_small.scss";
+@import "block/_thumbnail_big.scss";
+@import "block/_thumbnail_category.scss";
+@import "block/_video_player.scss";
 
 /********************************** pages **************************/
 @import "page/_main.scss";
 @import "page/_chat.scss";
 @import "page/_list.scss";
+@import "page/_category.scss";

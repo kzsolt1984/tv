@@ -1,0 +1,29 @@
+body#categoryPage {
+    .result-container-content {
+        margin: 0 -5px;
+    }
+
+    @media screen and (max-width: 510px) {
+        .thumbnail-category-box {
+            width: 50%;
+        }
+    }
+
+    @media screen and (min-width: 510px) {
+        .thumbnail-category-box {
+            width: 33.33%;
+        }
+    }
+
+    @media screen and (min-width: $page-extra-large-query-width) {
+        .thumbnail-category-box {
+            width: 25%;
+        }
+    }
+
+    @media screen and (min-width: $page-huge-query-width) {
+        .thumbnail-category-box {
+            width: 20%;
+        }
+    }
+}
