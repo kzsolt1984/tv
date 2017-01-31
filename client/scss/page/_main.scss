@@ -133,9 +133,8 @@
         }
         
         .recommend-block {
-            width: 306px;
+            width: 33.33%;
             padding: 0;
-            margin-right: 10px;
             float: left;
             
             @media screen and (min-width: 360px) and (max-width: $page-large-query-width) {
@@ -242,5 +241,34 @@
             }
         }
     }
+
+    @media screen and (min-width: $page-extra-large-query-width) {
+        .video-player-container {
+            .box-container {
+                .video-content {
+                    width: 952px;
+                }
+
+                .chanel-list {
+                    width: 218px;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: $page-huge-query-width) {
+        .video-player-container {
+            .box-container {
+                .video-content {
+                    width: 1170px;
+                }
+
+                .chanel-list {
+                    width: 270px;
+                }
+            }
+        }
+    }
+
 }
 

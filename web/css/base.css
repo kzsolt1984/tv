@@ -880,9 +880,8 @@ header {
     #mainPage .live-recommender-container {
       padding-left: 5px; } }
   #mainPage .live-recommender-container .recommend-block {
-    width: 306px;
+    width: 33.33%;
     padding: 0;
-    margin-right: 10px;
     float: left; }
     @media screen and (min-width: 360px) and (max-width: 992px) {
       #mainPage .live-recommender-container .recommend-block {
@@ -949,6 +948,18 @@ header {
     @media screen and (min-width: 1500px) {
       #mainPage .other-recommender-container .other-recommender-content .thumbnail-big-box {
         width: 20%; } }
+
+@media screen and (min-width: 1200px) {
+  #mainPage .video-player-container .box-container .video-content {
+    width: 952px; }
+  #mainPage .video-player-container .box-container .chanel-list {
+    width: 218px; } }
+
+@media screen and (min-width: 1500px) {
+  #mainPage .video-player-container .box-container .video-content {
+    width: 1170px; }
+  #mainPage .video-player-container .box-container .chanel-list {
+    width: 270px; } }
 
 #userPage .content-with-bars .box-container {
   margin: 0 20px 15px;
