@@ -252,6 +252,9 @@ header {
       margin: 0 15px;
       font-size: 14px;
       padding: 12px 0; }
+      @media screen and (max-width: 360px) {
+        header .container .right-menu {
+          margin-left: 0; } }
       @media screen and (max-width: 992px) {
         header .container .right-menu .search-form {
           width: 140px; } }
