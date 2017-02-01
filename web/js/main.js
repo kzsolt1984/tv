@@ -133,6 +133,8 @@ var component;
 (function (component) {
     var PageBarComponent = (function () {
         function PageBarComponent() {
+            this._leftBarValueToClose = 980;
+            this._rightBarValueToClose = 850;
             this._$window = $(window);
             this._$closeMenuBar = $('.close-bar-btn');
             this._$leftMenuBar = $('.left-menu-bar');
@@ -156,6 +158,16 @@ var component;
                     _this._setRightBarSize(!(_this._$rightPageBar.hasClass('closed')), false);
                 }
                 return false;
+            });
+            this._$leftMenuBar.find('.search-btn').on('click', function (e) {
+                _this._setLeftBarSize(false, false);
+                _this._$leftMenuBar.find('.search-form input[type="text"]').focus();
+                return false;
+            });
+            this._$leftMenuBar.find('.search-form input[type="text"]').on('blur', function () {
+                if (_this._$window.width() < _this._leftBarValueToClose) {
+                    _this._setLeftBarSize(true, false);
+                }
             });
         };
         /**
@@ -214,13 +226,13 @@ var component;
          * Bars visibility depend window width
          */
         PageBarComponent.prototype._setSiteElementDimension = function () {
-            if (this._$window.width() < 980) {
+            if (this._$window.width() < this._leftBarValueToClose) {
                 this._setLeftBarSize(true, true);
             }
             else {
                 this._setLeftBarSize(false, true);
             }
-            if (this._$window.width() < 850) {
+            if (this._$window.width() < this._rightBarValueToClose) {
                 this._setRightBarSize(true, true);
             }
             else {

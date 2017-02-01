@@ -9,6 +9,8 @@ module component {
         private _$contentWithBars: JQuery;
         private _$window: JQuery;
         private _$isMobileView: boolean;
+        private _leftBarValueToClose = 980;
+        private _rightBarValueToClose = 850;
 
         constructor() {
             this._$window = $(window);
@@ -40,6 +42,18 @@ module component {
                 }
 
                 return false;
+            });
+
+            this._$leftMenuBar.find('.search-btn').on('click', (e) => {
+                this._setLeftBarSize(false, false);
+                this._$leftMenuBar.find('.search-form input[type="text"]').focus();
+                return false;
+            });
+
+            this._$leftMenuBar.find('.search-form input[type="text"]').on('blur', () => {
+                if (this._$window.width() < this._leftBarValueToClose) {
+                    this._setLeftBarSize(true, false);
+                }
             });
         }
 
@@ -108,14 +122,14 @@ module component {
          * Bars visibility depend window width
          */
         protected _setSiteElementDimension(): void {
-            if (this._$window.width() < 980) {
+            if (this._$window.width() < this._leftBarValueToClose) {
                 this._setLeftBarSize(true, true);
             }
             else {
                 this._setLeftBarSize(false, true);
             }
 
-            if (this._$window.width() < 850) {
+            if (this._$window.width() < this._rightBarValueToClose) {
                 this._setRightBarSize(true, true);
             }
             else {
