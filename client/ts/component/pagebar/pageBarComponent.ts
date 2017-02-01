@@ -72,6 +72,8 @@ module component {
                 else {
                     this._$leftMenuBar.addClass('closed');
                 }
+
+                // $('.content-overlay').hide();
                 
                 this._$contentWithBars.addClass('expanded-left');
             }
@@ -82,6 +84,10 @@ module component {
                 else {
                     this._$leftMenuBar.removeClass('closed');
                 }
+
+                /*if ($(window).width() < 500) {
+                    $('.content-overlay').show();
+                }*/
 
                 
                 this._$contentWithBars.removeClass('expanded-left');

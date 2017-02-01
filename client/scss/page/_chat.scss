@@ -24,7 +24,8 @@
             }
 
             h1 {
-                padding: 25px 15px 0 90px;
+                //padding: 25px 15px 0 90px;
+                padding: 15px 15px 0 90px;
                 font-size: 22px;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -34,8 +35,13 @@
             .header-info {
                 position: absolute;
                 left: 110px;
-                bottom: 25px;
+                //bottom: 25px;
+                bottom: 55px;
                 font-size: 12px;
+
+                @media screen and (max-width: 400px) {
+                    font-size: 10px;
+                }
 
                 .header-hostname,
                 .header-chanelname {
@@ -45,8 +51,10 @@
 
             .subscribe-content {
                 position: absolute;
-                right: 20px;
-                bottom: 17px;
+                //right: 20px;
+                //bottom: 17px;
+                bottom: 15px;
+                left: 110px;
 
                 .header-subscribe-btn {
                     i {
@@ -62,9 +70,13 @@
                     border: 1px solid $headerLinkColor;
                     border-left: none;
                     padding: 5px 5px 5px;
-                    margin-left: -5px;
+                    //margin-left: -5px;
                     position: relative;
-                    top: 1px;
+                    top: 5px;
+
+                    @media screen and (max-width: 400px) {
+                        display: none;
+                    }
                 }
             }                
         }     
@@ -89,12 +101,14 @@
             }
 
             .other-controls {
-                text-align: right;
+                text-align: left;
                 padding: 10px 0;
                 font-size: 13px;
 
                 .viewers-content {
-                    float: left;
+                    @media screen and (min-width: 550px) {
+                        float: left;
+                    }
                     line-height: 34px;
 
                     .viewers {
@@ -108,7 +122,9 @@
                 }
 
                 .buttons-content {
-                    float: right;
+                    @media screen and (min-width: 550px) {
+                        float: right;
+                    }
                 }
             }
         }
@@ -203,12 +219,13 @@
             .chat-settings {
                 display: none;
                 position: absolute;
-                bottom: 30px;
-                left: -5px;
+                bottom: 32px;
+                left: 8px;
                 background-color: $defaultBgColor;
                 width: 200px;
                 padding: 20px 15px;
                 box-shadow: 0 0 3px $headerBgColor;
+                font-size: 15px;
 
                 .settings-content {
                     text-align: left;

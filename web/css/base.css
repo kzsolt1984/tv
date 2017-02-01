@@ -63,7 +63,10 @@ body {
   font-family: "Microsoft Yahei", 微软雅黑, "Helvetica Neue", adobe雅黑, "helvetica neue", tahoma, "hiragino sans gb", stheiti, "wenquanyi micro hei", 宋体, sans-serif;
   background-color: #EFEFEF;
   color: #414141;
-  font-size: 0; }
+  font-size: 0;
+  min-width: 320px;
+  height: 100%;
+  overflow-x: hidden; }
 
 /*body.isMobile {
     zoom: 0.5;
@@ -145,7 +148,8 @@ a {
 
 .result-container {
   margin-left: 20px;
-  margin-right: 20px; }
+  margin-right: 20px;
+  min-width: 120px; }
 
 /******************************** default config end ****************/
 /********************************** blocks **************************/
@@ -512,6 +516,17 @@ header {
     .right-page-bar.closed.disable-expand .close-bar-btn {
       display: none; }
 
+.content-overlay {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 240px;
+  bottom: 0;
+  z-index: 6;
+  background: rgba(255, 255, 255, 0.98); }
+
 .thumbnail-small {
   position: relative;
   overflow: hidden;
@@ -616,7 +631,8 @@ header {
 .thumbnail-big-box {
   padding: 0 5px;
   display: inline-block;
-  width: 50%; }
+  width: 50%;
+  min-width: 200px; }
   .thumbnail-big-box .thumbnail-big {
     position: relative;
     overflow: hidden;
@@ -718,6 +734,7 @@ header {
 .thumbnail-category-box {
   display: inline-block;
   width: 100%;
+  min-width: 100px;
   padding: 0 5px;
   margin-bottom: 10px; }
   .thumbnail-category-box .thumbnail-category {
@@ -1047,7 +1064,7 @@ header {
     left: 20px;
     border: 2px solid #E93C1A; }
   #userPage .content-with-bars .chat-header h1 {
-    padding: 25px 15px 0 90px;
+    padding: 15px 15px 0 90px;
     font-size: 22px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1055,15 +1072,18 @@ header {
   #userPage .content-with-bars .chat-header .header-info {
     position: absolute;
     left: 110px;
-    bottom: 25px;
+    bottom: 55px;
     font-size: 12px; }
+    @media screen and (max-width: 400px) {
+      #userPage .content-with-bars .chat-header .header-info {
+        font-size: 10px; } }
     #userPage .content-with-bars .chat-header .header-info .header-hostname,
     #userPage .content-with-bars .chat-header .header-info .header-chanelname {
       margin-right: 10px; }
   #userPage .content-with-bars .chat-header .subscribe-content {
     position: absolute;
-    right: 20px;
-    bottom: 17px; }
+    bottom: 15px;
+    left: 110px; }
     #userPage .content-with-bars .chat-header .subscribe-content .header-subscribe-btn i {
       font-size: 14px;
       position: relative;
@@ -1074,9 +1094,11 @@ header {
       border: 1px solid #f5f5f5;
       border-left: none;
       padding: 5px 5px 5px;
-      margin-left: -5px;
       position: relative;
-      top: 1px; }
+      top: 5px; }
+      @media screen and (max-width: 400px) {
+        #userPage .content-with-bars .chat-header .subscribe-content .subscription-number {
+          display: none; } }
 
 #userPage .content-with-bars .video-content .video-box.scrolled {
   position: fixed;
@@ -1090,19 +1112,22 @@ header {
     display: none; }
 
 #userPage .content-with-bars .video-content .other-controls {
-  text-align: right;
+  text-align: left;
   padding: 10px 0;
   font-size: 13px; }
   #userPage .content-with-bars .video-content .other-controls .viewers-content {
-    float: left;
     line-height: 34px; }
+    @media screen and (min-width: 550px) {
+      #userPage .content-with-bars .video-content .other-controls .viewers-content {
+        float: left; } }
     #userPage .content-with-bars .video-content .other-controls .viewers-content .viewers {
       color: #E93C1A;
       margin-right: 5px; }
     #userPage .content-with-bars .video-content .other-controls .viewers-content span {
       cursor: default; }
-  #userPage .content-with-bars .video-content .other-controls .buttons-content {
-    float: right; }
+  @media screen and (min-width: 550px) {
+    #userPage .content-with-bars .video-content .other-controls .buttons-content {
+      float: right; } }
 
 #userPage .right-page-bar .chat-header {
   height: 40px;
@@ -1164,12 +1189,13 @@ header {
   #userPage .right-page-bar .chat-interface .chat-settings {
     display: none;
     position: absolute;
-    bottom: 30px;
-    left: -5px;
+    bottom: 32px;
+    left: 8px;
     background-color: #EFEFEF;
     width: 200px;
     padding: 20px 15px;
-    box-shadow: 0 0 3px #1E1E21; }
+    box-shadow: 0 0 3px #1E1E21;
+    font-size: 15px; }
     #userPage .right-page-bar .chat-interface .chat-settings .settings-content {
       text-align: left;
       margin-top: 5px; }
