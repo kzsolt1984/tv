@@ -1209,21 +1209,25 @@ header {
     #listPage .result-container .thumbnail-big-box {
       width: 25%; } }
 
-body#categoryPage .result-container-content {
+#categoryPage .result-container-content {
   margin: 0 -5px; }
 
-@media screen and (max-width: 510px) {
-  body#categoryPage .thumbnail-category-box {
+@media screen and (max-width: 360px) {
+  #categoryPage .thumbnail-category-box {
+    width: 100%; } }
+
+@media screen and (min-width: 360px) and (max-width: 600px) {
+  #categoryPage .thumbnail-category-box {
     width: 50%; } }
 
-@media screen and (min-width: 510px) {
-  body#categoryPage .thumbnail-category-box {
+@media screen and (min-width: 600px) {
+  #categoryPage .thumbnail-category-box {
     width: 33.33%; } }
 
 @media screen and (min-width: 1200px) {
-  body#categoryPage .thumbnail-category-box {
+  #categoryPage .thumbnail-category-box {
     width: 25%; } }
 
 @media screen and (min-width: 1500px) {
-  body#categoryPage .thumbnail-category-box {
+  #categoryPage .thumbnail-category-box {
     width: 20%; } }
