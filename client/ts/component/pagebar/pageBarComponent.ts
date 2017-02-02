@@ -1,5 +1,6 @@
 ///<reference path="../../controller/commonController.ts" />
 ///<reference path="../../util/mobileUtil.ts" />
+///<reference path="../../../lib/ts/jquey.custom-scrollbar.d.ts" />
 
 module component {
     export class PageBarComponent {
@@ -24,7 +25,6 @@ module component {
         }
 
         protected _bind(): void {
-
             this._setSiteElementDimension();
 
             this._$window.on('resize', () => {
@@ -55,6 +55,8 @@ module component {
                     this._setLeftBarSize(true, false);
                 }
             });
+
+            // this._$rightPageBar.find('.auth-content').customScrollbar();
         }
 
         /**
@@ -72,8 +74,6 @@ module component {
                 else {
                     this._$leftMenuBar.addClass('closed');
                 }
-
-                // $('.content-overlay').hide();
                 
                 this._$contentWithBars.addClass('expanded-left');
             }
@@ -84,10 +84,6 @@ module component {
                 else {
                     this._$leftMenuBar.removeClass('closed');
                 }
-
-                /*if ($(window).width() < 500) {
-                    $('.content-overlay').show();
-                }*/
 
                 
                 this._$contentWithBars.removeClass('expanded-left');

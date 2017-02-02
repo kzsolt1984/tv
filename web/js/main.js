@@ -129,6 +129,7 @@ var util;
 })(util || (util = {}));
 ///<reference path="../../controller/commonController.ts" />
 ///<reference path="../../util/mobileUtil.ts" />
+///<reference path="../../../lib/ts/jquey.custom-scrollbar.d.ts" />
 var component;
 (function (component) {
     var PageBarComponent = (function () {
@@ -169,6 +170,7 @@ var component;
                     _this._setLeftBarSize(true, false);
                 }
             });
+            // this._$rightPageBar.find('.auth-content').customScrollbar();
         };
         /**
          * Set left bar visibility
@@ -184,7 +186,6 @@ var component;
                 else {
                     this._$leftMenuBar.addClass('closed');
                 }
-                // $('.content-overlay').hide();
                 this._$contentWithBars.addClass('expanded-left');
             }
             else {
@@ -194,9 +195,6 @@ var component;
                 else {
                     this._$leftMenuBar.removeClass('closed');
                 }
-                /*if ($(window).width() < 500) {
-                    $('.content-overlay').show();
-                }*/
                 this._$contentWithBars.removeClass('expanded-left');
             }
         };

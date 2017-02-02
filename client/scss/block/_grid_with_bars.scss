@@ -286,6 +286,40 @@
     z-index: 3;
     background: #ddd;
 
+    .column-content {
+        .no-login-contain {
+            font-size: 14px;
+            padding: 20px;
+
+            p,
+            ul,
+            h3 {
+                margin-bottom: 20px;
+            }
+            
+            h3 {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            p {
+                line-height: 18px;
+            }
+
+            ul {
+                li {
+                    display: inline-block;
+                    padding: 0 10px;
+                    line-height: 30px;
+                    background: $boxContainerBgColor;
+                    border-left: 3px solid $defaultLinkColor;
+                    margin-bottom: 10px;
+                    list-style-position: inside;
+                }
+            }
+        }
+    }
+
     .close-bar-btn {
         width: 15px;
         position: absolute;
@@ -334,16 +368,76 @@
             }
         }
     }
-}
 
-.content-overlay {
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 240px;
-    bottom: 0;
-    z-index: 6;
-    background: rgba(255, 255, 255, 0.98);
+    .auth-content {
+        font-size: 12px;
+        padding: 15px 10px;
+
+        h5 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            padding-top: 15px;
+            line-height: 20px;
+            margin: 15px 0 10px;
+            border-top: 1px solid rgba(0,0,0,.2);
+            color: $footerFontColor;
+            text-transform: uppercase;
+        }
+
+        .content-list {
+            margin-bottom: 30px;
+
+            li {
+                display: block;
+                height: 50px;
+                overflow: hidden;
+                padding: 5px 10px;
+
+                a {
+                    display: block;
+                    color: $footerFontColor;
+
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        float: left;
+                        margin-right: 10px;
+                    }
+
+                    .info {
+                        float: left;
+
+                        .chanel-name {
+                            display: block;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            line-height: 22px;
+                            font-weight: bold;
+                        }
+
+                        .chanel-status {
+                            display: block;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+
+                    &:hover {
+                        .chanel-name {
+                            color: $defaultLinkColor;
+                        }
+                    }
+                }
+            }
+        }
+
+        .recommended-content {
+            margin-top: 20px;
+        }
+    }
 }
