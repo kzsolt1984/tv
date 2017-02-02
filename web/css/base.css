@@ -298,6 +298,9 @@ header {
     top: 8px;
     right: 8px; }
 
+#login-modal .modal-title {
+  font-size: 16px; }
+
 #login-modal .modal-footer {
   text-align: center; }
   #login-modal .modal-footer p {
@@ -632,7 +635,7 @@ header {
   padding: 0 5px;
   display: inline-block;
   width: 50%;
-  min-width: 200px; }
+  min-width: 175px; }
   .thumbnail-big-box .thumbnail-big {
     position: relative;
     overflow: hidden;
