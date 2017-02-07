@@ -21,10 +21,11 @@ module component {
             this._$chatSettingsPanel = $('.chat-interface .chat-settings');
 
             this._$chatContainer.customScrollbar({
-                preventDefaultScroll: true
+                preventDefaultScroll: true,
+                updateOnWindowResize: true
             });
 
-            this._scollToChatBottom();
+            this._scrollToChatBottom();
             
             this._bind();
             console.log('ChatComponent init done');
@@ -41,7 +42,7 @@ module component {
             this._$chatContainer.customScrollbar('resize', true);
 
             if (!this._isScrolled) {
-                this._scollToChatBottom();
+                this._scrollToChatBottom();
             }
         }
 
@@ -81,8 +82,10 @@ module component {
             });
         }
 
-        private _scollToChatBottom(): void {
-            this._$chatContainer.customScrollbar('scrollToY', this._$chatContainer.height());
+        private _scrollToChatBottom(): void {
+            console.log(this._$chatContainer.find('.overview').height());
+            this._$chatContainer
+                .customScrollbar('scrollToY', (this._$chatContainer.find('.overview').height() - this._$chatContainer.height()));
         }
 
         private _setSettingsPanelVisibility(): void {

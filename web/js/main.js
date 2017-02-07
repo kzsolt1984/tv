@@ -143,7 +143,8 @@ var component;
             this._$contentWithBars = $('.content-with-bars');
             this._$isMobileView = util.MobileUtil.detectIsMobileView();
             this._$leftMenuBar.find('.sidebar-content').customScrollbar({
-                preventDefaultScroll: true
+                preventDefaultScroll: true,
+                updateOnWindowResize: true
             });
             this._bind();
         }
@@ -152,7 +153,6 @@ var component;
             this._setSiteElementDimension();
             this._$window.on('resize', function () {
                 _this._setSiteElementDimension();
-                _this._$leftMenuBar.find('.sidebar-content').customScrollbar('resize', true);
             });
             this._$closeMenuBar.on('click', function (e) {
                 var data = $(e.currentTarget).data('side');
@@ -289,9 +289,10 @@ var component;
             this._$chatSettingsBtn = $('.chat-buttons .setting-btn');
             this._$chatSettingsPanel = $('.chat-interface .chat-settings');
             this._$chatContainer.customScrollbar({
-                preventDefaultScroll: true
+                preventDefaultScroll: true,
+                updateOnWindowResize: true
             });
-            this._scollToChatBottom();
+            this._scrollToChatBottom();
             this._bind();
             console.log('ChatComponent init done');
         }
@@ -303,7 +304,7 @@ var component;
             this._$chatTextarea.val('');
             this._$chatContainer.customScrollbar('resize', true);
             if (!this._isScrolled) {
-                this._scollToChatBottom();
+                this._scrollToChatBottom();
             }
         };
         ChatComponent.prototype._bind = function () {
@@ -333,8 +334,10 @@ var component;
                 return false;
             });
         };
-        ChatComponent.prototype._scollToChatBottom = function () {
-            this._$chatContainer.customScrollbar('scrollToY', this._$chatContainer.height());
+        ChatComponent.prototype._scrollToChatBottom = function () {
+            console.log(this._$chatContainer.find('.overview').height());
+            this._$chatContainer
+                .customScrollbar('scrollToY', (this._$chatContainer.find('.overview').height() - this._$chatContainer.height()));
         };
         ChatComponent.prototype._setSettingsPanelVisibility = function () {
             if (this._$chatSettingsPanel.is(':hidden')) {
