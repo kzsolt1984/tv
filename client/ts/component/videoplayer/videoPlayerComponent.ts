@@ -14,6 +14,7 @@ module component {
         private _videoBigSreenBtn: JQuery;
         private _allowMinimizeVideo: boolean = false;
         private _prevVolume: number = 100;
+        private _fullScreenEnabled: any;
 
         constructor($videoContainer: JQuery, allowMinimizeVideo?: boolean) {
             this._$videoContainer = $videoContainer;
@@ -26,18 +27,28 @@ module component {
             this._audioSlider = $videoContainer.find('.volume-slider');
             this._videoBigSreenBtn = $videoContainer.find('.control-big-screen');
             this._allowMinimizeVideo = allowMinimizeVideo;
+            this._fullScreenEnabled = !!(document.fullscreenEnabled 
+                                        || (<any>document).mozFullScreenEnabled
+                                        || (<any>document).msFullscreenEnabled
+                                        || (<any>document).webkitSupportsFullscreen
+                                        || (<any>document).webkitFullscreenEnabled
+                                        || document.createElement('video').webkitRequestFullScreen);
+
+            // full screen disabled
+            if (!this._fullScreenEnabled) {
+                this._fullScreenBtn.hide();
+            }
             
-            var supportsVideo: boolean = (this._videoElement.canPlayType('video/mp4').length > 0);
+            var supportsVideo: boolean = (this._videoElement.canPlayType('video/mp4').length > 0)
+                                            || (this._videoElement.canPlayType('video/webm').length > 0)
+                                            || (this._videoElement.canPlayType('video/ogg').length > 0);
 
             if (!supportsVideo) {
+                // TODO: show error text without video tag
                 return;
             }
 
             this._bind();
-
-            if (util.MobileUtil.detectIsMobileView()) {
-                $('body').addClass('isMobile');
-            }
         }
 
         /**
@@ -92,7 +103,7 @@ module component {
         /**
          * Events binding
          */
-        protected _bind() {
+        protected _bind(): void {
             /** Video events */
             this._playStopBtn.on('click', (e: JQueryEventObject) => {
                 this.setVideoRunningState();
@@ -144,14 +155,7 @@ module component {
 
             /** Fullscreen events */
             this._fullScreenBtn.on('click', (e: JQueryEventObject) => {
-                var fullScreenEnabled = !!(document.fullscreenEnabled 
-                                        || (<any>document).mozFullScreenEnabled
-                                        || (<any>document).msFullscreenEnabled
-                                        || (<any>document).webkitSupportsFullscreen
-                                        || (<any>document).webkitFullscreenEnabled
-                                        || document.createElement('video').webkitRequestFullScreen);
-
-                if (!fullScreenEnabled) {
+                if (!this._fullScreenEnabled) {
                     this._fullScreenBtn.hide();
                     return false;
                 }
@@ -194,6 +198,8 @@ module component {
 
         /**
          * Show play or pause btn icon
+         * 
+         * @param pause {boolean}
          */
         private _changeVideoPlayIconState(pause: boolean): void {
             var $playIcon = this._playStopBtn.find('.video-play-icon'),

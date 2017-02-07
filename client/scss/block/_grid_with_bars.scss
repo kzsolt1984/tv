@@ -415,6 +415,7 @@
                             white-space: nowrap;
                             overflow: hidden;
                             text-overflow: ellipsis;
+                            -ms-text-overflow: ellipsis;
                             line-height: 22px;
                             font-weight: bold;
                         }
@@ -424,6 +425,7 @@
                             white-space: nowrap;
                             overflow: hidden;
                             text-overflow: ellipsis;
+                            -ms-text-overflow: ellipsis;
                         }
                     }
 

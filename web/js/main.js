@@ -368,14 +368,24 @@ var component;
             this._audioSlider = $videoContainer.find('.volume-slider');
             this._videoBigSreenBtn = $videoContainer.find('.control-big-screen');
             this._allowMinimizeVideo = allowMinimizeVideo;
-            var supportsVideo = (this._videoElement.canPlayType('video/mp4').length > 0);
+            this._fullScreenEnabled = !!(document.fullscreenEnabled
+                || document.mozFullScreenEnabled
+                || document.msFullscreenEnabled
+                || document.webkitSupportsFullscreen
+                || document.webkitFullscreenEnabled
+                || document.createElement('video').webkitRequestFullScreen);
+            // full screen disabled
+            if (!this._fullScreenEnabled) {
+                this._fullScreenBtn.hide();
+            }
+            var supportsVideo = (this._videoElement.canPlayType('video/mp4').length > 0)
+                || (this._videoElement.canPlayType('video/webm').length > 0)
+                || (this._videoElement.canPlayType('video/ogg').length > 0);
             if (!supportsVideo) {
+                // TODO: show error text without video tag
                 return;
             }
             this._bind();
-            if (util.MobileUtil.detectIsMobileView()) {
-                $('body').addClass('isMobile');
-            }
         }
         /**
          * Play or stop video
@@ -470,13 +480,7 @@ var component;
             });
             /** Fullscreen events */
             this._fullScreenBtn.on('click', function (e) {
-                var fullScreenEnabled = !!(document.fullscreenEnabled
-                    || document.mozFullScreenEnabled
-                    || document.msFullscreenEnabled
-                    || document.webkitSupportsFullscreen
-                    || document.webkitFullscreenEnabled
-                    || document.createElement('video').webkitRequestFullScreen);
-                if (!fullScreenEnabled) {
+                if (!_this._fullScreenEnabled) {
                     _this._fullScreenBtn.hide();
                     return false;
                 }
@@ -512,6 +516,8 @@ var component;
         };
         /**
          * Show play or pause btn icon
+         *
+         * @param pause {boolean}
          */
         VideoPlayerComponent.prototype._changeVideoPlayIconState = function (pause) {
             var $playIcon = this._playStopBtn.find('.video-play-icon'), $pauseIcon = this._playStopBtn.find('.video-pause-icon');
