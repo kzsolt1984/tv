@@ -21,6 +21,10 @@ module component {
             this._$contentWithBars = $('.content-with-bars');
             this._$isMobileView = util.MobileUtil.detectIsMobileView();
 
+            this._$leftMenuBar.find('.sidebar-content').customScrollbar({
+                preventDefaultScroll: true
+            });
+
             this._bind();
         }
 
@@ -29,6 +33,8 @@ module component {
 
             this._$window.on('resize', () => {
                 this._setSiteElementDimension();
+
+                this._$leftMenuBar.find('.sidebar-content').customScrollbar('resize', true);
             });
 
             this._$closeMenuBar.on('click', (e: JQueryEventObject) => {

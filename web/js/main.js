@@ -142,6 +142,9 @@ var component;
             this._$rightPageBar = $('.right-page-bar');
             this._$contentWithBars = $('.content-with-bars');
             this._$isMobileView = util.MobileUtil.detectIsMobileView();
+            this._$leftMenuBar.find('.sidebar-content').customScrollbar({
+                preventDefaultScroll: true
+            });
             this._bind();
         }
         PageBarComponent.prototype._bind = function () {
@@ -149,6 +152,7 @@ var component;
             this._setSiteElementDimension();
             this._$window.on('resize', function () {
                 _this._setSiteElementDimension();
+                _this._$leftMenuBar.find('.sidebar-content').customScrollbar('resize', true);
             });
             this._$closeMenuBar.on('click', function (e) {
                 var data = $(e.currentTarget).data('side');

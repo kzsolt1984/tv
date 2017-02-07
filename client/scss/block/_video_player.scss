@@ -95,12 +95,15 @@
             top: 50%;
             left: 50%;
             margin-top: -20px;
-            margin-left: -50px;
-            font-size: 40px;
+            margin-left: -50px;            
 
             a {
                 margin-right: 20px;
                 color: $headerLinkColor;
+
+                i {
+                    font-size: 40px;
+                }
 
                 .fa-pause {
                     display: none;
