@@ -194,6 +194,12 @@ a {
     margin-right: 20px;
     min-width: 120px;
 }
+
+.ie9-sucks {
+    display: inline-block;
+    width: 0;
+    height: 0;
+}
 /******************************** default config end ****************/
 
 /********************************** blocks **************************/
