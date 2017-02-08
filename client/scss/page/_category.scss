@@ -3,22 +3,22 @@
         margin: 0 -5px;
     }
 
-    @media screen and (max-width: 360px) {
+    @media screen and (max-width: $page-small-mobile-query-width) {
         .thumbnail-category-box {
             width: 100%;
         }
     }
 
-    @media screen and (min-width: 360px) and (max-width: 510px) {
+    @media screen and (min-width: $page-small-mobile-query-width) and (max-width: $page-normal-mobile-query-width) {
         .thumbnail-category-box {
             width: 50%;
         }
     }
 
-    @media screen and (min-width: 510px) {
+    @media screen and (min-width: $page-normal-mobile-query-width) {
         .thumbnail-category-box {
             width: 33.33%;
-        }
+        } 
     }
 
     @media screen and (min-width: $page-extra-large-query-width) {

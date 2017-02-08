@@ -7,10 +7,10 @@
             width: 50%;
         }
         
-        @media screen and (max-width: 510px) {
+        @media screen and (max-width: $page-normal-mobile-query-width) {
             .thumbnail-big-box {
                 width: 100%;
-            }
+            } 
         }
 
         @media screen and (min-width: $page-extra-large-query-width) {

@@ -38,7 +38,7 @@
                 bottom: 55px;
                 font-size: 12px;
 
-                @media screen and (max-width: 400px) {
+                @media screen and (max-width: $page-normal-mobile-query-width) {
                     font-size: 10px;
                 }
 
@@ -70,7 +70,7 @@
                     position: relative;
                     top: 5px;
 
-                    @media screen and (max-width: 400px) {
+                    @media screen and (max-width: $page-normal-mobile-query-width) {
                         display: none;
                     }
                 }
@@ -102,7 +102,7 @@
                 font-size: 13px;
 
                 .viewers-content {
-                    @media screen and (min-width: 550px) {
+                    @media screen and (min-width: $page-small-query-width) {
                         float: left;
                     }
                     line-height: 34px;
@@ -118,7 +118,7 @@
                 }
 
                 .buttons-content {
-                    @media screen and (min-width: 550px) {
+                    @media screen and (min-width: $page-small-query-width) {
                         float: right;
                     }
                 }

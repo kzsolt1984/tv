@@ -1,9 +1,14 @@
+// page sizes
+$page-small-mobile-width: 320px;
 $page-small-width: 550px;
 $page-medium-width: 750px;
 $page-large-width: 970px;
-$page-extra-large-width: 970px;
-$page-huge-width: 1440px;
+$page-extra-large-width: 1170px;
+$page-huge-width: 1440px; 
 
+// media query sizes
+$page-small-mobile-query-width: 360px;
+$page-normal-mobile-query-width: 510px;
 $page-small-query-width: 576px;
 $page-medium-query-width: 768px;
 $page-large-query-width: 992px;

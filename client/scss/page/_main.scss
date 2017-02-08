@@ -96,15 +96,11 @@
                     }
                 }
 
-                @media screen and (max-width: 360px) {
-                    width: 100%!important;
-                }
-
-                @media screen and (max-width: 600px) {
+                @media screen and (max-width: $page-normal-mobile-query-width) {
                     display: none;
                 }
 
-                @media screen and (min-width: 361px) and (max-width: $page-large-query-width) {
+                @media screen and (min-width: $page-normal-mobile-query-width) and (max-width: $page-large-query-width) {
                     float: none;
                     text-align: center;
                     width: 100%;
@@ -124,12 +120,12 @@
         padding-right: 5px;
         padding-bottom: 5px;
 
-        @media screen and (max-width: 360px) {
+        @media screen and (max-width: $page-small-mobile-query-width) {
             padding-right: 3px;
             padding-left: 3px;
         }
 
-        @media screen and (min-width: 360px) and (max-width: $page-large-query-width) {
+        @media screen and (min-width: $page-small-mobile-query-width) and (max-width: $page-large-query-width) {
             padding-left: 5px;
         }
         
@@ -138,7 +134,7 @@
             padding: 0;
             float: left;
             
-            @media screen and (min-width: 360px) and (max-width: $page-large-query-width) {
+            @media screen and (min-width: $page-small-mobile-query-width) and (max-width: $page-large-query-width) {
                 text-align: center;
 
                 h5 {
@@ -147,7 +143,7 @@
                 }
             }
 
-            @media screen and (max-width: 360px) {
+            @media screen and (max-width: $page-small-mobile-query-width) {
                 float: none;
                 margin: 0 auto 10px;
                 width: 100%;
@@ -167,7 +163,7 @@
                 }
             }
 
-            @media screen and (min-width: 361px) and (max-width: $page-large-query-width) {
+            @media screen and (min-width: $page-small-mobile-query-width) and (max-width: $page-large-query-width) {
                 float: none;
                 margin: 0 auto;
                 width: 100%;
@@ -201,7 +197,7 @@
     .other-recommender-container {
          padding-bottom: 5px;
 
-         @media screen and (max-width: 360px) {
+         @media screen and (max-width: $page-small-mobile-query-width) {
             padding-right: 3px;
             padding-left: 3px;
         }
@@ -224,13 +220,13 @@
                 width: 33%;
             }
 
-            @media screen and (max-width: 360px) {
+            @media screen and (max-width: $page-small-mobile-query-width) {
                 .thumbnail-big-box {
                     width: 100%;
                 }
             }
 
-            @media screen and (min-width: 360px) and (max-width: $page-large-query-width) {
+            @media screen and (min-width: $page-small-mobile-query-width) and (max-width: $page-large-query-width) {
                 .thumbnail-big-box {
                     width: 50%;
                 }
