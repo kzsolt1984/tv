@@ -370,18 +370,18 @@
 
     .auth-content {
         font-size: 12px;
-        padding: 15px 10px;
+        padding: 25px 10px;
 
         h5 {
             font-size: 20px;
             margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid $barsLayoutRightLoggedHeaderBorderColor;
         }
 
         .header {
-            padding-top: 15px;
             line-height: 20px;
-            margin: 15px 0 10px;
-            border-top: 1px solid $barsLayoutRightLoggedHeaderBorderColor;
+            margin: 15px 0;
             color: $barsLayoutRightLoggedHeaderFontColor;
             text-transform: uppercase;
         }
@@ -417,6 +417,7 @@
                             -ms-text-overflow: ellipsis;
                             line-height: 22px;
                             font-weight: bold;
+                            //color: $siteSpecificColor3;
                         }
 
                         .chanel-status {
@@ -425,6 +426,11 @@
                             overflow: hidden;
                             text-overflow: ellipsis;
                             -ms-text-overflow: ellipsis;
+                            padding: 2px 0;
+
+                            /*span {
+                                color: $siteSpecificColor3;
+                            }*/
                         }
                     }
 

@@ -40,7 +40,10 @@
         &:hover {
             .info {
                 color: $defaultLinkColor;
-            }            
+            }
+
+            position: relative;
+            top: -5px;
         }
     }
 }

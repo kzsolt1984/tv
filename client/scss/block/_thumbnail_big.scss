@@ -86,7 +86,7 @@
             .author {
                 display: block; 
                 float: left;
-                width: 60%;
+                width: 55%;
                 word-break: keep-all;
                 white-space: nowrap;
                 overflow: hidden;
@@ -113,6 +113,9 @@
                 opacity: 1;
                 transition: opacity 1000ms;
             }
+
+            position: relative;
+            top: -5px;
         }
 
         //0.5625            

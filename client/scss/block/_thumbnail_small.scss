@@ -103,6 +103,9 @@
             opacity: 1;
             transition: opacity 1000ms;
         }
+
+        position: relative;
+        top: -5px;
     }
 
     &:nth-child(1),

@@ -99,25 +99,23 @@ footer {
     }
 }
 
-a,
+a {
+    color: $defaultLinkColor;
+    
+    &:visited {
+        text-decoration: none;
+        color: $defaultLinkColor;
+    }
+}
+
 a:hover,
 a:active,
-a:visited,
 a:focus,
 a:active:focus {
     text-decoration: none;
     outline: none!important;
     border: none;
-    color: $defaultLinkActiveColor;
-}
-
-a {
-    color: $defaultLinkColor;
-    
-    &:hover {
-        text-decoration: none;
-        color: $defaultLinkDarkColor;
-    }
+    color: $defaultLinkDarkColor;
 }
 
 .fa {
@@ -136,9 +134,12 @@ a {
     border: none;
     color: $defaultBtnColor;
 
+    &:visited {
+        color: $defaultBtnColor;
+    }
+
     &:hover,
-    &:active,
-    &:visited,
+    &:active,    
     &:focus,
     &:active:focus {
         color: $defaultBtnColor;
@@ -149,9 +150,13 @@ a {
     background-color: $primaryButtonBgColor;
     background-image: none;        
     
+    &:visited {
+        background-color: $primaryButtonBgColor;
+        background-image: none; 
+    }
+
     &:hover,
-    &:active,
-    &:visited,
+    &:active,    
     &:focus,
     &:active:focus {
         background-color: $primaryButtonActiveBgColor;
@@ -163,9 +168,13 @@ a {
     border: 1px solid $reverseBtnBorderColor;
     color: $reverseBtnFontColor;
 
+    &:visited {
+        border: 1px solid $reverseBtnBorderColor;
+        color: $reverseBtnFontColor;
+    }
+
     &:hover,
     &:active,
-    &:visited,
     &:focus,
     &:active:focus {
         background-color: $reverseBtnActiveBgColor;
