@@ -10,13 +10,13 @@
         font-size: 0;
         padding: 0;
         margin-bottom: 10px;
-        box-shadow: 0 2px 5px $headerShadowColor;
+        box-shadow: 0 2px 5px $thumbnailShadowColor;
         float: none;
         display: inline-block;                
         margin-right: 0;
         box-sizing: border-box;
         width: 100%;
-
+ 
         img {
             height: auto!important;
             width: 100%!important;

@@ -27,8 +27,71 @@ $boxContainerBgColor: #fff;
 $playerChanelListBorderColor: $boxContainerBgColor;
 $playerChanelListArrowColor: $defaultLinkColor;
 
+//thumbnail
 $thumbnailLayerBgColor: #000;
 $thumbnailTitleFontColor: $boxContainerBgColor;
 $thumbnailSmallOtherInfoFontColor: $defaultLinkColor;
 $thumbnailBigTitleBgColor: rgba(0,0,0, 0.6);
 $thumbnailBigViewerFontColor: $footerFontColor;
+$thumbnailShadowColor: $headerShadowColor;
+
+//video player
+$videoControlBgColor: $thumbnailBigTitleBgColor;
+$videoControlFontColor: $headerLinkColor;
+$videoSliderBgColor: $defaultLinkColor;
+$videoSilderHandleBgColor: $headerLinkColor;
+$videoSliderHandleActiveBgColor: $headerLinkColor;
+$videoSliderRangeBgColor: $defaultLinkColor;
+$videoMiniControlFontColor: $headerLinkColor;
+$videoFullscreenBgColor: $thumbnailLayerBgColor;
+
+//layout with bars
+$barsLayoutLeftBarBgColor: $headerBgColor;
+$barsLayoutLeftBarCloseBtnBgColor: $headerBgColor;
+$barsLayoutLeftBarCloseHoverBtnBgColor: $defaultLinkColor;
+$barsLayoutLeftBarCloseHoverBtnFontColor: $headerBgColor;
+$barsLayoutLeftBarDefaultFontColor: $headerLinkSecondColor;
+$barsLayoutLeftBarHeaderFontColor: $headerLinkSecondColor;
+$barsLayoutLeftBarHeaderBorderColor: $thumbnailLayerBgColor;
+$barsLayoutLeftBarBtnBgColor: $thumbnailLayerBgColor;
+$barsLayoutLeftBarBtnFontColor: $headerLinkSecondColor;
+$barsLayoutLeftBarBtnHoverBgColor: $defaultLinkColor;
+$barsLayoutLeftBarFooterBolderColor: $thumbnailLayerBgColor;
+$barsLayoutLeftBarFooterFontColor: #777;
+$barsLayoutLeftBarFooterHoverFontColor: $boxContainerBgColor;
+$barsLayoutLeftBarCollapsedImgBorderColor: $headerLinkColor;
+$barsLayoutLeftBarCollapsedDefaultColor: $headerLinkColor;
+//content
+$barsContentHeaderFilterBorderColor: $footerFontColor;
+$barsContentHeaderActiveLinkColor: $defaultFontColor;
+$barsContentHeaderActiveLinkBorderColor: $defaultLinkColor;
+//right
+$barsLayoutRightBarBgColor: #ddd;
+$barsLayoutRightNotLoginListBgColor: $boxContainerBgColor;
+$barsLayoutRightNotLoginListBorderColor: $defaultLinkColor;
+$barsLayoutRightCloseBtnBgColor: $barsLayoutRightBarBgColor;
+$barsLayoutRightHoverLinkBgColor: $defaultLinkColor;
+$barsLayoutRightHoverLinkColor: $headerLinkColor;
+$barsLayoutRightLoggedHeaderBorderColor: $headerShadowColor;
+$barsLayoutRightLoggedHeaderFontColor: $footerFontColor;
+$barsLayoutRightLoggedListLinkColor: $footerFontColor;
+$barsLayoutRightLoggedChanelNameHoveredColor: $defaultLinkColor;
+
+//PAGES
+//chat
+$chatPageHeaderImgBorderColor: $defaultLinkColor;
+$chatPageSubscriptionNumberColor: $headerLinkColor;
+$chatPageViewersNumberColor: $defaultLinkColor;
+$chatPageMiniPlayerBorderColor: $boxContainerBgColor;
+$chatPageMiniPlayerBgColor: $boxContainerBgColor;
+$chatPageMiniPlayerVideoBorderColor: $defaultLinkColor;
+$chatPageChatHeaderBorderColor: $footerFontColor;
+$chatPageTextareaFocusShadowColor: $headerBgColor;
+$chatPageTextareaFocusBorderColor: #cbc8d0;
+$chatPageSettingsShadowColor: $headerBgColor;
+$chatPageSettingsBgColor: $defaultBgColor;
+
+$chatPageChatTextColor1: $defaultFontColor;
+$chatPageChatTextColor2: #7fcbf3;
+$chatPageChatTextColor3: #e368d7;
+$chatPageChatTextColor4: #ea4e2c;

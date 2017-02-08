@@ -83,7 +83,6 @@ module component {
         }
 
         private _scrollToChatBottom(): void {
-            console.log(this._$chatContainer.find('.overview').height());
             this._$chatContainer
                 .customScrollbar('scrollToY', (this._$chatContainer.find('.overview').height() - this._$chatContainer.height()));
         }

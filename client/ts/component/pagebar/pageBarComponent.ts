@@ -21,7 +21,7 @@ module component {
             this._$contentWithBars = $('.content-with-bars');
             this._$isMobileView = util.MobileUtil.detectIsMobileView();
 
-            this._$leftMenuBar.find('.sidebar-content').customScrollbar({
+            this._$leftMenuBar.find('.sidebar-expanded .sidebar-content').customScrollbar({
                 preventDefaultScroll: true,
                 updateOnWindowResize: true
             });

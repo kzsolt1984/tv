@@ -11,7 +11,7 @@
         .video-controls {
             position: absolute;
             bottom: 0;
-            background-color: $thumbnailBigTitleBgColor;
+            background-color: $videoControlBgColor;
             width: 100%;
             padding: 10px 30px;
             opacity: 0;
@@ -20,7 +20,7 @@
             a {
                 display: inline-block;
                 font-size: 18px;
-                color: $headerLinkColor;
+                color: $videoControlFontColor;
 
                 &.control-playing {
                     width: 17px;
@@ -62,7 +62,7 @@
                 top: -4px;
                 cursor: pointer;
                 border-radius: 0;     
-                background-color: $defaultLinkColor;
+                background-color: $videoSliderBgColor;
                 border: none;           
 
                 .ui-slider-handle {
@@ -73,18 +73,18 @@
                     top: -6px;
                     cursor: pointer;
                     border: none;
-                    background-color: $headerLinkColor;        
+                    background-color: $videoSilderHandleBgColor;        
                     outline: none;            
                 }
 
                 .ui-slider-range {
-                    background-color: $defaultLinkColor;
+                    background-color: $videoSliderRangeBgColor;
                 }
 
                 .ui-state-active,
                 .ui-state-hover,
                 .ui-state-focus {
-                    background: $headerLinkColor;
+                    background: $videoSliderHandleActiveBgColor;
                 }
             }            
         }
@@ -99,7 +99,7 @@
 
             a {
                 margin-right: 20px;
-                color: $headerLinkColor;
+                color: $videoMiniControlFontColor;
 
                 i {
                     font-size: 40px;
@@ -152,5 +152,5 @@
 }
 
 :-webkit-full-screen {
-    background-color: $thumbnailLayerBgColor;
+    background-color: $videoFullscreenBgColor;
 }

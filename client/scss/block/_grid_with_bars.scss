@@ -5,14 +5,14 @@
     bottom: 0;
     width: 240px;
     z-index: 3;
-    background-color: $headerBgColor;
+    background-color: $barsLayoutLeftBarBgColor;
 
     .close-bar-btn {
         width: 15px;
         position: absolute;
         top: 50%;
         left: 240px;
-        background-color: $headerBgColor;
+        background-color: $barsLayoutLeftBarCloseBtnBgColor;
         padding: 20px 0;
         border-radius: 0 30px 30px 0;
 
@@ -21,8 +21,8 @@
         }
 
         &:hover {
-            background-color: $defaultLinkColor;
-            color: $headerLinkColor;
+            background-color: $barsLayoutLeftBarCloseHoverBtnBgColor;
+            color: $barsLayoutLeftBarCloseHoverBtnFontColor;
         }
     }
 
@@ -54,7 +54,7 @@
                     }
 
                     a {
-                        color: $headerLinkSecondColor;
+                        color: $barsLayoutLeftBarDefaultFontColor;
 
                         i {
                             font-size: 20px;
@@ -78,8 +78,8 @@
             h4 {
                 text-align: left;
                 margin-bottom: 10px;
-                color: $headerLinkSecondColor;
-                border-bottom: 1px solid #000;
+                color: $barsLayoutLeftBarHeaderFontColor;
+                border-bottom: 1px solid $barsLayoutLeftBarHeaderBorderColor;
                 padding-bottom: 10px;
                 font-size: 14px;
                 margin-right: 5px;
@@ -98,29 +98,29 @@
                         height: 28px;
                         line-height: 28px;      
                         font-size: 12px;       
-                        background-color: #000;       
-                        color: $headerLinkSecondColor;    
+                        background-color: $barsLayoutLeftBarBtnBgColor;       
+                        color: $barsLayoutLeftBarBtnFontColor;    
 
                         &:hover {
-                            background-color: $defaultLinkColor;                            
+                            background-color: $barsLayoutLeftBarBtnHoverBgColor;                            
                         }
                     }
                 }
             }
 
             .sidebar-footer {
-                border-top: 1px solid #000;
+                border-top: 1px solid $barsLayoutLeftBarFooterBolderColor;
                 padding-top: 10px;
                 text-align: center;
                 line-height: 25px;
                 font-size: 12px;
                 
                 a {
-                    color: #777;
+                    color: $barsLayoutLeftBarFooterFontColor;
                     margin-right: 10px;
 
                     &:hover {
-                        color: #fff;
+                        color: $barsLayoutLeftBarFooterHoverFontColor;
                     }
                 }
             }
@@ -152,7 +152,7 @@
         .logo {
             img {
                 width: 40px;
-                border-bottom: 1px solid $headerLinkColor;
+                border-bottom: 1px solid $barsLayoutLeftBarCollapsedImgBorderColor;
                 padding-bottom: 15px;
             }
         }
@@ -164,7 +164,7 @@
                 margin-bottom: 20px;
 
                 a {
-                    color: $headerLinkColor;
+                    color: $barsLayoutLeftBarCollapsedDefaultColor;
                 }                
             }
         }
@@ -230,7 +230,7 @@
         margin-right: 0;
     }
 
-        .header-filter {
+    .header-filter {
         font-size: 12px;
         margin-bottom: 20px;
         padding-bottom: 5px;
@@ -242,7 +242,7 @@
         }
 
         .main-filter {
-            border-bottom: 1px solid $footerFontColor;
+            border-bottom: 1px solid $barsContentHeaderFilterBorderColor;
             padding-bottom: 10px;
             margin-bottom: 20px;
 
@@ -254,14 +254,13 @@
                     font-size: 14px;
                     
                     &.active {
-                        color: $defaultFontColor;
-                        padding-bottom: 7px;
-                        border-bottom: 2px solid $defaultLinkColor;
+                        color: $barsContentHeaderActiveLinkColor;                        
                     }
 
+                    &.active,
                     &:hover {
                         padding-bottom: 7px;
-                        border-bottom: 2px solid $defaultLinkColor;
+                        border-bottom: 2px solid $barsContentHeaderActiveLinkBorderColor;
                     }
                 }
             }
@@ -284,7 +283,7 @@
     bottom: 0;
     width: 340px;
     z-index: 3;
-    background: #ddd;
+    background: $barsLayoutRightBarBgColor;
 
     .column-content {
         .no-login-contain {
@@ -311,8 +310,8 @@
                     display: inline-block;
                     padding: 0 10px;
                     line-height: 30px;
-                    background: $boxContainerBgColor;
-                    border-left: 3px solid $defaultLinkColor;
+                    background: $barsLayoutRightNotLoginListBgColor;
+                    border-left: 3px solid $barsLayoutRightNotLoginListBorderColor;
                     margin-bottom: 10px;
                     list-style-position: inside;
                 }
@@ -325,13 +324,13 @@
         position: absolute;
         top: 50%;
         right: 340px;
-        background-color: #ddd;
+        background-color: $barsLayoutRightCloseBtnBgColor;
         padding: 20px 0;
         border-radius: 30px 0 0 30px;
 
         &:hover {
-            background-color: $defaultLinkColor;
-            color: $headerLinkColor;
+            background-color: $barsLayoutRightHoverLinkBgColor;
+            color: $barsLayoutRightHoverLinkColor;
         }
 
         i {
@@ -382,8 +381,8 @@
             padding-top: 15px;
             line-height: 20px;
             margin: 15px 0 10px;
-            border-top: 1px solid rgba(0,0,0,.2);
-            color: $footerFontColor;
+            border-top: 1px solid $barsLayoutRightLoggedHeaderBorderColor;
+            color: $barsLayoutRightLoggedHeaderFontColor;
             text-transform: uppercase;
         }
 
@@ -398,7 +397,7 @@
 
                 a {
                     display: block;
-                    color: $footerFontColor;
+                    color: $barsLayoutRightLoggedListLinkColor;
 
                     img {
                         width: 40px;
@@ -431,7 +430,7 @@
 
                     &:hover {
                         .chanel-name {
-                            color: $defaultLinkColor;
+                            color: $barsLayoutRightLoggedChanelNameHoveredColor;
                         }
                     }
                 }

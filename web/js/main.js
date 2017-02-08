@@ -142,7 +142,7 @@ var component;
             this._$rightPageBar = $('.right-page-bar');
             this._$contentWithBars = $('.content-with-bars');
             this._$isMobileView = util.MobileUtil.detectIsMobileView();
-            this._$leftMenuBar.find('.sidebar-content').customScrollbar({
+            this._$leftMenuBar.find('.sidebar-expanded .sidebar-content').customScrollbar({
                 preventDefaultScroll: true,
                 updateOnWindowResize: true
             });
@@ -335,7 +335,6 @@ var component;
             });
         };
         ChatComponent.prototype._scrollToChatBottom = function () {
-            console.log(this._$chatContainer.find('.overview').height());
             this._$chatContainer
                 .customScrollbar('scrollToY', (this._$chatContainer.find('.overview').height() - this._$chatContainer.height()));
         };

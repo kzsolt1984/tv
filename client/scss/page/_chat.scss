@@ -20,11 +20,10 @@
                 position: absolute;
                 top: 15px;
                 left: 20px;
-                border: 2px solid $defaultLinkColor;
+                border: 2px solid $chatPageHeaderImgBorderColor;
             }
 
             h1 {
-                //padding: 25px 15px 0 90px;
                 padding: 15px 15px 0 90px;
                 font-size: 22px;
                 overflow: hidden;
@@ -36,7 +35,6 @@
             .header-info {
                 position: absolute;
                 left: 110px;
-                //bottom: 25px;
                 bottom: 55px;
                 font-size: 12px;
 
@@ -52,8 +50,6 @@
 
             .subscribe-content {
                 position: absolute;
-                //right: 20px;
-                //bottom: 17px;
                 bottom: 15px;
                 left: 110px;
 
@@ -68,10 +64,9 @@
                 .subscription-number {
                     font-size: 12px;
                     line-height: 1.5;
-                    border: 1px solid $headerLinkColor;
+                    border: 1px solid $chatPageSubscriptionNumberColor;
                     border-left: none;
                     padding: 5px 5px 5px;
-                    //margin-left: -5px;
                     position: relative;
                     top: 5px;
 
@@ -88,11 +83,11 @@
                     position: fixed;
                     bottom: 40px;
                     width: 260px;
-                    border: 10px solid $boxContainerBgColor;
-                    background-color: $boxContainerBgColor;
+                    border: 10px solid $chatPageMiniPlayerBorderColor;
+                    background-color: $chatPageMiniPlayerBgColor;
 
                     video {
-                        border: 1px solid $defaultLinkColor;
+                        border: 1px solid $chatPageMiniPlayerVideoBorderColor;
                     }
 
                     .video-controls {
@@ -113,7 +108,7 @@
                     line-height: 34px;
 
                     .viewers {
-                        color: $defaultLinkColor;
+                        color: $chatPageViewersNumberColor;
                         margin-right: 5px;
                     }
 
@@ -138,7 +133,7 @@
             line-height: 22px;
             padding: 10px;
             text-align: center;
-            border-bottom: 1px solid $defaultBgColor;
+            border-bottom: 1px solid $chatPageChatHeaderBorderColor;
             font-size: 14px;
         }
 
@@ -163,19 +158,19 @@
                         font-weight: bold;
 
                         &.color-1 {
-                            color: $defaultFontColor;
+                            color: $chatPageChatTextColor1;
                         }
 
                         &.color-2 {
-                            color: #7fcbf3;
+                            color: $chatPageChatTextColor2;
                         }
 
                         &.color-3 {
-                            color: #e368d7;
+                            color: $chatPageChatTextColor3;
                         }
 
                         &.color-4 {
-                            color: #ea4e2c;
+                            color: $chatPageChatTextColor4;
                         }
                     }
                 }
@@ -197,8 +192,8 @@
 
                 &:focus {
                     outline: 0;
-                    box-shadow: 0 0 3px $headerBgColor;
-                    border: 1px solid #cbc8d0;
+                    box-shadow: 0 0 3px $chatPageTextareaFocusShadowColor;
+                    border: 1px solid $chatPageTextareaFocusBorderColor;
                 }
             }
 
@@ -222,10 +217,10 @@
                 position: absolute;
                 bottom: 32px;
                 left: 8px;
-                background-color: $defaultBgColor;
+                background-color: $chatPageSettingsBgColor;
                 width: 200px;
                 padding: 20px 15px;
-                box-shadow: 0 0 3px $headerBgColor;
+                box-shadow: 0 0 3px $chatPageSettingsShadowColor;
                 font-size: 15px;
 
                 .settings-content {
@@ -252,19 +247,19 @@
                         }  
 
                         &.color-1 {
-                            background-color: $defaultFontColor;
+                            background-color: $chatPageChatTextColor1;
                         }
 
                         &.color-2 {
-                            background-color: #7fcbf3;
+                            background-color: $chatPageChatTextColor2;
                         }
 
                         &.color-3 {
-                            background-color: #e368d7;
+                            background-color: $chatPageChatTextColor3;
                         }
 
                         &.color-4 {
-                            background-color: #ea4e2c;
+                            background-color: $chatPageChatTextColor4;
                         }
                     }
                 }
