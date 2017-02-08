@@ -37,7 +37,7 @@
 
             .chanel-list {
                 width: 180px;
-                background-color: $thumbnailBigTitleBgColor;
+                background-color: $mainPageChanelListBgColor;
                 padding: 5px;
                 float: left;
                 
@@ -69,7 +69,7 @@
                     }
                     
                     &.active {
-                        border: 2px solid $primaryButtonBgColor;
+                        border: 2px solid $mainPageChanelListActiveBorderColor;
                         
                         .arrow-icon {
                             position: absolute;
@@ -82,7 +82,7 @@
                                 left: -7px;
                                 border-top: 7px solid transparent;
                                 border-bottom: 7px solid transparent; 
-                                border-right:7px solid $primaryButtonBgColor; 
+                                border-right:7px solid $mainPageChanelListActiveArrowBorderColor; 
                             }
                                 
                             @media screen and (max-width: $page-large-query-width) {  
@@ -90,7 +90,7 @@
                                 left: 50%;                               
                                 border-left: 7px solid transparent;
                                 border-right: 7px solid transparent;                                
-                                border-bottom: 7px solid $primaryButtonBgColor;
+                                border-bottom: 7px solid $mainPageChanelListActiveArrowBorderColor;
                             }
                         }
                     }
