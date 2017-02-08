@@ -134,14 +134,14 @@ a {
 
 .btn {
     border: none;
-    color: $headerLinkColor;
+    color: $defaultBtnColor;
 
     &:hover,
     &:active,
     &:visited,
     &:focus,
     &:active:focus {
-        color: $headerLinkColor;
+        color: $defaultBtnColor;
     }
 }
 
@@ -154,24 +154,24 @@ a {
     &:visited,
     &:focus,
     &:active:focus {
-        background-color: $defaultLinkDarkColor;
+        background-color: $primaryButtonActiveBgColor;
         outline: none!important;
     }
 }
 
 .btn-reverse {
-    border: 1px solid $defaultLinkColor;
-    color: $defaultLinkColor;
+    border: 1px solid $reverseBtnBorderColor;
+    color: $reverseBtnFontColor;
 
     &:hover,
     &:active,
     &:visited,
     &:focus,
     &:active:focus {
-        background-color: #ffb38a;
+        background-color: $reverseBtnActiveBgColor;
         outline: none!important;
-        border: 1px solid $defaultLinkColor;
-        color: $defaultLinkColor;
+        border: 1px solid $reverseBtnActiveBolderColor;
+        color: $reverseBtnActiveFontColor;
     }
 }
 
