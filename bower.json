@@ -8,7 +8,8 @@
     "respondJS": "^1.4.2",
     "lodash": "^4.17.4",
     "jquery-custom-scrollbar": "^0.5.5",
-    "jquery-ui": "^1.12.1"
+    "jquery-ui": "^1.12.1",
+    "bootstrap-markdown": "https://github.com/toopay/bootstrap-markdown.git#^2.10.0"
   },
   "resolutions": {
     "jquery": "^2.2.0",

@@ -118,10 +118,11 @@ gulp.task("bower-js", function() {
         fileList = [
             bowerDir + 'jquery/dist/jquery.js',
             bowerDir + 'bootstrap/dist/js/bootstrap.js',
-            bowerDir + 'respondJS/dest/respond.js',
             bowerDir + 'lodash/dist/lodash.js',
             bowerDir + 'jquery-custom-scrollbar/jquery.custom-scrollbar.js',
-            bowerDir + 'jquery-ui/jquery-ui.js'
+            bowerDir + 'jquery-ui/jquery-ui.js',
+            bowerDir + 'bootstrap-markdown/js/bootstrap-markdown.js',
+            bowerDir + 'bootstrap-markdown/locale/bootstrap-markdown.zh.js'
         ];
 
     return gulp.src(fileList)
@@ -142,7 +143,8 @@ gulp.task('bower-css', function () {
             bowerDir + 'bootstrap/dist/css/bootstrap-theme.css',
             bowerDir + 'font-awesome/css/font-awesome.css',
             bowerDir + 'jquery-custom-scrollbar/jquery.custom-scrollbar.css',
-            bowerDir + 'jquery-ui/themes/base/jquery-ui.css'
+            bowerDir + 'jquery-ui/themes/base/jquery-ui.css',
+            bowerDir + 'bootstrap-markdown/css/bootstrap-markdown.min.css'
         ];
 
     return gulp.src(fileList)
