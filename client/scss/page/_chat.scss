@@ -12,6 +12,10 @@
             &.box-container {
                 margin: 0 0 15px;
                 padding: 0 20px;
+
+                @media screen and (max-width: $page-normal-mobile-query-width) {
+                    margin-bottom: 0;
+                } 
             }
             
             img {
@@ -74,7 +78,7 @@
                         display: none;
                     }
                 }
-            }                
+            }
         }     
 
         .video-content {
@@ -124,6 +128,18 @@
                 }
             }
         }
+
+        @media screen and (max-width: $page-normal-mobile-query-width) {
+            .video-container {
+                margin: 0 0 15px;
+                padding: 0;
+
+                .other-controls {
+                    padding: 10px;
+                }
+            }
+        }
+        
     }    
 
     // chat bar

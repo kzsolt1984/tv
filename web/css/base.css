@@ -1134,6 +1134,9 @@ header {
   #userPage .content-with-bars .chat-header.box-container {
     margin: 0 0 15px;
     padding: 0 20px; }
+    @media screen and (max-width: 510px) {
+      #userPage .content-with-bars .chat-header.box-container {
+        margin-bottom: 0; } }
   #userPage .content-with-bars .chat-header img {
     width: 80px;
     height: 80px;
@@ -1207,6 +1210,13 @@ header {
   @media screen and (min-width: 576px) {
     #userPage .content-with-bars .video-content .other-controls .buttons-content {
       float: right; } }
+
+@media screen and (max-width: 510px) {
+  #userPage .content-with-bars .video-container {
+    margin: 0 0 15px;
+    padding: 0; }
+    #userPage .content-with-bars .video-container .other-controls {
+      padding: 10px; } }
 
 #userPage .right-page-bar .chat-header {
   height: 40px;
