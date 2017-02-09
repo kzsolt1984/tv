@@ -1182,16 +1182,17 @@ header {
         #userPage .content-with-bars .chat-header .subscribe-content .subscription-number {
           display: none; } }
 
-#userPage .content-with-bars .video-content .video-box.scrolled {
-  position: fixed;
-  bottom: 40px;
-  width: 260px;
-  border: 10px solid #fff;
-  background-color: #fff; }
-  #userPage .content-with-bars .video-content .video-box.scrolled video {
-    border: 1px solid #E93C1A; }
-  #userPage .content-with-bars .video-content .video-box.scrolled .video-controls {
-    display: none; }
+@media screen and (min-width: 992px) {
+  #userPage .content-with-bars .video-content .video-box.scrolled {
+    position: fixed;
+    bottom: 40px;
+    width: 260px;
+    border: 10px solid #fff;
+    background-color: #fff; }
+    #userPage .content-with-bars .video-content .video-box.scrolled video {
+      border: 1px solid #E93C1A; }
+    #userPage .content-with-bars .video-content .video-box.scrolled .video-controls {
+      display: none; } }
 
 #userPage .content-with-bars .video-content .other-controls {
   text-align: left;

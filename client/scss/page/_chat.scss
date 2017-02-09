@@ -84,18 +84,20 @@
         .video-content {
             .video-box {
                 &.scrolled {
-                    position: fixed;
-                    bottom: 40px;
-                    width: 260px;
-                    border: 10px solid $chatPageMiniPlayerBorderColor;
-                    background-color: $chatPageMiniPlayerBgColor;
+                    @media screen and (min-width: $page-large-query-width) {
+                        position: fixed;
+                        bottom: 40px;
+                        width: 260px;
+                        border: 10px solid $chatPageMiniPlayerBorderColor;
+                        background-color: $chatPageMiniPlayerBgColor;
 
-                    video {
-                        border: 1px solid $chatPageMiniPlayerVideoBorderColor;
-                    }
+                        video {
+                            border: 1px solid $chatPageMiniPlayerVideoBorderColor;
+                        }
 
-                    .video-controls {
-                        display: none;
+                        .video-controls {
+                            display: none;
+                        }
                     }
                 }
             }
