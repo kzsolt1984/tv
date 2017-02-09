@@ -293,7 +293,9 @@
         <script type="text/javascript" src="web/js/main.js"></script>
         
         <script id="__bs_script__">
-            document.write("<script async src='http://HOST:11080/browser-sync/browser-sync-client.js?v=2.18.6'><\/script>".replace("HOST", location.hostname));
+            if (location.hostname === 'localhost') {
+                document.write("<script async src='http://HOST:11080/browser-sync/browser-sync-client.js?v=2.18.6'><\/script>".replace("HOST", location.hostname));
+            }
         </script>
     </body>
 </html>
