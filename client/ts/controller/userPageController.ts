@@ -2,6 +2,7 @@
 ///<reference path="./commonController.ts" />
 ///<reference path="../component/chat/chatComponent.ts" />
 ///<reference path="../component/videoplayer/videoPlayerComponent.ts" />
+///<reference path="../component/usercontenteditor/userContentEditor.ts" />
 
 module controller {
     export class UserPageController extends CommonController {
@@ -15,6 +16,7 @@ module controller {
 
             new component.VideoPlayerComponent($('.video-box'), true);
             new component.ChatComponent();
+            new component.UserContentEditor($('.editor-panel textarea'));
         }
     }
 }

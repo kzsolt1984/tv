@@ -164,6 +164,24 @@ a:active:focus {
     }
 }
 
+.btn-default {
+    background-color: $primaryButtonBgColor;
+    background-image: none;        
+    
+    &:visited {
+        background-color: $primaryButtonBgColor;
+        background-image: none; 
+    }
+
+    &:hover,
+    &:active,    
+    &:focus,
+    &:active:focus {
+        background-color: $primaryButtonActiveBgColor;
+        outline: none!important;
+    }
+}
+
 .btn-reverse {
     border: 1px solid $reverseBtnBorderColor;
     color: $reverseBtnFontColor;

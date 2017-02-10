@@ -607,10 +607,29 @@ var controller;
     }(controller.CommonController));
     controller.MainPageController = MainPageController;
 })(controller || (controller = {}));
+///<reference path="../../../lib/ts/bootstrap-markdown.d.ts" />
+var component;
+(function (component) {
+    var UserContentEditor = (function () {
+        function UserContentEditor($textarea) {
+            this._$textarea = $textarea;
+            this._$textarea.markdown({
+                hiddenButtons: 'cmdPreview cmdUrl cmdImage',
+                iconlibrary: 'fa',
+                fullscreen: {
+                    enable: false
+                }
+            });
+        }
+        return UserContentEditor;
+    }());
+    component.UserContentEditor = UserContentEditor;
+})(component || (component = {}));
 ///<reference path="../../lib/ts/jquey.custom-scrollbar.d.ts" />
 ///<reference path="./commonController.ts" />
 ///<reference path="../component/chat/chatComponent.ts" />
 ///<reference path="../component/videoplayer/videoPlayerComponent.ts" />
+///<reference path="../component/usercontenteditor/userContentEditor.ts" />
 var controller;
 (function (controller) {
     var UserPageController = (function (_super) {
@@ -622,6 +641,7 @@ var controller;
             this._scrollContainer.customScrollbar();*/
             new component.VideoPlayerComponent($('.video-box'), true);
             new component.ChatComponent();
+            new component.UserContentEditor($('.editor-panel textarea'));
             return _this;
         }
         return UserPageController;

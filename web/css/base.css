@@ -126,6 +126,16 @@ a:active:focus {
     background-color: #C13100;
     outline: none !important; }
 
+.btn-default {
+  background-color: #E93C1A;
+  background-image: none; }
+  .btn-default:visited {
+    background-color: #E93C1A;
+    background-image: none; }
+  .btn-default:hover, .btn-default:active, .btn-default:focus, .btn-default:active:focus {
+    background-color: #C13100;
+    outline: none !important; }
+
 .btn-reverse {
   border: 1px solid #E93C1A;
   color: #E93C1A; }
@@ -947,16 +957,15 @@ header {
   text-align: left;
   overflow: hidden;
   font-size: 12px;
-  line-height: 30px; }
+  line-height: 28px;
+  margin-bottom: 15px; }
   .user-content .editor-panel form {
     display: inline-block;
     width: 320px !important;
-    height: 430px;
     padding: 9px;
     border: 1px solid #b8b5c0;
     background: #ddd; }
     .user-content .editor-panel form label {
-      margin-bottom: 5px;
       color: #433f4a;
       display: inline-block;
       font-weight: 700;
@@ -988,6 +997,18 @@ header {
       resize: none;
       height: 118px;
       margin-bottom: 15px; }
+    .user-content .editor-panel form .remove-link {
+      position: relative;
+      left: 10px;
+      top: 2px; }
+  .user-content .editor-panel .md-editor {
+    outline: none;
+    border: none; }
+    .user-content .editor-panel .md-editor.active {
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(233, 60, 26, 0.6);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(233, 60, 26, 0.6); }
+    .user-content .editor-panel .md-editor button {
+      margin-right: 2px; }
 
 /********************************** pages **************************/
 #mainPage .video-player-container {
