@@ -577,12 +577,14 @@ var component;
          * Add/removed minimized video class from scrollTop value
          */
         VideoPlayerComponent.prototype._setVideoMinimizedStatus = function () {
-            var top = $(document).scrollTop(), videoHeight = this._$videoContainer.height();
-            if (top > (videoHeight)) {
+            var top = $(document).scrollTop(), $videoContent = this._$videoContainer.parent(), videoHeight = $videoContent.outerHeight();
+            if (top > (videoHeight + 100)) {
                 this._$videoContainer.addClass('scrolled');
+                $videoContent.height(videoHeight);
             }
             else {
                 this._$videoContainer.removeClass('scrolled');
+                $videoContent.removeAttr('style');
             }
         };
         return VideoPlayerComponent;

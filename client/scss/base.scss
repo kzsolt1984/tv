@@ -108,6 +108,17 @@ a {
     }
 }
 
+input,
+textarea {
+    &:active,
+    &:focus {
+        -webkit-box-shadow: inset 0 1px 1px $inputActiveShadowInsetColor, 0 0 8px rgba($inputActiveShadowColor,.6)!important;
+        box-shadow: inset 0 1px 1px $inputActiveShadowInsetColor, 0 0 8px rgba($inputActiveShadowColor,.6)!important; 
+        border: none;
+        outline: none!important;
+    }
+}
+
 a:hover,
 a:active,
 a:focus,

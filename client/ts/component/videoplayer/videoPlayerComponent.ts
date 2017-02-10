@@ -262,13 +262,16 @@ module component {
          */
         private _setVideoMinimizedStatus(): void {
             var top = $(document).scrollTop(),
-                videoHeight = this._$videoContainer.height();
+                $videoContent = this._$videoContainer.parent(), 
+                videoHeight = $videoContent.outerHeight();
 
-            if (top > (videoHeight)) {
+            if (top > (videoHeight + 100)) {
                 this._$videoContainer.addClass('scrolled');
+                $videoContent.height(videoHeight);
             }
             else {
                 this._$videoContainer.removeClass('scrolled');
+                $videoContent.removeAttr('style');
             }
         }
     }

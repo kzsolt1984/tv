@@ -89,6 +89,14 @@ a {
     text-decoration: none;
     color: #E93C1A; }
 
+input:active, input:focus,
+textarea:active,
+textarea:focus {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(233, 60, 26, 0.6) !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(233, 60, 26, 0.6) !important;
+  border: none;
+  outline: none !important; }
+
 a:hover,
 a:active,
 a:focus,
