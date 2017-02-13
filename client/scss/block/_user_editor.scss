@@ -1,20 +1,33 @@
 .user-content {
+    margin-right: 0;
+    padding-right: 0;
+
+    ul {
+        &.editor-opened {
+            width: 734px;
+            margin: 0 auto;
+        }
+    }
+
     .editor-panel {
-        display: inline-block;
+        display: block;
+        float: left;
         list-style-position: outside!important;
-        width: 320px;
+        width: 347px;
         color: #433f4a;
         text-align: left;
         overflow: hidden;
         font-size: 12px;
         line-height: 28px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+
 
         form {
             display: inline-block;
-            width: 320px!important;
+            // width: 320px!important;
             height: 465px;
-            padding: 9px;
+            padding: 10px;
             border: 1px solid #b8b5c0;
             background: #ddd;
 
@@ -43,15 +56,16 @@
                 -moz-background-clip: padding;
                 box-sizing: border-box;
                 background: white;
-                width: 290px;
+                width: 327px;
                 resize: none;
+                border: none;
             }
 
             textarea {
                 padding: 7px;
                 line-height: 28px;
                 box-sizing: border-box;
-                width: 300px;
+                width: 327px;
                 max-height: 300px;
                 resize: none;
                 height: 118px;
@@ -62,6 +76,22 @@
                 position: relative;
                 left: 10px;
                 top: 2px;
+            }
+        }
+
+        .editor-content {
+            .part {
+                margin-bottom: 15px;           
+
+                &.description {
+                    margin-bottom: 0;
+                }     
+            }
+
+            .title {
+                line-height: 30px;
+                margin-bottom: 0;
+                font-size: 24px;
             }
         }
 
