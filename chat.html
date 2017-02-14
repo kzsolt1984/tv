@@ -200,11 +200,13 @@
                     </div>
 
                     <div class="box-container user-content clearfix">
+                        <a href="#" class="btn btn-primary edit-panel-btn">Edit</a>
+
                         <ul class="editor-opened">
-                            <li class="editor-panel">
+                            <li class="editor-panel editor-form hide">
                                 <form>
                                     <label>Panel title</label>
-                                    <input type="text" name="panel_title" />
+                                    <input type="text" name="panel_title" class="title-input" />
 
                                     <span class="add-image">
                                         <a href="#" class="btn btn-primary btn-sm">Add image</a>
@@ -223,41 +225,19 @@
                                 </form>
                             </li>
 
-                            <li class="editor-panel">
-                                <form>
-                                    <label>Panel title</label>
-                                    <input type="text" name="panel_title" />
-
-                                    <span class="add-image">
-                                        <a href="#" class="btn btn-primary btn-sm">Add image</a>
-                                        <img />
-                                    </span>
-                                    <p>Images will be scaled to 320px wide</p>
-
-                                    <label>Image Links To</label>
-                                    <input type="text" name="image_link_url" />
-
-                                    <label>Description</label>
-                                    <span>Supports <a href="#">Markdown</a>(No HTML)</span>
-                                    <textarea name="panel-text"></textarea>
-                                    <a href="#" class="btn btn-primary btn-sm disabled">Save</a>
-                                    <a href="#" class="remove-link">Remove</a>
-                                </form>
-                            </li>
-
-                            <li class="editor-panel">
+                            <li class="editor-panel content-panel" data-panelid="1">
                                 <div class="editor-content">
                                     <div class="part">
-                                        <h3 class="title">teszt1</h3>
+                                        <h3 class="title">teszt1</h3>                                        
                                     </div>
                                     <div class="part">
                                         <img src="web/img/trash/user_editor.png" />
                                     </div>
-                                    <div class="part description"><p>fsdfsdfsdfsdfs</p></div>                                
+                                    <div class="part description"><p><strong>fdsfsfsfs</strong></p></div>                                
                                 </div>
                             </li>
 
-                            <li class="editor-panel">
+                            <li class="editor-panel content-panel" data-panelid="2">
                                 <div class="editor-content">
                                     <div class="part">
                                         <h3 class="title">teszt2</h3>
@@ -278,7 +258,7 @@
                                 </div>
                             </li>
 
-                            <li class="editor-panel">
+                            <li class="editor-panel content-panel" data-panelid="3">
                                 <div class="editor-content">
                                     <div class="part">
                                         <h3 class="title">teszt3</h3>

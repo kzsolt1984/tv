@@ -960,22 +960,23 @@ header {
   margin-right: 0;
   padding-right: 0; }
   .user-content ul.editor-opened {
-    width: 734px;
     margin: 0 auto; }
   .user-content .editor-panel {
     display: block;
     float: left;
     list-style-position: outside !important;
-    width: 347px;
+    width: 320px;
     color: #433f4a;
     text-align: left;
     overflow: hidden;
     font-size: 12px;
     line-height: 28px;
     margin-bottom: 20px;
-    margin-right: 20px; }
+    margin-right: 20px;
+    box-sizing: border-box; }
     .user-content .editor-panel form {
       display: inline-block;
+      width: 320px !important;
       height: 465px;
       padding: 10px;
       border: 1px solid #b8b5c0;
@@ -1001,14 +1002,14 @@ header {
         -moz-background-clip: padding;
         box-sizing: border-box;
         background: white;
-        width: 327px;
+        width: 296px;
         resize: none;
         border: none; }
       .user-content .editor-panel form textarea {
         padding: 7px;
         line-height: 28px;
         box-sizing: border-box;
-        width: 327px;
+        width: 296px;
         max-height: 300px;
         resize: none;
         height: 118px;
@@ -1018,13 +1019,20 @@ header {
         left: 10px;
         top: 2px; }
     .user-content .editor-panel .editor-content .part {
+      position: relative;
       margin-bottom: 15px; }
       .user-content .editor-panel .editor-content .part.description {
         margin-bottom: 0; }
+      .user-content .editor-panel .editor-content .part img {
+        width: 320px; }
     .user-content .editor-panel .editor-content .title {
       line-height: 30px;
       margin-bottom: 0;
       font-size: 24px; }
+    .user-content .editor-panel .editor-content .edit-panel-btn {
+      position: absolute;
+      top: 0px;
+      right: 0px; }
     .user-content .editor-panel .md-editor {
       outline: none;
       border: none; }

@@ -613,16 +613,48 @@ var controller;
 var component;
 (function (component) {
     var UserContentEditor = (function () {
-        function UserContentEditor($textarea) {
-            this._$textarea = $textarea;
-            this._$textarea.markdown({
+        function UserContentEditor($panel, $editorForm) {
+            this._$panel = $panel;
+            this._$editorForm = $editorForm;
+            this._$textarea = $editorForm.find('textarea');
+            this._bind();
+        }
+        UserContentEditor.prototype._bind = function () {
+            var _this = this;
+            $('.edit-panel-btn').on('click', function (e) {
+                _this._setEditorData(_this._$panel);
+                return false;
+            });
+        };
+        UserContentEditor.prototype._setEditorData = function ($panels) {
+            var _this = this;
+            // var $editor = this._$editorForm.clone(true);
+            $.each($panels, function (index, value) {
+                var $element = $(value), $editor = _this._$editorForm.clone(), title = $element.find('.title').text(), desc = $element.find('.description').html(), imgSrc = $element.find('img').attr('src');
+                $editor.find('.title-input').val(title);
+                // $editor.find('textarea').val(desc);
+                $editor.removeClass('hide');
+                $element.after($editor);
+                _this._addMarkdown($editor.find('textarea'));
+                var p = $editor.find('textarea').data('markdown').parseContent();
+                console.log('parsed: ', p);
+                $element.remove();
+                console.log(title, desc, imgSrc);
+            });
+        };
+        UserContentEditor.prototype._addMarkdown = function ($textarea) {
+            $textarea.markdown({
                 hiddenButtons: 'cmdPreview cmdUrl cmdImage',
                 iconlibrary: 'fa',
                 fullscreen: {
                     enable: false
+                },
+                onShow: function (e) {
+                    console.log('1: ', e.getContent());
+                    console.log('2: ', e.parseContent());
                 }
             });
-        }
+        };
         return UserContentEditor;
     }());
     component.UserContentEditor = UserContentEditor;
@@ -643,7 +675,7 @@ var controller;
             this._scrollContainer.customScrollbar();*/
             new component.VideoPlayerComponent($('.video-box'), true);
             new component.ChatComponent();
-            new component.UserContentEditor($('.editor-panel textarea'));
+            new component.UserContentEditor($('.user-content .content-panel'), $('.user-content .editor-form'));
             return _this;
         }
         return UserPageController;

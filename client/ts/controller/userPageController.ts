@@ -16,7 +16,7 @@ module controller {
 
             new component.VideoPlayerComponent($('.video-box'), true);
             new component.ChatComponent();
-            new component.UserContentEditor($('.editor-panel textarea'));
+            new component.UserContentEditor($('.user-content .content-panel'), $('.user-content .editor-form'));
         }
     }
 }
