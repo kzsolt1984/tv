@@ -54,7 +54,7 @@ module component {
                 fullscreen: {
                     enable: false
                 },
-                onShow: function(e) {
+                onShow: function(e: any) {
                     console.log('1: ', e.getContent());
                     console.log('2: ', e.parseContent());
                 }

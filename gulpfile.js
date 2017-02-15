@@ -36,8 +36,10 @@ gulp.task('ts', function () {
         var tslint = require('gulp-tslint');
 
         return gulp.src('./client/ts/**/*.ts')
-            .pipe(tslint())
-            .pipe(tslint.report("verbose"))
+            .pipe(tslint({
+                formatter: "verbose"
+            }))
+            .pipe(tslint.report())
             .pipe(sourcemaps.init())
             .pipe(ts({
                 noImplicitAny: true,
